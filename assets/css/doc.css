@@ -1,0 +1,90 @@
+:root{--ink:#2f4a3e;--ink2:#1e392d;--mut:#5b6f64;--g:#68d578;--gd:#2f7d55;--gl:#ecfaef;--bd:#d5e2da;--bg:#f1f6f3;--ft:#274432}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;font-family:'Zen Kaku Gothic New','Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;color:var(--ink);background:#fff;font-size:16px;line-height:1.95;font-weight:500;overflow-wrap:anywhere}
+a{color:var(--gd)}
+a:hover{color:#235f41}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+
+/* ヘッダー */
+.hd{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.96);border-bottom:1px solid var(--bd)}
+.hd .wrap{display:flex;align-items:center;gap:20px;min-height:64px}
+.hd .logo{display:block;flex:none}
+.hd .logo img{display:block;height:30px;width:auto}
+.hd nav{margin-left:auto;display:flex;align-items:center;gap:24px;font-size:14px;font-weight:700}
+.hd nav a{color:#3d4f45;text-decoration:none;white-space:nowrap}
+.hd nav a:hover,.hd nav a[aria-current="page"]{color:var(--gd)}
+.hd nav a[aria-current="page"]{text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px}
+.hd .cta{flex:none;display:inline-flex;align-items:center;min-height:40px;padding:0 16px;border-radius:10px;background:var(--g);color:#123222 !important;font-size:14px;font-weight:900;text-decoration:none}
+.hd .cta:hover{background:#86e293}
+@media (max-width:760px){
+  .hd .wrap{flex-wrap:wrap;gap:2px 16px;min-height:0;padding-top:10px;padding-bottom:8px}
+  .hd .logo img{height:26px}
+  .hd .cta{margin-left:auto;min-height:34px;padding:0 12px;font-size:13px}
+  .hd nav{order:3;width:100%;margin:0;gap:20px;overflow-x:auto;font-size:13px;padding:4px 0 2px;scrollbar-width:none}
+  .hd nav::-webkit-scrollbar{display:none}
+}
+
+/* タイトル */
+.ttl{background:var(--bg);border-bottom:1px solid var(--bd);padding:48px 0 40px}
+.ttl .eb{margin:0;font-size:13px;font-weight:700;letter-spacing:.08em;color:var(--gd)}
+.ttl .eb a{color:inherit;text-decoration:none}
+.ttl h1{margin:6px 0 0;font-size:clamp(26px,4.6vw,38px);line-height:1.4;font-weight:900;letter-spacing:.02em;color:var(--ink2);word-break:keep-all}
+@media (max-width:760px){.ttl{padding:32px 0 28px}}
+
+/* 本文 */
+.doc{max-width:800px;margin:0 auto;padding:44px 20px 104px}
+.doc > :first-child{margin-top:0}
+.doc h2{margin:44px 0 14px;font-size:21px;line-height:1.6;font-weight:900;color:var(--ink2)}
+.doc h3{margin:60px 0 18px;padding-left:14px;border-left:5px solid var(--g);font-size:20px;line-height:1.6;font-weight:900;color:var(--ink2)}
+.doc h4{margin:34px 0 10px;font-size:17px;line-height:1.7;font-weight:900;color:var(--ink2)}
+.doc h4.q{position:relative;margin-top:30px;padding:24px 0 0 44px;border-top:1px solid var(--bd)}
+.doc h4.q::before{content:"Q";position:absolute;left:0;top:22px;width:30px;height:30px;border-radius:9px;background:var(--gl);color:var(--gd);font-size:15px;line-height:30px;text-align:center;font-weight:900}
+.doc h3 + h4.q{border-top:0;padding-top:4px}
+.doc h3 + h4.q::before{top:2px}
+.doc p{margin:0 0 14px}
+.doc ul,.doc ol{margin:0 0 18px;padding-left:1.5em}
+.doc li{margin:4px 0}
+.doc li > p{margin:4px 0}
+.doc strong{font-weight:900;color:var(--ink2)}
+.doc img{display:block;max-width:100%;height:auto;margin:20px 0 22px;border:1px solid var(--bd);border-radius:12px}
+.doc hr{border:0;border-top:1px solid var(--bd);margin:36px 0}
+.bt{margin:18px 0 28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:0 24px;border-radius:12px;background:var(--g);color:#123222 !important;font-size:15px;font-weight:900;text-decoration:none;line-height:1.4;text-align:center}
+.btn:hover{background:#86e293}
+.btn.ghost{background:#fff;border:2px solid var(--bd);color:var(--ink2) !important}
+.btn.ghost:hover{border-color:var(--g);background:var(--gl)}
+.small{font-size:13px;color:var(--mut)}
+
+/* 特定商取引法の表 */
+.tk{margin:0;border-top:1px solid var(--bd)}
+.tk > div{display:grid;grid-template-columns:210px minmax(0,1fr);gap:4px 24px;padding:18px 0;border-bottom:1px solid var(--bd)}
+.tk dt{font-weight:900;color:var(--ink2)}
+.tk dd{margin:0}
+.tk dd p{margin:0}
+@media (max-width:640px){.tk > div{grid-template-columns:minmax(0,1fr);padding:16px 0}}
+
+/* お問い合わせ */
+.callout{margin:0 0 32px;padding:24px 24px 22px;border:2px solid var(--g);border-radius:16px;background:var(--gl)}
+.callout h2{margin:0 0 8px !important;font-size:20px}
+.callout p{margin:0 0 8px}
+.callout ol{margin:8px 0 0}
+.callout .back{display:inline-block;margin-top:10px;font-size:14px;font-weight:700}
+.form{margin:28px 0 12px;border:1px solid var(--bd);border-radius:16px;overflow:hidden;background:#f8faf9}
+.form iframe{display:block;width:100%;height:1560px;border:0;background:#fff}
+@media (min-width:761px){.form iframe{height:1380px}}
+
+/* フッター */
+.ft{background:var(--ft);color:#e3f1ea;padding:36px 0 44px;font-size:13px;line-height:1.9}
+.ft a{color:#e3f1ea}
+.ft a:hover{color:#ffffff}
+.ft .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px 24px}
+.ft .nm{margin:0;font-weight:900;color:#ffffff}
+.ft .lk{margin:0;display:flex;flex-wrap:wrap;gap:8px 20px}
+.ft .tm{margin:0;width:100%;font-size:12px;color:#d3e6dc}
+
+/* 404 */
+.nf{max-width:640px;margin:0 auto;padding:80px 20px 120px;text-align:center}
+.nf h1{margin:0;font-size:clamp(24px,5vw,34px);line-height:1.5;color:var(--ink2)}
+.nf p{margin:14px 0 0;color:var(--mut)}
+.nf .bt{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:28px}

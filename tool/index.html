@@ -1,0 +1,1139 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>アドシート｜広告レポートを、スプレッドシートに自動で。</title>
+<meta name="description" content="アドシートは、Google広告・LINEヤフー広告・Meta広告・Microsoft広告・TikTok広告の数字を、Googleスプレッドシートに自動で書き出すアドオンです。無料プランあり。画面も設定もぜんぶ日本語です。">
+<link rel="canonical" href="https://www.ad-sheet.com/tool/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="アドシート">
+<meta property="og:title" content="アドシート｜広告レポートを、スプレッドシートに自動で。">
+<meta property="og:description" content="アドシートは、Google広告・LINEヤフー広告・Meta広告・Microsoft広告・TikTok広告の数字を、Googleスプレッドシートに自動で書き出すアドオンです。無料プランあり。画面も設定もぜんぶ日本語です。">
+<meta property="og:url" content="https://www.ad-sheet.com/tool/">
+<meta property="og:image" content="https://www.ad-sheet.com/assets/img/og-tool.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@Shin_Adg">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=JetBrains+Mono:wght@500;700&display=swap" />
+<style>
+body{margin:0}
+html{scroll-behavior:smooth}
+.pg{--ink:#3f7260;--ink2:#356352;--line:#5f927d;--g:#68d578;--gd:#2f7d55;--gl:#ecfaef;--mut:#5b6f64;--bd:#d5e2da;--bg:#f1f6f3;font-family:'Zen Kaku Gothic New','Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;color:var(--ink);background:#ffffff;line-height:1.9;font-weight:500;overflow-x:hidden}
+.pg *{box-sizing:border-box}
+.pg a{color:var(--gd)}
+.pg a:hover{color:#235f41}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+.ka{word-break:keep-all;overflow-wrap:anywhere}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 28px;border-radius:12px;background:var(--g);color:#123222 !important;font-size:16px;font-weight:900;text-decoration:none;letter-spacing:.02em;transition:transform .15s ease,background .15s ease}
+.btn:hover{background:#86e293;transform:translateY(-2px)}
+.btn.sm{min-height:44px;padding:0 18px;font-size:14px;border-radius:10px}
+.btn2{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 24px;border-radius:12px;border:1px solid #6fa08b;color:#ffffff !important;font-size:15px;font-weight:700;text-decoration:none}
+.btn2:hover{border-color:#ffffff}
+.hd{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.95);border-bottom:1px solid var(--line)}
+.hd .in{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#ffffff !important;font-size:19px;font-weight:900;letter-spacing:.04em;white-space:nowrap}
+.nav{display:flex;gap:28px;font-size:14px;font-weight:700}
+.nav a{color:#e3f1ea !important;text-decoration:none}
+.nav a:hover{color:#ffffff !important}
+@media (max-width:860px){.nav{display:none}}
+.hero{background:var(--ink);color:#ffffff;padding:clamp(56px,8vw,104px) 0 0;text-align:center}
+.chip{display:inline-flex;align-items:center;gap:8px;margin:0;padding:6px 14px;border:1px solid var(--line);border-radius:999px;font-size:13px;font-weight:700;color:#e3f1ea}
+.chip i{width:8px;height:8px;border-radius:50%;background:var(--g)}
+.hero h1{margin:24px 0 0;font-size:clamp(34px,6.4vw,76px);font-weight:900;line-height:1.3;letter-spacing:.01em}
+.hero h1 em{font-style:normal;color:var(--g)}
+.hero .lead{margin:22px auto 0;max-width:640px;font-size:clamp(15px,1.7vw,18px);line-height:2.1;color:#e3f1ea}
+.hero .acts{margin-top:34px;display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.hero .sub{margin:14px 0 0;font-size:13px;color:#d3e6dc}
+.win{margin:clamp(44px,6vw,72px) auto 0;max-width:980px;background:#ffffff;color:var(--ink);border-radius:16px 16px 0 0;border:1px solid var(--line);border-bottom:0;overflow:hidden;text-align:left;box-shadow:0 -20px 80px -30px rgba(104,213,120,.35)}
+.mtabs{display:flex;gap:6px;padding:10px 10px 0;background:var(--ink2);overflow-x:auto}
+.mt{flex:none;min-height:44px;padding:0 16px;border:0;border-radius:10px 10px 0 0;background:transparent;color:#e3f1ea;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:8px}
+.mt i{width:9px;height:9px;border-radius:3px}
+.mt.on{background:#ffffff;color:var(--ink)}
+.wbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 16px;padding:12px 16px;border-bottom:1px solid var(--bd);font-size:13px;font-weight:700}
+.live{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:999px;background:var(--gl);color:var(--gd);font-size:12px}
+.live i{width:7px;height:7px;border-radius:50%;background:var(--gd)}
+.sh{display:grid;grid-template-columns:34px 1fr 1.1fr 1fr 1.2fr .8fr;font-size:clamp(11px,2.7vw,14px)}
+.sh > span{padding:10px 10px;border-right:1px solid var(--bd);border-bottom:1px solid var(--bd);text-align:right;white-space:nowrap;overflow:hidden}
+.sh > span.n{padding:10px 0;text-align:center;background:var(--bg);color:var(--mut);font-size:11px}
+.sh > span.l{text-align:left;font-weight:700}
+.sh.h > span{background:var(--bg);font-weight:900}
+.sh.new > span{background:var(--gl);font-weight:700}
+.note{margin:0;font-size:12px;color:var(--mut)}
+.sec{padding:clamp(80px,11vw,140px) 0;scroll-margin-top:64px}
+.sec.gray{background:var(--bg)}
+.sec.dark{background:var(--ink);color:#ffffff}
+.eb{margin:0;font-size:13px;font-weight:700;letter-spacing:.16em;color:var(--gd)}
+.dark .eb{color:var(--g)}
+.h2{margin:12px 0 0;font-size:clamp(28px,4.2vw,46px);font-weight:900;line-height:1.45;letter-spacing:.01em}
+.ld{margin:16px 0 0;max-width:640px;font-size:16px;line-height:2.1;color:var(--mut)}
+.pr{margin-top:44px;display:grid;gap:14px}
+.prow{display:grid;grid-template-columns:1fr 44px 1fr;align-items:stretch;gap:0}
+.prow > div{padding:22px 24px;border-radius:14px;font-size:16px;font-weight:700;line-height:1.8}
+.prow .b{background:#ffffff;border:1px solid var(--bd);color:var(--mut)}
+.prow .a{background:var(--ink);color:#ffffff}
+.prow .a b{color:var(--g)}
+.prow .ar{display:flex;align-items:center;justify-content:center;color:var(--gd)}
+.prow small{display:block;font-size:11px;font-weight:700;letter-spacing:.14em;margin-bottom:4px}
+@media (max-width:720px){.prow{grid-template-columns:1fr}.prow .ar{padding:4px 0}.prow .ar svg{transform:rotate(90deg)}}
+.bento{margin-top:48px;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px}
+.bx{grid-column:span 2;display:flex;flex-direction:column;padding:26px;border:1px solid var(--bd);border-radius:18px;background:#ffffff}
+.bx.w3{grid-column:span 3}
+.bx.w4{grid-column:span 4}
+.bx.dk{background:var(--ink);border-color:var(--ink);color:#ffffff}
+.bx .k{margin:0;font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--gd)}
+.bx.dk .k{color:var(--g)}
+.bx h3{margin:6px 0 0;font-size:22px;font-weight:900;line-height:1.5}
+.bx p.d{margin:8px 0 0;font-size:14px;line-height:2;color:var(--mut)}
+.bx.dk p.d{color:#e3f1ea}
+.bx .mk{margin-top:auto;padding-top:20px}
+@media (max-width:980px){.bx,.bx.w3,.bx.w4{grid-column:span 3}}
+@media (max-width:640px){.bx,.bx.w3,.bx.w4{grid-column:span 6}}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{padding:6px 12px;border-radius:8px;background:var(--bg);border:1px solid var(--bd);font-size:13px;font-weight:700;white-space:nowrap}
+.dk .tag{background:var(--ink2);border-color:var(--line);color:#ffffff}
+.tag.on{background:var(--g);border-color:var(--g);color:#123222}
+.msg{padding:14px 16px;border-radius:12px;background:var(--ink2);border:1px solid var(--line);font-size:13px;line-height:1.9}
+.msg b{color:var(--g)}
+.kpi{display:grid;gap:10px;font-size:13px;font-weight:700}
+.kpi .r{display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:10px}
+.kpi .bar{height:10px;border-radius:5px;background:var(--bg);overflow:hidden}
+.kpi .bar i{display:block;height:100%;background:var(--gd)}
+.wn{display:grid;gap:8px;font-size:13px;font-weight:700}
+.wn div{display:flex;justify-content:space-between;gap:10px;padding:10px 12px;border-radius:10px;background:#fff6e5;border:1px solid #f1d59a;color:#6b4a00}
+.wn div.ok{background:var(--gl);border-color:#c9efcf;color:var(--gd)}
+.med{margin-top:40px;display:flex;flex-wrap:wrap;gap:12px}
+.med div{flex:1 1 180px;display:flex;align-items:center;gap:12px;padding:18px 20px;border:1px solid var(--line);border-radius:14px;background:var(--ink2)}
+.med i{flex:none;width:12px;height:36px;border-radius:4px}
+.med b{display:block;font-size:17px;font-weight:900;line-height:1.4;white-space:nowrap}
+.med span{font-size:12px;color:#e3f1ea}
+.two{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(32px,6vw,80px);align-items:start}
+@media (max-width:860px){.two{grid-template-columns:1fr}}
+.tl{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.tl li{position:relative;display:grid;grid-template-columns:48px 1fr;gap:18px;padding-bottom:30px}
+.tl li::before{content:"";position:absolute;left:23px;top:48px;bottom:0;width:2px;background:var(--bd)}
+.tl li:last-child{padding-bottom:0}
+.tl li:last-child::before{display:none}
+.tl .no{display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;background:var(--ink);color:var(--g);font-size:18px;font-weight:700}
+.tl h3{margin:8px 0 0;font-size:19px;font-weight:900}
+.tl p{margin:4px 0 0;font-size:15px;color:var(--mut)}
+.scr{overflow-x:auto;border:1px solid var(--bd);border-radius:16px;background:#ffffff}
+.tb{display:grid;min-width:720px}
+.tb.c4{grid-template-columns:150px repeat(3,minmax(170px,1fr))}
+.tb.c5{grid-template-columns:150px repeat(4,minmax(150px,1fr))}
+.tb > span{padding:16px 16px;border-top:1px solid var(--bd);border-left:1px solid var(--bd);font-size:14px;font-weight:700;line-height:1.7}
+.tb > span.l{border-left:0;background:var(--bg);color:var(--mut);font-size:13px}
+.tb > span.t{border-top:0;font-size:15px;font-weight:900;background:var(--bg)}
+.tb > span.me{background:var(--gl);color:#235f41}
+.tb > span.t.me{background:var(--ink);color:#ffffff}
+.tb .pn{display:block;font-size:30px;font-weight:700;line-height:1.3;color:var(--ink)}
+.tb .me .pn{color:#235f41}
+.tb small{display:block;font-size:12px;font-weight:500;color:var(--mut)}
+.rec{display:inline-block;margin-left:6px;padding:1px 8px;border-radius:999px;background:var(--g);color:#123222;font-size:11px;font-weight:900;vertical-align:middle}
+.sw{display:inline-flex;padding:4px;border-radius:12px;background:#ffffff;border:1px solid var(--bd)}
+.sw button{min-height:44px;padding:0 20px;border:0;border-radius:9px;background:transparent;font-family:inherit;font-size:14px;font-weight:900;color:var(--mut);cursor:pointer}
+.sw button.on{background:var(--ink);color:#ffffff}
+.fq{border-top:1px solid var(--bd)}
+.fq:last-child{border-bottom:1px solid var(--bd)}
+.fq button{width:100%;min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 4px;border:0;background:transparent;font-family:inherit;font-size:16px;font-weight:900;color:var(--ink);text-align:left;cursor:pointer;line-height:1.7}
+.fq button span.s{flex:none;width:28px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:8px;background:var(--bg);font-size:18px}
+.fq p{margin:0;padding:0 44px 20px 4px;font-size:15px;line-height:2.1;color:var(--mut)}
+.mkr{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+@media (max-width:760px){.mkr{grid-template-columns:1fr}}
+.mkr > div{padding:26px;border:1px solid var(--bd);border-radius:18px;background:#ffffff}
+.mkr h3{margin:6px 0 0;font-size:20px;font-weight:900;line-height:1.6}
+.mkr p{margin:8px 0 0;font-size:14px;line-height:2;color:var(--mut)}
+.lk{display:inline-flex;align-items:center;gap:6px;min-height:44px;margin-top:8px;font-size:14px;font-weight:900}
+.fin{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:32px}
+@media (max-width:760px){.fin{grid-template-columns:1fr;text-align:center}.fin img{margin:0 auto}}
+.ft{background:#274432;color:#e3f1ea;padding:36px 0 44px;font-size:13px}
+.ft a{color:#e3f1ea !important}
+
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pl{50%{transform:scale(1.07)}}
+@keyframes bob{50%{transform:translateY(-.5em)}}
+.hero2{position:relative;background:var(--ink);color:#ffffff;padding:clamp(40px,5.5vw,80px) 0 clamp(44px,5vw,64px);overflow:hidden}
+.gridbg{position:absolute;inset:-100px;background-image:linear-gradient(#2a4a3b 1px,transparent 1px),linear-gradient(90deg,#2a4a3b 1px,transparent 1px);background-size:96px 40px;animation:gridmv 12s linear infinite}
+@keyframes gridmv{to{transform:translate(96px,40px)}}
+.h2g{position:relative;display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(28px,4vw,56px);align-items:center}
+@media (max-width:960px){.h2g{grid-template-columns:minmax(0,1fr)}}
+.hero2 h1{margin:20px 0 0;font-size:clamp(34px,4vw,54px);font-weight:900;line-height:1.3;letter-spacing:.01em}
+.swipe{font-style:normal;position:relative;z-index:0;display:inline-block;padding:0 .14em;color:var(--ink)}
+.swipe::before{content:"";position:absolute;z-index:-1;inset:.1em 0 .06em;background:var(--g);border-radius:.08em;transform-origin:left;animation:swp .9s .3s cubic-bezier(.7,0,.2,1) backwards}
+@keyframes swp{from{transform:scaleX(0)}}
+.lead2{margin:22px 0 0;max-width:540px;font-size:clamp(15px,1.5vw,17px);line-height:2.1;color:#e3f1ea}
+.hero2 .acts{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px}
+.hero2 .sub{margin:12px 0 0;font-size:13px;color:#d3e6dc}
+.hr{position:relative;container-type:inline-size}
+.hrin{position:relative;font-size:11px;font-size:2cqw;line-height:1;padding:0 2.4em 5em}
+.srcs{display:flex;justify-content:space-between;gap:.4em;padding:0 1em}
+.src{display:flex;flex-direction:column;align-items:center}
+.src b{display:flex;align-items:center;gap:.5em;padding:.55em .7em;border-radius:.7em;background:var(--ink2);border:1px solid #6fa08b;font-size:max(1.15em,10px);font-weight:700;white-space:nowrap;animation:bob 3s ease-in-out infinite;animation-delay:calc(var(--i) * -.6s)}
+.src b i{width:.7em;height:.7em;border-radius:.2em}
+.src .ln{position:relative;width:2px;height:4.6em;background:repeating-linear-gradient(#6fa08b 0 4px,transparent 4px 8px)}
+.src .ln::after{content:"";position:absolute;left:-3px;top:0;width:8px;height:8px;border-radius:50%;background:var(--g);animation:drop 1.8s linear infinite;animation-delay:calc(var(--i) * -.37s)}
+@keyframes drop{0%{top:-6px;opacity:0}15%,80%{opacity:1}100%{top:100%;opacity:0}}
+.lscr{position:relative;aspect-ratio:16/10;background:#ffffff;color:var(--ink);border:.8em solid #2a4a3b;border-radius:1.4em 1.4em 0 0;overflow:hidden;box-shadow:0 0 0 1px #6fa08b}
+.lbase{position:relative;height:1.4em;margin:0 -2.4em;background:#5f927d;border-radius:0 0 1.6em 1.6em}
+.lbase::after{content:"";position:absolute;left:50%;top:0;width:9em;height:.5em;transform:translateX(-50%);background:#2a4a3b;border-radius:0 0 .6em .6em}
+.ui{position:absolute;inset:0;display:flex;flex-direction:column}
+.t11{font-size:1.1em;font-weight:900}.t9{font-size:.9em}
+.ubar{flex:none;height:3em;display:flex;align-items:center;gap:.7em;padding:0 1em;border-bottom:1px solid var(--bd)}
+.ulive{margin-left:auto;padding:.4em .9em;border-radius:99px;background:var(--gl);color:var(--gd);font-weight:700;animation:ulv 12s infinite}
+@keyframes ulv{0%,66%{opacity:0;transform:scale(.8)}70%,92%{opacity:1;transform:none}96%,100%{opacity:0}}
+.ubody{flex:1;display:grid;grid-template-columns:64% 36%;min-height:0}
+.ugrid{display:grid;grid-template-columns:2em repeat(5,minmax(0,1fr));grid-auto-rows:2.4em;align-content:start;background-image:linear-gradient(#e2ebe5 1px,transparent 1px);background-size:100% 2.4em;border-right:1px solid var(--bd)}
+.ugrid span{display:flex;align-items:center;justify-content:flex-end;padding:0 .5em;border-right:1px solid #e2ebe5;border-bottom:1px solid #e2ebe5;white-space:nowrap;overflow:hidden;font-size:.95em}
+.ugrid .hn{justify-content:center;background:var(--bg);color:var(--mut);font-size:.8em}
+.ugrid .hh{background:var(--bg);font-weight:900}
+.ugrid .c{animation:rw 12s infinite backwards;animation-delay:calc(4.3s + var(--r) * .25s)}
+.ugrid .c.nw{background:var(--gl);font-weight:700}
+@keyframes rw{0%{opacity:0;transform:translateY(-.5em)}3%{opacity:1;transform:none}48%{opacity:1}52%,100%{opacity:0}}
+.uside{display:flex;flex-direction:column;gap:.5em;padding:1em;background:#fbfcfe}
+.ust{height:2em;display:flex;align-items:center;gap:.5em}
+.upill{height:2.4em;display:flex;align-items:center;justify-content:space-between;padding:0 .8em;border:1px solid var(--bd);border-radius:.6em;background:#ffffff;font-weight:700}
+.ulab{height:1.6em;display:flex;align-items:flex-end;color:var(--mut);font-weight:700}
+.uck{height:2.2em;display:flex;align-items:center;gap:.6em;font-weight:700}
+.uck i{position:relative;flex:none;width:1.4em;height:1.4em;border:1.5px solid #9bb3a5;border-radius:.3em}
+.uck i::after{content:"";position:absolute;inset:-1.5px;border-radius:.3em;background:var(--gd);animation:tk 12s infinite backwards;animation-delay:var(--d)}
+.uck i::before{content:"";position:absolute;z-index:1;left:.4em;top:.1em;width:.35em;height:.75em;border:solid #ffffff;border-width:0 .18em .18em 0;transform:rotate(45deg);animation:tk 12s infinite backwards;animation-delay:var(--d)}
+@keyframes tk{0%{opacity:0}2%{opacity:1}68%{opacity:1}72%,100%{opacity:0}}
+.ubtn{margin-top:auto;height:3em;display:flex;align-items:center;justify-content:center;border-radius:.7em;background:var(--ink);color:#ffffff;animation:ub 12s infinite}
+@keyframes ub{0%,34%{transform:none;background:#3f7260}36%{transform:scale(.93);background:#2f7d55}40%,100%{transform:none;background:#3f7260}}
+.utoast{position:absolute;left:42%;bottom:1.6em;padding:.8em 1.2em;border-radius:.8em;background:var(--ink);color:#ffffff;font-weight:700;white-space:nowrap;transform:translate(-50%,0);animation:ut 12s infinite}
+@keyframes ut{0%,58%{opacity:0;transform:translate(-50%,1em)}62%,86%{opacity:1;transform:translate(-50%,0)}90%,100%{opacity:0;transform:translate(-50%,1em)}}
+.ucur{position:absolute;z-index:3;width:1.9em;height:1.9em;left:40%;top:70%;animation:uc 12s infinite}
+@keyframes uc{0%{left:46%;top:78%}5%,7%{left:67.5%;top:41.7%}12%,14%{left:67.5%;top:48.9%}19%,21%{left:67.5%;top:56.2%}26%,28%{left:67.5%;top:63.5%}34%,35%{left:82%;top:91%;transform:none}36%{left:82%;top:91%;transform:scale(.8)}38%{left:82%;top:91%;transform:none}48%,92%{left:40%;top:70%}100%{left:46%;top:78%}}
+.hmas{position:absolute;left:-1em;bottom:0;width:15em;height:auto;z-index:4;animation:bob 4s ease-in-out infinite}
+.pts{list-style:none;margin:clamp(32px,4.5vw,52px) 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+@media (max-width:900px){.pts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.pts li{display:flex;align-items:center;gap:12px;padding:14px 16px;border:1px solid var(--line);border-radius:14px;background:#ffffff}
+.pts svg{flex:none}
+.pts p{margin:0;line-height:1.5}
+.pts b{display:block;font-size:clamp(15px,1.6vw,18px);font-weight:900}
+.pts span{font-size:12px;color:#e3f1ea}
+.mq{overflow:hidden;white-space:nowrap;background:var(--g);color:#123222;padding:12px 0;font-size:14px;font-weight:900;letter-spacing:.1em}
+.mq div{display:inline-block;animation:mq 60s linear infinite}
+@keyframes mq{to{transform:translateX(-50%)}}
+.fw{margin-top:48px;display:grid;grid-template-columns:minmax(0,1fr) 56px minmax(0,1fr) 56px minmax(0,1fr) 56px minmax(0,1fr);align-items:stretch}
+.fw .pp{align-self:center}
+.fn{min-height:230px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:20px 14px;border:1px solid var(--bd);border-radius:18px;background:#ffffff;text-align:center}
+.fn.c{background:var(--ink);border-color:var(--ink);color:#ffffff}
+.fn h3{margin:6px 0 0;font-size:16px;font-weight:900}
+.fn p{margin:0;font-size:12px;line-height:1.7;color:var(--mut)}
+.fstk{display:grid;gap:5px}
+.fstk span{display:flex;align-items:center;gap:8px;padding:3px 10px;border:1px solid var(--bd);border-radius:8px;font-size:12px;font-weight:700;white-space:nowrap;animation:bob 3s ease-in-out infinite}
+.fstk span:nth-child(2n){animation-delay:-1.5s}
+.fstk i{width:8px;height:8px;border-radius:2px}
+.ring2{position:relative;width:92px;height:92px;display:flex;align-items:center;justify-content:center}
+.ring2::before{content:"";position:absolute;inset:0;border:2px dashed var(--g);border-radius:50%;animation:spin 8s linear infinite}
+.ms{width:124px;border:1px solid var(--bd);border-radius:8px;overflow:hidden;background:#ffffff}
+.ms i{display:block;height:15px;border-bottom:1px solid var(--bd);animation:fl 2.4s infinite;animation-delay:calc(var(--i) * .2s)}
+.ms i:first-child{background:var(--bg);animation:none}
+.ms i:last-child{border-bottom:0}
+@keyframes fl{0%,40%,100%{background:#ffffff}15%{background:#c9efcf}}
+.nt{display:grid;gap:6px}
+.nt span{padding:6px 10px;border-radius:10px 10px 10px 2px;background:var(--ink);color:#ffffff;font-size:12px;font-weight:700;white-space:nowrap;animation:pop 5s infinite}
+.nt span:nth-child(2){animation-delay:.6s}
+@keyframes pop{0%{opacity:0;transform:translateY(10px)}8%,90%{opacity:1;transform:none}100%{opacity:0}}
+.pop{animation:pop 5s infinite}
+.pp{position:relative;height:2px;background:repeating-linear-gradient(90deg,#b5cabd 0 6px,transparent 6px 12px)}
+.pp i{position:absolute;top:-4px;left:0;width:10px;height:10px;border-radius:50%;background:var(--gd);animation:ppx 1.6s linear infinite}
+.pp i:nth-child(2){animation-delay:-.53s}.pp i:nth-child(3){animation-delay:-1.06s}
+@keyframes ppx{0%{left:-10px;opacity:0}15%,85%{opacity:1}100%{left:100%;opacity:0}}
+@keyframes ppy{0%{top:-10px;opacity:0}15%,85%{opacity:1}100%{top:100%;opacity:0}}
+@media (max-width:900px){.fw{grid-template-columns:minmax(0,1fr)}.fn{min-height:0}.pp{width:2px;height:44px;margin:0 auto;background:repeating-linear-gradient(#b5cabd 0 6px,transparent 6px 12px)}.pp i{left:-4px;top:0;animation-name:ppy}}
+.ba{margin-top:44px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+@media (max-width:760px){.ba{grid-template-columns:minmax(0,1fr)}}
+.bap{padding:28px 20px 30px;border:1px solid var(--bd);border-radius:20px;background:#ffffff;text-align:center}
+.bap.on{background:var(--ink);border-color:var(--ink);color:#ffffff}
+.bk{margin:0;font-size:13px;font-weight:900;letter-spacing:.12em;color:var(--mut)}
+.bap.on .bk{color:var(--g)}
+.bc{margin:18px 0 0;font-size:clamp(18px,2.2vw,22px);font-weight:900}
+.lp{position:relative;width:260px;height:240px;margin:22px auto 0}
+.lp::before{content:"";position:absolute;left:30px;top:20px;width:200px;height:200px;border:2px dashed #b5cabd;border-radius:50%;animation:spin 14s linear infinite}
+.lp > span{position:absolute;z-index:1;padding:6px 12px;border:1px solid var(--bd);border-radius:999px;background:#ffffff;font-size:13px;font-weight:700;white-space:nowrap;animation:hl3 4.5s infinite}
+.lp .l1{left:50%;top:4px;transform:translateX(-50%)}
+.lp .l2{right:-6px;bottom:30px;animation-delay:1.5s}
+.lp .l3{left:-6px;bottom:30px;animation-delay:3s}
+.lp img{position:absolute;left:50%;top:50%;width:120px;height:auto;transform:translate(-50%,-46%)}
+@keyframes hl3{0%,30%{background:#3f7260;color:#ffffff;border-color:#3f7260}34%,100%{background:#ffffff;color:#3f7260;border-color:#d5e2da}}
+.lp.au::before{display:none}
+.lp.au .rf{position:absolute;left:30px;top:20px;width:200px;height:200px;animation:spin 6s linear infinite}
+.lp.au .ms{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}
+.tri{margin-top:16px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media (max-width:760px){.tri{grid-template-columns:minmax(0,1fr)}}
+.tri > div{padding:20px 22px;border:1px solid var(--bd);border-radius:16px;background:#ffffff}
+.tri h3{margin:0;font-size:15px;font-weight:900;color:var(--mut)}
+.tri p{margin:6px 0 0;font-size:15px;font-weight:700;line-height:1.9}
+.cyc .tag{animation:hla 6s infinite;animation-delay:calc(var(--i) * 1s)}
+@keyframes hla{0%,14%{background:#68d578;border-color:#68d578;color:#123222}17%,100%{background:#f1f6f3;border-color:#d5e2da;color:#3f7260}}
+.cyc2 .tag{animation:hlb 4s infinite;animation-delay:calc(var(--i) * 1s)}
+@keyframes hlb{0%,22%{background:#68d578;border-color:#68d578;color:#123222}25%,100%{background:#356352;border-color:#5f927d;color:#ffffff}}
+.hd1{transform-origin:24px 24px;animation:spin 4s linear infinite}
+.hd2{transform-origin:24px 24px;animation:spin 48s linear infinite}
+.typ{margin:0;padding:14px 16px;border-radius:12px;background:var(--bg);border:1px solid var(--bd);font-size:13px;font-weight:700;line-height:2}
+.typ span{display:block;overflow:hidden;white-space:nowrap;animation:ty 8s steps(20) infinite backwards;animation-delay:calc(var(--i) * 1.3s)}
+@keyframes ty{0%{width:0}15%{width:100%}78%{width:100%}79%,100%{width:0}}
+.kpi .bar i{transform-origin:left;animation:gw 5s ease-out infinite}
+@keyframes gw{0%{transform:scaleX(0)}30%,100%{transform:scaleX(1)}}
+.scan{position:relative}
+.scan::after{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:var(--gd);animation:sc 3.5s ease-in-out infinite}
+@keyframes sc{0%{top:0;opacity:0}10%,90%{opacity:1}100%{top:100%;opacity:0}}
+.orbw{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center}
+@media (max-width:860px){.orbw{grid-template-columns:minmax(0,1fr)}}
+.ml{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:8px}
+.ml li{display:flex;align-items:center;gap:12px;font-size:15px}
+.ml i{flex:none;width:10px;height:22px;border-radius:3px}
+.ml b{font-weight:900;min-width:9em}
+.ml span{font-size:13px;color:#e3f1ea}
+.orb{--R:min(400px,80vw);position:relative;width:var(--R);height:var(--R);margin:0 auto}
+.orb .rg{position:absolute;inset:12%;border:1px dashed #6fa08b;border-radius:50%}
+.orb .core{position:absolute;inset:36%;border-radius:24%;background:#ffffff;display:flex;align-items:center;justify-content:center;animation:pl 2.4s ease-in-out infinite;box-shadow:0 0 0 10px rgba(104,213,120,.25)}
+.orb .sp{position:absolute;inset:0;animation:spin 40s linear infinite}
+.sat{position:absolute;left:50%;top:50%;width:0;height:0;transform:rotate(calc(var(--i) * 72deg)) translateY(calc(var(--R) * -.38))}
+.sat > span{position:absolute;left:0;top:0;transform:translate(-50%,-50%) rotate(calc(var(--i) * -72deg))}
+.sat b{display:flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid #6fa08b;border-radius:10px;background:var(--ink2);font-size:13px;font-weight:700;white-space:nowrap;animation:spin 40s linear infinite reverse}
+.sat b i{width:9px;height:9px;border-radius:3px}
+.hw{margin-top:44px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+@media (max-width:1000px){.hw{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.hw{grid-template-columns:minmax(0,1fr)}}
+.hc{display:flex;flex-direction:column;border:1px solid var(--bd);border-radius:18px;background:#ffffff;overflow:hidden}
+.hc .il{height:160px;display:flex;align-items:center;justify-content:center;padding:16px;background:var(--bg);border-bottom:1px solid var(--bd);font-size:13px}
+.hc .tx{padding:18px 20px 22px}
+.no2{margin:0;font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--gd)}
+.hc h3{margin:4px 0 0;font-size:18px;font-weight:900}
+.hc .tx p:last-child{margin:6px 0 0;font-size:14px;line-height:1.9;color:var(--mut)}
+.i1{display:flex;flex-direction:column;align-items:center;gap:8px;font-weight:900}
+.i1 b{padding:8px 18px;border-radius:8px;background:#1a73e8;color:#ffffff;font-size:13px;animation:pl 1.6s ease-in-out infinite}
+.i2{display:grid;gap:6px;width:100%;max-width:210px}
+.i2 span{padding:8px 12px;border:1px solid var(--bd);border-radius:8px;background:#ffffff;font-weight:700;animation:hl3 4.5s infinite;animation-delay:calc(var(--i) * 1.5s)}
+.i2 span:nth-child(2){margin-left:14px}.i2 span:nth-child(3){margin-left:28px}
+.i3{font-size:14px}
+.i3 .uck i::after,.i3 .uck i::before{animation-duration:5s}
+.i4{display:flex;align-items:center;gap:14px;font-size:16px;font-weight:900}
+.tg{position:relative;width:56px;height:30px;border-radius:99px;background:#c5d3ca;animation:tgb 4s infinite}
+.tg::after{content:"";position:absolute;left:3px;top:3px;width:24px;height:24px;border-radius:50%;background:#ffffff;animation:tgk 4s infinite}
+@keyframes tgb{0%,30%{background:#c5d3ca}40%,90%{background:#1fa463}100%{background:#c5d3ca}}
+@keyframes tgk{0%,30%{transform:none}40%,90%{transform:translateX(26px)}100%{transform:none}}
+@keyframes rise{from{opacity:0;transform:translateY(36px)}to{opacity:1;transform:none}}
+@supports (animation-timeline: view()){.bx,.hc,.fn,.bap,.tri > div,.sec .h2{animation:rise linear both;animation-timeline:view();animation-range:entry 0% entry 45%}}
+
+.pg{color:#1f2d26}
+.hd{border-bottom:1px solid #d5e2da}
+.nav a{color:#3d4f45 !important}.nav a:hover{color:#2f7d55 !important}
+.hero2{background:#ffffff;color:#1f2d26}
+.hero2 h1{color:#1f2d26}
+.hero2 h1 .up{display:block;animation:upin .7s cubic-bezier(.2,.9,.2,1) backwards;animation-delay:calc(var(--i) * .12s)}
+@keyframes upin{from{opacity:0;transform:translateY(40px) rotate(2deg)}}
+.swipe{color:#123222}
+.swipe::before{animation-delay:.6s}
+.hlogo{display:block;width:min(300px,70%);height:auto;margin:0 0 18px}
+.hero2 .chip{border-color:#d5e2da;color:#5b6f64}
+.lead2{color:#3d4f45}
+.hero2 .sub{color:#5b6f64}
+.btn{box-shadow:0 5px 0 #3f9a52}
+.btn:hover{box-shadow:0 7px 0 #3f9a52}
+.btn2{border:2px solid #3f7260;color:#3f7260 !important}
+.btn2:hover{border-color:#235f41}
+.pts li{border-color:#d5e2da;box-shadow:0 10px 24px -18px rgba(39,68,50,.5)}
+.pts span{color:#5b6f64}
+.s3w{position:relative;width:min(560px,92vw);margin:0 auto;animation:ent 1.2s cubic-bezier(.2,1.5,.3,1) .2s backwards}
+@keyframes ent{from{opacity:0;transform:scale(.25) rotate(-30deg) translateY(120px)}}
+.s3d{width:100%;aspect-ratio:1;background-image:url(/assets/img/adsheet/hero3d.webp);background-size:1200% 800%;background-position:0 0;animation:sx .5s steps(12,jump-none) infinite,sy 4s steps(8,jump-none) infinite}
+@keyframes sx{from{background-position-x:0%}to{background-position-x:100%}}
+@keyframes sy{from{background-position-y:0%}to{background-position-y:100%}}
+.cf{position:absolute;width:18px;height:18px;border-radius:5px;animation:cfl 5s ease-in-out infinite}
+.cf.c1{left:4%;top:58%;background:#ff0000}
+.cf.c2{right:6%;top:50%;background:#2c66b1;animation-delay:-1.2s;border-radius:50%}
+.cf.c3{left:16%;top:12%;background:#fad062;animation-delay:-2.4s}
+.cf.c4{right:14%;bottom:8%;background:#68d578;animation-delay:-3.6s;border-radius:50%}
+@keyframes cfl{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-26px) rotate(180deg)}}
+.src b{background:#ffffff;border-color:#d5e2da;color:#1f2d26}
+.hmas{left:-4.5em;bottom:-.6em;width:12.5em}
+.sec.dark .eb{color:#c9efcf}
+.dk .k,.bx.dk .k{color:#c9efcf}
+.msg b{color:#c9efcf}
+.bap.on .bk{color:#c9efcf}
+.tb > span.t.me small{color:#e3f1ea}
+.rec{background:#fad062;color:#3d2f00}
+.ft{color:#e3f1ea}
+
+.hero2{padding:clamp(16px,3.5vw,48px) 0 clamp(28px,4vw,56px)}
+.hlogo{width:min(240px,60%);margin:0 0 14px}
+.hero2 h1{margin-top:16px}
+.lead2{margin-top:16px}
+.sp{display:none}
+.pts{margin:20px 0 0;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.pts li{padding:10px 12px;gap:10px;border-radius:12px}
+.pts b{font-size:15px}
+.hero2 .acts{margin-top:22px}
+@media (max-width:960px){
+.hd .in{height:56px}
+.h2g{grid-template-columns:minmax(0,1fr) 108px;gap:0 6px;align-items:center}
+.h2g > div:first-child{display:contents}
+.hlogo,.hero2 .chip{display:none}
+.hero2 h1{grid-column:1;grid-row:1;margin:0;font-size:24px;line-height:1.32;letter-spacing:0}
+.s3w{grid-column:2;grid-row:1;width:108px;margin:0}
+.cf{display:none}
+.lead2,.pts,.hero2 .acts,.hero2 .sub{grid-column:1 / -1}
+.lead2{margin-top:10px;font-size:13px;line-height:1.8}
+.sp{display:inline}.pc{display:none}
+.pts{margin-top:10px;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+.pts li{padding:7px 9px;gap:8px;border-radius:10px;box-shadow:none}
+.pts svg{width:20px;height:20px}
+.pts b{font-size:14px}
+.pts span{font-size:11px}
+.hero2 .acts{margin-top:12px;flex-wrap:nowrap;gap:8px}
+.hero2 .acts .btn{flex:1;min-height:52px;padding:0 12px;font-size:15px}
+.hero2 .acts .btn2{min-height:52px;padding:0 16px}
+.hero2 .sub{margin-top:8px;font-size:11px}
+}
+@media (min-width:961px) and (max-width:1200px){.pts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.sp{display:none !important}
+.mo{display:none}
+.hlogo{width:min(180px,50%);margin:0 0 10px}
+.hero2 h1{margin-top:12px}
+.hero2 .acts{margin-top:16px}
+.mrow{margin:16px 0 0}
+.mrow p{margin:0 0 6px;font-size:12px;font-weight:900;letter-spacing:.06em;color:var(--gd)}
+.mis{display:flex;gap:8px}
+.mi{flex:1 1 0;max-width:104px;display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 2px;border:1px solid var(--bd);border-radius:12px;background:#ffffff;font-size:12px;font-weight:700;white-space:nowrap}
+.mi i{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:10px;color:#ffffff;font-style:normal;font-size:14px;font-weight:900}
+.pts{margin-top:12px}
+.fwh{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 40px}
+.fwh > div:first-child{flex:1 1 420px;min-width:0}
+.fwh .s3w{flex:none;width:min(300px,70vw);margin:0 auto;animation:none}
+.fwh .cf{display:none}
+.gt{margin-top:44px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+@media (max-width:860px){.gt{grid-template-columns:minmax(0,1fr)}}
+.gc{padding:28px 26px;border:1px solid var(--bd);border-radius:20px;background:#ffffff}
+.gc .k{display:inline-block;margin:0;padding:3px 12px;border-radius:999px;background:var(--gl);font-size:12px;font-weight:900;color:var(--gd)}
+.gc h3{margin:12px 0 0;font-size:clamp(19px,2.1vw,23px);font-weight:900;line-height:1.6}
+.gc .d{margin:8px 0 0;font-size:14px;line-height:2;color:var(--mut)}
+.gm{margin-top:18px;padding:16px;border:1px solid var(--bd);border-radius:14px;background:var(--bg);font-size:13px}
+.gmh{margin:0 0 12px;font-size:14px;font-weight:700;color:#5f6368}
+.gma{display:flex;align-items:center;gap:12px;padding:14px;border:1px solid var(--bd);border-radius:12px;background:#ffffff}
+.gma img{flex:none;width:44px;height:44px}
+.gma p{margin:0;flex:1;min-width:0;line-height:1.5}
+.gma p b{display:block;font-size:15px}
+.gma p span{font-size:12px;color:var(--mut)}
+.gmb{flex:none;padding:9px 16px;border-radius:8px;background:#1a73e8;color:#ffffff;font-size:13px;animation:pl 1.6s ease-in-out infinite}
+.mb{display:flex;gap:2px;font-weight:700;overflow:hidden}
+.mb span{padding:5px 8px;border-radius:6px;white-space:nowrap}
+.mb span.on{background:#d3e3fd}
+.mn{display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px;margin-top:6px}
+.m1,.m2{display:grid;padding:6px 0;border-radius:8px;background:#ffffff;box-shadow:0 4px 14px rgba(31,45,38,.18);font-weight:700}
+.m1{flex:1 1 220px}.m2{flex:1 1 170px}
+.m1 span,.m2 span{display:flex;align-items:center;gap:8px;padding:8px 14px}
+.m1 img{width:18px;height:18px}
+.m1 span.on{background:#eef1ee}
+.m2 span.go{animation:hlg 2.4s infinite}
+@keyframes hlg{0%,45%{background:#c9efcf}55%,100%{background:#ffffff}}
+@media (max-width:960px){
+.h2g{grid-template-columns:minmax(0,1fr);gap:18px}
+.h2g > div:first-child{display:block}
+.hero2 h1{font-size:26px}
+.hero2 .sub{display:none}
+.mrow{margin-top:10px}
+.mi{padding:5px 0;font-size:10px;gap:2px;border-radius:10px}
+.mi i{width:24px;height:24px;border-radius:7px;font-size:11px}
+.pts{margin-top:8px}
+.pts li{padding:6px 9px}
+}
+
+.sec{padding:clamp(52px,7.5vw,104px) 0}
+.h2{font-size:clamp(23px,3.4vw,40px);line-height:1.5}
+.ld{font-size:clamp(14px,1.5vw,16px);margin-top:12px}
+.eb{font-size:12px}
+.mp{margin:12px 0 0;border:1px solid var(--bd);border-radius:16px;background:#ffffff;overflow:hidden;box-shadow:0 14px 30px -24px rgba(39,68,50,.6)}
+.mpt{margin:0;padding:6px 14px;background:#3f7260;color:#ffffff;font-size:12px;font-weight:900;letter-spacing:.1em}
+.mpl{list-style:none;margin:-1px 0 0 -1px;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.mpl li{display:flex;align-items:center;gap:8px;padding:11px 10px;border-top:1px solid #e2ebe5;border-left:1px solid #e2ebe5;min-width:0}
+.mpl .ic{flex:none;display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--gl)}
+.mpl p{margin:0;line-height:1.4;min-width:0}
+.mpl b{display:block;font-size:14px;font-weight:900;white-space:nowrap}
+.mpl p span{font-size:11px;color:var(--mut);white-space:nowrap}
+.rn{margin-top:clamp(28px,4vw,48px);padding-top:clamp(24px,3.4vw,40px);border-top:2px solid #3f7260}
+.rnh{display:grid;grid-template-columns:auto minmax(0,.9fr) minmax(0,1.1fr);gap:8px 24px;align-items:start;margin-bottom:22px}
+.rno{margin:0;font-size:clamp(34px,4.6vw,56px);font-weight:700;line-height:1;color:var(--g)}
+.rnh h3{margin:0;font-size:clamp(20px,2.6vw,30px);font-weight:900;line-height:1.5}
+.rtx{margin:0;font-size:clamp(14px,1.4vw,15px);line-height:2;color:#3d4f45}
+.g2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+.g2{align-items:start}
+.g2 .gm{margin-top:0;background:#ffffff}
+@media (min-width:961px){.hero2 h1{font-size:clamp(34px,3.7vw,50px)}}
+.spo{display:none}
+.fw{margin-top:0}
+.fn{min-height:190px}
+.band{background:#3f7260;color:#ffffff;padding:clamp(28px,4vw,44px) 0}
+.bandin{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px}
+.bandin p{margin:0;font-size:clamp(19px,2.6vw,30px);font-weight:900;line-height:1.5}
+.bento{margin-top:32px}.ba{margin-top:32px}.hw{margin-top:32px}
+.fic{display:none}
+@media (max-width:960px){
+.h2g{grid-template-columns:minmax(0,1fr) 92px;gap:0}
+.h2g > div:first-child{display:contents}
+.hero2 h1{grid-column:1;grid-row:1;margin:0;font-size:26px}
+.h2g > .hr{grid-column:2;grid-row:1;width:200px;align-self:center}
+.h2g > .hr .srcs,.h2g > .hr .hmas{display:none}
+.h2g > .hr .hrin{padding:0}
+.h2g > .hr .lbase{margin:0 -8px}
+.lead2,.mrow,.mp,.hero2 .acts{grid-column:1 / -1}
+.mpl{grid-template-columns:repeat(2,minmax(0,1fr))}
+.mpl li{padding:7px 8px;gap:7px}
+.mpl .ic{width:26px;height:26px}
+.mpl b{font-size:13.5px}
+.mpl p span{font-size:10.5px}
+.rnh{grid-template-columns:auto minmax(0,1fr);gap:6px 12px;margin-bottom:16px}
+.rtx{grid-column:1 / -1}
+.spo{display:block;margin-bottom:14px}
+.g2{grid-template-columns:minmax(0,1fr)}
+.fw{grid-template-columns:minmax(0,1fr) 14px minmax(0,1fr) 14px minmax(0,1fr) 14px minmax(0,1fr);align-items:stretch}
+.fw .pp{width:auto;height:2px;margin:0;align-self:center;background:repeating-linear-gradient(90deg,#b5cabd 0 4px,transparent 4px 8px)}
+.fw .pp i{top:-3px;left:0;width:8px;height:8px;animation-name:ppx}
+.fn{padding:12px 4px;gap:6px;border-radius:12px;min-height:0;justify-content:flex-start}
+.fn .fstk,.fn .ms,.fn .nt,.fn p{display:none}
+.fn .ring2{width:40px;height:40px}
+.fn .ring2 svg{width:24px;height:24px}
+.fic{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:var(--gl)}
+.fn h3{margin:0;font-size:10.5px;line-height:1.4;word-break:keep-all}
+.tb{min-width:560px}
+.tb > span{padding:10px 10px;font-size:12.5px}
+.tb.c4{grid-template-columns:52px repeat(3,minmax(0,1fr));min-width:0}
+.tb.c4 > span{padding:9px 7px;font-size:12px}
+.tb.c4 small{font-size:10.5px}
+.tb.c5{grid-template-columns:104px repeat(4,minmax(110px,1fr));min-width:600px}
+.tb .pn{font-size:22px}
+.lp{transform:scale(.74);margin:-14px auto -36px}
+.bap{padding:20px 14px 22px}
+.bc{margin-top:8px;font-size:17px}
+.tri > div{padding:14px 16px}
+.tri p{font-size:14px}
+.bento{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.bx,.bx.w3,.bx.w4{grid-column:span 1;padding:14px 12px;border-radius:14px}
+.bx .mk{display:none}
+.bx h3{font-size:16px}
+.bx p.d{font-size:12.5px;line-height:1.8}
+.hw{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;margin-right:-20px;padding-right:20px}
+.hc{flex:0 0 68%;scroll-snap-align:start}
+.hc .il{height:120px}
+.fq button{font-size:15px;min-height:56px;padding:12px 2px}
+.fq p{font-size:14px;padding-right:8px}
+.mkr > div{padding:18px}
+.mkr h3{font-size:17px}
+}
+
+@media (max-width:960px){
+.h2g{grid-template-columns:minmax(0,1fr) 168px;gap:0 10px}
+.hero2 h1{grid-column:1 / -1;grid-row:1}
+.lead2{grid-column:1;grid-row:2;margin-top:8px;align-self:center}
+.h2g > .hr{grid-column:2;grid-row:2;width:168px;margin-top:-26px;align-self:start}
+.mo{display:inline}
+.h2g > .hr .lbase{margin:0 -5px}
+.mrow,.mp,.hero2 .acts{grid-column:1 / -1}
+.mrow{margin-top:8px}
+.mp{margin-top:8px}
+.hero2 .acts{margin-top:10px}
+}
+
+.pg button.btn{border:0;font-family:inherit;cursor:pointer}
+.only-sp{display:none !important}
+.trust{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;font-weight:700;color:#3d4f45}
+.trust li{display:flex;align-items:center;gap:5px;white-space:nowrap}
+.trust svg{flex:none}
+.pcn{margin:8px 0 0;font-size:12px;line-height:1.7;color:#5b6f64}
+.pcn b{color:#2f7d55}
+.hlogo{width:min(150px,45%)}
+.lead2{font-size:clamp(15px,1.3vw,17px)}
+.rtx{font-size:clamp(14px,1.3vw,16px)}
+.mksec{padding:clamp(44px,6vw,80px) 0}
+.mk1{display:flex;align-items:center;gap:24px;padding:clamp(20px,3vw,32px);border:1px solid var(--bd);border-radius:20px;background:#ffffff}
+.mkimg{flex:none;width:clamp(84px,10vw,130px);height:auto}
+.mk1 h3{margin:6px 0 0;font-size:clamp(18px,2vw,24px);font-weight:900;line-height:1.5}
+.mk1 p:not(.eb){margin:8px 0 0;font-size:clamp(13.5px,1.3vw,15px);line-height:1.95;color:#3d4f45}
+.so1{margin:14px 0 0;font-size:13px;line-height:1.8;color:#5b6f64}
+.so1 a{margin-left:6px;font-weight:900}
+.pcards{gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;margin:20px -20px 0;padding:6px 20px 8px;scroll-padding:0 20px}
+.pcd{flex:0 0 78%;scroll-snap-align:start;border:1px solid var(--bd);border-radius:16px;background:#ffffff;overflow:hidden}
+.pcd.me{border:2px solid #3f7260}
+.pch{padding:12px 14px;background:var(--bg)}
+.pch b{font-size:17px;font-weight:900}
+.pch .rec{margin-left:6px}
+.pch .s{display:block;margin-top:2px;font-size:11.5px;color:var(--mut)}
+.pcd.me .pch{background:#3f7260;color:#ffffff}
+.pcd.me .pch .s{color:#e3f1ea}
+.pcp{margin:0;padding:12px 14px 2px;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px}
+.pcp .pn{font-size:28px;font-weight:700;line-height:1.2;color:#235f41}
+.pcp small{font-size:11px;color:var(--mut)}
+.pcl{list-style:none;margin:0;padding:4px 14px 12px;font-size:12.5px}
+.pcl li{display:flex;justify-content:space-between;gap:8px;padding:6px 0;border-top:1px solid #e2ebe5}
+.pcl li span{color:var(--mut)}
+.pcl li b{font-weight:700;text-align:right}
+.swh{margin:6px 0 0;font-size:12px;font-weight:700;color:var(--mut)}
+@media (min-width:961px){.hero2 h1{font-size:clamp(34px,3.5vw,48px)}}
+@media (max-width:960px){
+.only-pc{display:none !important}
+.acts .only-sp,.bandin .only-sp,.fin .only-sp,.hd .only-sp{display:inline-flex !important}
+p.only-sp{display:block !important}
+.pcards.only-sp{display:flex !important}
+.hd .btn.sm{gap:6px;padding:0 12px}
+.hd .btn.sm svg{width:16px;height:16px}
+.pcn,.trust{grid-column:1 / -1}
+.hero2 .acts .btn{gap:8px}
+.trust{margin-top:8px;font-size:11.5px;gap:4px 10px}
+.trust svg{width:13px;height:13px}
+.mpt{padding:5px 14px}
+.ba{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px;margin-top:20px}
+.bap{padding:14px 8px 16px;border-radius:16px}
+.bk{font-size:12px}
+.lp{zoom:.55;transform:none;margin:14px auto 0}
+.lp > span,.lp::before{display:none}
+.bc{margin-top:10px;font-size:13.5px;line-height:1.6}
+.fwh .s3w{display:none}
+.bandin .btn{width:100%}
+.fin .btn{width:100%}
+.mk1{gap:14px;align-items:flex-start}
+.mkimg{width:72px}
+.mk1 h3{font-size:17px}
+}
+
+@media (max-width:960px){
+.mk1{display:grid;grid-template-columns:64px minmax(0,1fr);gap:4px 14px;align-items:center}
+.mk1 > div{display:contents}
+.mkimg{grid-column:1;grid-row:1 / span 2;width:64px}
+.mk1 .eb{grid-column:2;grid-row:1;align-self:end}
+.mk1 h3{grid-column:2;grid-row:2;align-self:start;margin:2px 0 0}
+.mk1 p:not(.eb),.mk1 .lk{grid-column:1 / -1}
+.mk1 p:not(.eb){margin-top:10px}
+.mk1 .lk{justify-self:start;margin-top:2px}
+.fin img{width:120px !important;margin:8px auto 0}
+.fin{gap:12px}
+}
+
+.mis{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;max-width:520px}
+.mi{max-width:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:10px 2px 9px;border:1px solid var(--bd);border-radius:12px;background:#ffffff;white-space:nowrap;line-height:1.25}
+.mi i{display:flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:#2f7d55;margin-bottom:2px}
+.mi b{font-size:13px;font-weight:900;color:#1f2d26;letter-spacing:0}
+.mi span{font-size:10.5px;font-weight:700;color:var(--mut)}
+@media (max-width:960px){
+.mis{gap:5px}
+.mi{padding:6px 0 5px;gap:1px;border-radius:10px}
+.mi i{width:16px;height:16px;margin-bottom:1px}
+.mi i svg{width:10px;height:10px}
+.mi b{font-size:10.5px}
+.mi span{font-size:9px}
+}
+
+.who{margin-top:28px;padding:20px 22px;border:1px solid var(--bd);border-radius:18px;background:var(--bg)}
+.whot{margin:0;font-size:14px;font-weight:900;color:#2f7d55;letter-spacing:.06em}
+.who ul{list-style:none;margin:12px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.who li{display:flex;align-items:flex-start;gap:10px;padding:14px;border-radius:14px;background:#ffffff;border:1px solid var(--bd)}
+.who li svg{flex:none;margin-top:2px}
+.who p{margin:0;line-height:1.6}
+.who b{display:block;font-size:15px;font-weight:900}
+.who span{display:block;margin-top:2px;font-size:13px;color:var(--mut)}
+.stp{list-style:none;margin:0 0 18px;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;counter-reset:none}
+.stp li{position:relative;display:flex;align-items:center;gap:10px;padding:12px 14px;border:1px solid var(--bd);border-radius:14px;background:#ffffff;font-size:14px;font-weight:700;line-height:1.5}
+.stp b{flex:none;display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:#3f7260;color:#ffffff;font-size:14px}
+.stpn{margin:-6px 0 18px;font-size:13px;color:var(--mut)}
+.stpn .lk{margin:0 0 0 8px;min-height:0}
+.rtabs{margin-top:28px;display:flex;gap:8px;overflow-x:auto;padding-bottom:4px}
+.rtab{flex:none;min-height:44px;padding:0 16px;border:1px solid var(--bd);border-radius:999px;background:#ffffff;font-family:inherit;font-size:14px;font-weight:700;color:#3d4f45;cursor:pointer}
+.rtab.on{background:#3f7260;border-color:#3f7260;color:#ffffff}
+.rpv{margin-top:14px;border:1px solid var(--bd);border-radius:18px;background:#ffffff;overflow:hidden;box-shadow:0 18px 40px -30px rgba(39,68,50,.55)}
+.rpvh{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;padding:14px 18px;border-bottom:1px solid var(--bd)}
+.rpvh b{font-size:16px;font-weight:900}
+.rpvh span{flex:1 1 260px;font-size:13px;color:var(--mut)}
+.rgw{overflow-x:auto}
+.rg{min-width:520px}
+.rr{display:grid;grid-template-columns:1.5fr repeat(4,minmax(0,1fr));border-top:1px solid #e2ebe5;animation:rin .45s ease backwards}
+.rr:nth-child(2){animation-delay:.04s}.rr:nth-child(3){animation-delay:.08s}.rr:nth-child(4){animation-delay:.12s}.rr:nth-child(5){animation-delay:.16s}.rr:nth-child(6){animation-delay:.2s}
+@keyframes rin{from{opacity:0;transform:translateY(6px)}}
+.rr > span{padding:11px 14px;font-size:14px;font-weight:500;text-align:right;white-space:nowrap}
+.rr > span:first-child{text-align:left;font-weight:700}
+.rr.hd{border-top:0;background:var(--bg);animation:none}
+.rr.hd > span{font-size:12.5px;font-weight:900;color:#5b6f64}
+.rr.hi{background:var(--gl)}
+.rr.hi > span{font-weight:900;color:#235f41}
+.spec{margin:20px 0 0;display:grid;gap:8px}
+.spec > div{display:grid;grid-template-columns:120px minmax(0,1fr);gap:12px;padding:12px 16px;border-radius:12px;background:var(--bg)}
+.spec dt{font-size:13px;font-weight:900;color:#2f7d55}
+.spec dd{margin:0;font-size:14px;font-weight:700;line-height:1.7}
+.clc{margin-top:28px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:stretch}
+.cin{display:grid;gap:10px}
+.crow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;border:1px solid var(--bd);border-radius:14px;background:#ffffff}
+.crow p{margin:0;font-size:15px;font-weight:700;line-height:1.5}
+.crow small{font-size:12px;color:var(--mut)}
+.stpr{flex:none;display:flex;align-items:center;gap:6px}
+.stpr button{width:44px;height:44px;border:1px solid var(--bd);border-radius:12px;background:var(--bg);font-family:inherit;font-size:20px;font-weight:900;color:#3f7260;cursor:pointer}
+.stpr button:active{transform:scale(.94)}
+.stpr output{min-width:84px;text-align:center;font-size:22px;font-weight:700}
+.stpr output small{margin-left:2px;font-size:12px;font-family:'Zen Kaku Gothic New',sans-serif;color:var(--mut)}
+.cout{display:flex;flex-direction:column;justify-content:center;padding:24px 26px;border-radius:18px;background:#3f7260;color:#ffffff}
+.co1{margin:0;font-size:14px;font-weight:700;color:#e3f1ea}
+.co2{margin:4px 0 0;display:flex;align-items:baseline;gap:6px}
+.co2 b{font-size:clamp(48px,6vw,72px);line-height:1;color:#ffffff}
+.co2 span{font-size:18px;font-weight:900}
+.co3{margin:10px 0 0;font-size:14px;line-height:1.9;color:#e3f1ea}
+.co4{margin:14px 0 0;padding-top:14px;border-top:1px solid rgba(255,255,255,.2);font-size:14px;font-weight:700;line-height:1.9}
+.safe{margin-top:40px;padding:22px 24px;border:1px solid var(--bd);border-radius:18px;background:var(--bg)}
+.safet{margin:0;font-size:15px;font-weight:900;color:#2f7d55}
+.safe ul{list-style:none;margin:12px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.safe li{display:flex;align-items:flex-start;gap:10px;padding:14px;border-radius:14px;background:#ffffff;border:1px solid var(--bd)}
+.safe li svg{flex:none;margin-top:2px}
+.safe p{margin:0;line-height:1.6}
+.safe b{display:block;font-size:15px;font-weight:900;word-break:keep-all;overflow-wrap:anywhere}
+.safe span{display:block;margin-top:2px;font-size:13px;color:var(--mut)}
+.sup{margin:14px 0 0;font-size:13px;line-height:1.9;color:#3d4f45}
+.sup a{font-weight:900}
+.fin2{margin:14px 0 0;font-size:14px}
+.fin2 a{color:#ffffff !important;font-weight:700;text-decoration:underline}
+@media (max-width:960px){
+.who{margin-top:16px;padding:14px}
+.who ul{grid-template-columns:minmax(0,1fr);gap:8px;margin-top:10px}
+.who li{padding:10px 12px}
+.who b{font-size:14px}.who span{font-size:12.5px}
+.stp{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:12px}
+.stp li{padding:10px;gap:8px;font-size:13px}
+.stp b{width:26px;height:26px;font-size:13px}
+.stpn{margin:-2px 0 14px;font-size:12.5px}
+.rtabs{margin:20px -20px 0;padding:0 20px 4px}
+.rtab{min-height:40px;padding:0 14px;font-size:13px}
+.rpvh{padding:12px 14px}
+.rpvh b{font-size:15px}.rpvh span{font-size:12.5px}
+.rg{min-width:0}
+.rr{grid-template-columns:1.25fr repeat(4,minmax(0,1fr))}
+.rr > span{padding:9px 6px;font-size:11.5px}
+.rr > span:first-child{padding-left:10px;white-space:normal;line-height:1.4}
+.rr.hd > span{font-size:10.5px}
+.spec{margin-top:14px}
+.spec > div{grid-template-columns:minmax(0,1fr);gap:2px;padding:10px 12px}
+.spec dd{font-size:13px}
+.clc{grid-template-columns:minmax(0,1fr);gap:12px;margin-top:20px}
+.crow{padding:10px 12px}
+.crow p{font-size:13.5px}
+.stpr output{min-width:70px;font-size:19px}
+.stpr button{width:40px;height:40px}
+.cout{padding:18px 18px}
+.co3,.co4{font-size:13px}
+.safe{margin-top:28px;padding:16px 14px}
+.safe ul{grid-template-columns:minmax(0,1fr);gap:8px}
+.safe li{padding:10px 12px}
+.safe b{font-size:14px}.safe span{font-size:12.5px}
+}
+
+@media (max-width:960px){
+.who span,.safe li span{display:none}
+.who ul{grid-template-columns:minmax(0,1fr)}
+.who li{align-items:center;padding:9px 12px}
+.safe ul{grid-template-columns:repeat(2,minmax(0,1fr))}
+.safe li{align-items:center;padding:10px;gap:8px}
+.safe li svg{width:18px;height:18px;margin:0}
+.safe b{font-size:13px;line-height:1.45}
+#calc .h2,#reports .h2{font-size:23px}
+.spec > div{padding:8px 12px}
+}
+
+@media (max-width:960px){
+.spec{gap:0;padding:6px 0;border-radius:12px;background:var(--bg)}
+.spec > div{grid-template-columns:84px minmax(0,1fr);gap:8px;padding:6px 12px;background:transparent}
+.spec dt{font-size:12px}
+.spec dd{font-size:12.5px;line-height:1.6}
+.rr > span{padding:8px 6px}
+.g2 > .gm:first-child{display:none}
+}
+@media (prefers-reduced-motion:reduce){.s3d{background-position:0 0}}
+@media (prefers-reduced-motion:reduce){.pg *,.pg *::before,.pg *::after{animation:none !important}}
+</style>
+</head>
+<body>
+<div id="dc-root"><div class="pg">
+
+<header class="hd">
+<div class="wrap in">
+<a class="brand" href="#top"><img src="/assets/img/adsheet/logo_full.png" alt="アドシート" style="display: block; height: 34px; width: auto"></a>
+<nav class="nav" aria-label="ページ内リンク"><a href="#why">選ばれる理由</a><a href="#feat">機能</a><a href="#steps">使い方</a><a href="#price">料金</a><a href="#faq">よくある質問</a></nav>
+<a class="btn sm only-pc" href="https://workspace.google.com/marketplace/app/%F0%9F%9F%A9%E3%82%A2%E3%83%89%E3%82%B7%E3%83%BC%E3%83%88%E5%BA%83%E5%91%8A%E8%87%AA%E5%8B%95%E6%9B%B8%E3%81%8D%E5%87%BA%E3%81%97%E3%83%84%E3%83%BC%E3%83%AB/761670620603" target="_blank" rel="noopener">無料で使う</a><button class="btn sm only-sp" type="button"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5"></rect><path d="M8 20h8M12 16v4"></path></svg>PCに送る</button>
+</div>
+</header>
+
+<section id="top" class="hero2">
+<div class="wrap h2g">
+<div>
+<img class="hlogo" src="/assets/img/adsheet/logo_full.png" alt="アドシート">
+<p class="chip"><i></i>Googleスプレッドシート用のアドオン</p>
+<h1 class="ka"><span class="up" style="--i: 0">広告レポートを、</span><span class="up" style="--i: 1">スプレッドシートに</span><span class="up" style="--i: 2"><em class="swipe">自動で。</em></span></h1>
+<p class="lead2 ka"><span class="pc">アドシートは、<wbr>広告の数字を<wbr>スプレッドシートに<wbr>自動で書き出すツールです。</span><span class="mo">広告の数字を、<br>スプレッドシートに<br>自動で書き出します。</span></p>
+<div class="mrow"><p>書き出せる広告媒体</p><ul class="mis"><li class="mi"><i aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 12.5l4 4 8-9"></path></svg></i><b>Google</b><span>広告</span></li><li class="mi"><i aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 12.5l4 4 8-9"></path></svg></i><b>LINEヤフー</b><span>広告</span></li><li class="mi"><i aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 12.5l4 4 8-9"></path></svg></i><b>Meta</b><span>広告</span></li><li class="mi"><i aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 12.5l4 4 8-9"></path></svg></i><b>Microsoft</b><span>広告</span></li><li class="mi"><i aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 12.5l4 4 8-9"></path></svg></i><b>TikTok</b><span>広告</span></li></ul></div>
+<div class="mp"><p class="mpt">アドシートの押しポイント</p><ul class="mpl"><li><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2f7d55" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M8.5 8l3.5 5 3.5-5M12 13v4.5M9 13h6M9 15.8h6"></path></svg></span><p><b>無料から</b><span>有料も月990円から</span></p></li><li><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2f7d55" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3v11l3-2.5 2.2 5 2-.9-2.2-5H18z"></path></svg></span><p><b>直感操作</b><span>選んで押すだけ</span></p></li><li><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2f7d55" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.6-5.9"></path><path d="M20 4v5h-5"></path></svg></span><p><b>自動更新</b><span>保存後はおまかせ</span></p></li><li><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2f7d55" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect></svg></span><p><b>5媒体を1枚に</b><span>まとめて見られる</span></p></li><li><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2f7d55" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h13"></path></svg></span><p><b>ぜんぶ日本語</b><span>項目もメニューも</span></p></li><li><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2f7d55" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9a6 6 0 0 1 12 0c0 6 2 7 2 7H4s2-1 2-7z"></path><path d="M10 20a2 2 0 0 0 4 0"></path></svg></span><p><b>通知と点検</b><span>チャットにお知らせ</span></p></li></ul></div>
+<div class="acts"><a class="btn only-pc" href="https://workspace.google.com/marketplace/app/%F0%9F%9F%A9%E3%82%A2%E3%83%89%E3%82%B7%E3%83%BC%E3%83%88%E5%BA%83%E5%91%8A%E8%87%AA%E5%8B%95%E6%9B%B8%E3%81%8D%E5%87%BA%E3%81%97%E3%83%84%E3%83%BC%E3%83%AB/761670620603" target="_blank" rel="noopener">まずは無料で使ってみる<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a><button class="btn only-sp" type="button"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5"></rect><path d="M8 20h8M12 16v4"></path></svg>PCで開くリンクを送る</button><a class="btn2 only-pc" href="#price">料金を見る</a></div>
+<p class="pcn only-sp">アドシートはPCのGoogleスプレッドシートで使います。LINEやメールで自分に送って、PCで開いてください。<b></b></p>
+<ul class="trust"><li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2f7d55" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M7.5 12.5l3 3 6-6.5"></path></svg>無料プランはずっと無料</li><li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2f7d55" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M7.5 12.5l3 3 6-6.5"></path></svg>公式APIで取得</li><li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2f7d55" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M7.5 12.5l3 3 6-6.5"></path></svg>運営はデータを見られない</li></ul>
+</div>
+<div class="hr" role="img" aria-label="広告媒体の数字が、パソコンのスプレッドシートに自動で入っていく様子">
+<div class="hrin" aria-hidden="true">
+<div class="srcs"><div class="src" style="--i: 0"><b><i style="background: #4285F4"></i>Google</b><span class="ln"></span></div><div class="src" style="--i: 1"><b><i style="background: #FF0033"></i>LINEヤフー</b><span class="ln"></span></div><div class="src" style="--i: 2"><b><i style="background: #0866FF"></i>Meta</b><span class="ln"></span></div><div class="src" style="--i: 3"><b><i style="background: #00A4EF"></i>Microsoft</b><span class="ln"></span></div><div class="src" style="--i: 4"><b><i style="background: #25F4EE"></i>TikTok</b><span class="ln"></span></div></div>
+<div class="lscr"><div class="ui">
+<div class="ubar"><svg width="1.7em" height="1.7em" viewBox="0 0 24 24" aria-hidden="true" style="flex: none"><path d="M5 2h10l5 5v15H5z" fill="#1fa463"></path><path d="M15 2v5h5" fill="#2f7d55"></path><rect x="8" y="10.5" width="9" height="8" fill="#ffffff"></rect><path d="M8 13.2h9M8 15.8h9M11.6 10.5v8" stroke="#1fa463" stroke-width="1.2"></path></svg><span class="t11">広告レポート</span><span class="ulive">自動更新 ON</span></div>
+<div class="ubody">
+<div class="ugrid"><span class="hn"></span><span class="hh">日付</span><span class="hh">表示回数</span><span class="hh">クリック</span><span class="hh">費用</span><span class="hh">CV</span><span class="hn">2</span><span class="c mono" style="--r: 0">11/13</span><span class="c mono" style="--r: 0">4,620</span><span class="c mono" style="--r: 0">198</span><span class="c mono" style="--r: 0">¥29,800</span><span class="c mono" style="--r: 0">5</span><span class="hn">3</span><span class="c mono" style="--r: 1">11/14</span><span class="c mono" style="--r: 1">4,705</span><span class="c mono" style="--r: 1">205</span><span class="c mono" style="--r: 1">¥30,450</span><span class="c mono" style="--r: 1">6</span><span class="hn">4</span><span class="c mono" style="--r: 2">11/15</span><span class="c mono" style="--r: 2">4,812</span><span class="c mono" style="--r: 2">212</span><span class="c mono" style="--r: 2">¥31,040</span><span class="c mono" style="--r: 2">6</span><span class="hn">5</span><span class="c mono" style="--r: 3">11/16</span><span class="c mono" style="--r: 3">5,104</span><span class="c mono" style="--r: 3">238</span><span class="c mono" style="--r: 3">¥33,620</span><span class="c mono" style="--r: 3">8</span><span class="hn">6</span><span class="c mono" style="--r: 4">11/17</span><span class="c mono" style="--r: 4">4,960</span><span class="c mono" style="--r: 4">221</span><span class="c mono" style="--r: 4">¥32,180</span><span class="c mono" style="--r: 4">7</span><span class="hn">7</span><span class="c mono" style="--r: 5">11/18</span><span class="c mono" style="--r: 5">5,388</span><span class="c mono" style="--r: 5">254</span><span class="c mono" style="--r: 5">¥35,910</span><span class="c mono" style="--r: 5">9</span><span class="hn">8</span><span class="c mono nw" style="--r: 6">11/19</span><span class="c mono nw" style="--r: 6">5,471</span><span class="c mono nw" style="--r: 6">263</span><span class="c mono nw" style="--r: 6">¥36,400</span><span class="c mono nw" style="--r: 6">11</span></div>
+<div class="uside">
+<div class="ust"><svg width="1.6em" height="1.6em" viewBox="0 0 30 30" aria-hidden="true" style="flex: none"><rect width="30" height="30" rx="8" fill="#68d578"></rect><path d="M8 11h14M8 15.5h14M8 20h14M13 8v15" stroke="#3f7260" stroke-width="2" stroke-linecap="round"></path></svg><span class="t11">アドシート</span></div>
+<div class="upill"><span>Google広告</span><span>▾</span></div>
+<div class="ulab"><span class="t9">書き出す項目</span></div>
+<div><div class="uck"><i style="--d: 0.8s"></i><span>表示回数</span></div><div class="uck"><i style="--d: 1.6s"></i><span>クリック</span></div><div class="uck"><i style="--d: 2.4s"></i><span>費用</span></div><div class="uck"><i style="--d: 3.2s"></i><span>コンバージョン</span></div></div>
+<div class="upill"><span>過去7日間</span><span>▾</span></div>
+<div class="ubtn"><span class="t11">書き出す</span></div>
+</div>
+</div>
+<div class="utoast">書き出しました</div>
+<svg class="ucur" viewBox="0 0 24 24"><path d="M4 2l15 9-7 1.6L9 20z" fill="#3f7260" stroke="#ffffff" stroke-width="1.6" stroke-linejoin="round"></path></svg>
+</div></div>
+<div class="lbase"></div>
+<img class="hmas" src="/assets/img/chars/auto.webp" alt="">
+</div>
+</div>
+</div>
+</section>
+<div class="mq" aria-hidden="true"><div>書き出す　／　保存する　／　自動で更新　／　チャットに通知　／　AIで要約　／　案件ごとに確認　／　設定ミスを点検　／　書き出す　／　保存する　／　自動で更新　／　チャットに通知　／　AIで要約　／　案件ごとに確認　／　設定ミスを点検　／　書き出す　／　保存する　／　自動で更新　／　チャットに通知　／　AIで要約　／　案件ごとに確認　／　設定ミスを点検　／　書き出す　／　保存する　／　自動で更新　／　チャットに通知　／　AIで要約　／　案件ごとに確認　／　設定ミスを点検　／　</div></div>
+
+<section class="sec">
+<div class="wrap">
+<p class="eb">BEFORE / AFTER</p>
+<h2 class="h2 ka">レポート作りの<wbr>「面倒」を、<wbr>なくします。</h2>
+<div class="ba">
+<div class="bap">
+<p class="bk">これまで</p>
+<div class="lp"><span class="l1">管理画面を開く</span><span class="l2">CSVを落とす</span><span class="l3">シートに貼る</span><img src="/assets/img/chars/tired.webp" alt="書類に囲まれて困っているキャラクター"></div>
+<p class="bc ka">毎回、<wbr>CSVを落として<wbr>貼り付け。</p>
+</div>
+<div class="bap on">
+<p class="bk">アドシートなら</p>
+<div class="lp au"><svg class="rf" viewBox="0 0 100 100" fill="none" stroke="#68d578" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M88 50a38 38 0 0 1-66 26"></path><path d="M12 50a38 38 0 0 1 66-26"></path><path d="M78 12v13H65M22 88V75h13"></path></svg><div class="ms"><i style="--i: 0"></i><i style="--i: 1"></i><i style="--i: 2"></i><i style="--i: 3"></i><i style="--i: 4"></i><i style="--i: 5"></i></div></div>
+<p class="bc ka">一度保存すれば、<wbr>あとは自動。</p>
+</div>
+</div>
+<div class="who">
+<p class="whot">こんな方におすすめ</p>
+<ul>
+<li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2f7d55" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"></circle><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"></path><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18 14.4c1.8.9 3 2.9 3 5.6"></path></svg><p><b>代理店・フリーランスの運用者</b><span class="ka">クライアントごとのレポートを、<wbr>毎週・毎月作っている</span></p></li>
+<li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2f7d55" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"></rect><path d="M8 8h8M8 12h8M8 16h5"></path></svg><p><b>社内の広告担当</b><span class="ka">上司や社内への報告用に、<wbr>数字をまとめている</span></p></li>
+<li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2f7d55" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10l1.5-5h13L20 10"></path><path d="M4 10h16v10H4z"></path><path d="M9 20v-5h6v5"></path></svg><p><b>店舗・中小企業のオーナー</b><span class="ka">広告費は少なめ。<wbr>ツールに高いお金は<wbr>かけられない</span></p></li>
+</ul>
+</div>
+</div>
+</section>
+
+<section id="why" class="sec gray">
+<div class="wrap">
+<div class="fwh"><div>
+<p class="eb">WHY ADSHEET</p>
+<h2 class="h2 ka">選ばれる理由は、<wbr>3つ。</h2>
+</div>
+<div class="s3w" role="img" aria-label="スプレッドシートの上に数字の棒が立ち上がり、広告媒体のブロックから数字が流れ込む3Dアニメーション"><i class="cf c1"></i><i class="cf c2"></i><i class="cf c3"></i><i class="cf c4"></i><div class="s3d"></div></div>
+</div>
+<div class="rn">
+<div class="rnh"><p class="rno mono">01</p><h3 class="ka">直感操作。<wbr>選んで、<wbr>押すだけ。</h3><p class="rtx">Marketplaceから追加して、スプレッドシートの「拡張機能」から呼び出すだけ。媒体と項目を選んで「書き出す」を押せば完了です。</p></div>
+<ol class="stp" id="steps"><li><b class="mono">1</b><span class="ka">Marketplaceで<wbr>追加</span></li><li><b class="mono">2</b><span class="ka">「拡張機能」から<wbr>起動</span></li><li><b class="mono">3</b><span class="ka">広告アカウントを<wbr>読み込む</span></li><li><b class="mono">4</b><span class="ka">項目を選んで<wbr>書き出し・保存</span></li></ol>
+<p class="stpn">初期設定はいりません。<a class="lk" href="/how-to-use/">くわしい使い方を見る</a></p>
+<div class="spo"><div class="hr" role="img" aria-label="広告媒体の数字が、パソコンのスプレッドシートに自動で入っていく様子">
+<div class="hrin" aria-hidden="true">
+<div class="srcs"><div class="src" style="--i: 0"><b><i style="background: #4285F4"></i>Google</b><span class="ln"></span></div><div class="src" style="--i: 1"><b><i style="background: #FF0033"></i>LINEヤフー</b><span class="ln"></span></div><div class="src" style="--i: 2"><b><i style="background: #0866FF"></i>Meta</b><span class="ln"></span></div><div class="src" style="--i: 3"><b><i style="background: #00A4EF"></i>Microsoft</b><span class="ln"></span></div><div class="src" style="--i: 4"><b><i style="background: #25F4EE"></i>TikTok</b><span class="ln"></span></div></div>
+<div class="lscr"><div class="ui">
+<div class="ubar"><svg width="1.7em" height="1.7em" viewBox="0 0 24 24" aria-hidden="true" style="flex: none"><path d="M5 2h10l5 5v15H5z" fill="#1fa463"></path><path d="M15 2v5h5" fill="#2f7d55"></path><rect x="8" y="10.5" width="9" height="8" fill="#ffffff"></rect><path d="M8 13.2h9M8 15.8h9M11.6 10.5v8" stroke="#1fa463" stroke-width="1.2"></path></svg><span class="t11">広告レポート</span><span class="ulive">自動更新 ON</span></div>
+<div class="ubody">
+<div class="ugrid"><span class="hn"></span><span class="hh">日付</span><span class="hh">表示回数</span><span class="hh">クリック</span><span class="hh">費用</span><span class="hh">CV</span><span class="hn">2</span><span class="c mono" style="--r: 0">11/13</span><span class="c mono" style="--r: 0">4,620</span><span class="c mono" style="--r: 0">198</span><span class="c mono" style="--r: 0">¥29,800</span><span class="c mono" style="--r: 0">5</span><span class="hn">3</span><span class="c mono" style="--r: 1">11/14</span><span class="c mono" style="--r: 1">4,705</span><span class="c mono" style="--r: 1">205</span><span class="c mono" style="--r: 1">¥30,450</span><span class="c mono" style="--r: 1">6</span><span class="hn">4</span><span class="c mono" style="--r: 2">11/15</span><span class="c mono" style="--r: 2">4,812</span><span class="c mono" style="--r: 2">212</span><span class="c mono" style="--r: 2">¥31,040</span><span class="c mono" style="--r: 2">6</span><span class="hn">5</span><span class="c mono" style="--r: 3">11/16</span><span class="c mono" style="--r: 3">5,104</span><span class="c mono" style="--r: 3">238</span><span class="c mono" style="--r: 3">¥33,620</span><span class="c mono" style="--r: 3">8</span><span class="hn">6</span><span class="c mono" style="--r: 4">11/17</span><span class="c mono" style="--r: 4">4,960</span><span class="c mono" style="--r: 4">221</span><span class="c mono" style="--r: 4">¥32,180</span><span class="c mono" style="--r: 4">7</span><span class="hn">7</span><span class="c mono" style="--r: 5">11/18</span><span class="c mono" style="--r: 5">5,388</span><span class="c mono" style="--r: 5">254</span><span class="c mono" style="--r: 5">¥35,910</span><span class="c mono" style="--r: 5">9</span><span class="hn">8</span><span class="c mono nw" style="--r: 6">11/19</span><span class="c mono nw" style="--r: 6">5,471</span><span class="c mono nw" style="--r: 6">263</span><span class="c mono nw" style="--r: 6">¥36,400</span><span class="c mono nw" style="--r: 6">11</span></div>
+<div class="uside">
+<div class="ust"><svg width="1.6em" height="1.6em" viewBox="0 0 30 30" aria-hidden="true" style="flex: none"><rect width="30" height="30" rx="8" fill="#68d578"></rect><path d="M8 11h14M8 15.5h14M8 20h14M13 8v15" stroke="#3f7260" stroke-width="2" stroke-linecap="round"></path></svg><span class="t11">アドシート</span></div>
+<div class="upill"><span>Google広告</span><span>▾</span></div>
+<div class="ulab"><span class="t9">書き出す項目</span></div>
+<div><div class="uck"><i style="--d: 0.8s"></i><span>表示回数</span></div><div class="uck"><i style="--d: 1.6s"></i><span>クリック</span></div><div class="uck"><i style="--d: 2.4s"></i><span>費用</span></div><div class="uck"><i style="--d: 3.2s"></i><span>コンバージョン</span></div></div>
+<div class="upill"><span>過去7日間</span><span>▾</span></div>
+<div class="ubtn"><span class="t11">書き出す</span></div>
+</div>
+</div>
+<div class="utoast">書き出しました</div>
+<svg class="ucur" viewBox="0 0 24 24"><path d="M4 2l15 9-7 1.6L9 20z" fill="#3f7260" stroke="#ffffff" stroke-width="1.6" stroke-linejoin="round"></path></svg>
+</div></div>
+<div class="lbase"></div>
+<img class="hmas" src="/assets/img/chars/auto.webp" alt="">
+</div>
+</div></div>
+<div class="g2"><div class="gm" aria-hidden="true">
+<p class="gmh">Google Workspace Marketplace</p>
+<div class="gma"><img src="/assets/img/adsheet/logo_mark.png" alt=""><p><b>アドシート</b><span>広告自動書き出しツール</span></p><b class="gmb">インストール</b></div>
+</div><div class="gm" aria-hidden="true">
+<div class="mb"><span>表示形式</span><span>データ</span><span>ツール</span><span class="on">拡張機能</span><span>ヘルプ</span></div>
+<div class="mn">
+<div class="m1"><span>アドオン</span><span>マクロ</span><span>Apps Script</span><span class="on"><img src="/assets/img/adsheet/logo_mark.png" alt="">アドシート（広告自動書き出しツール）</span></div>
+<div class="m2"><span class="go">アドシートを起動する</span><span>アドシートの使い方</span><span>ヘルプ</span></div>
+</div>
+</div></div>
+<p class="note" style="margin-top: 10px">※画面はイメージです。<a href="https://workspace.google.com/marketplace/app/%F0%9F%9F%A9%E3%82%A2%E3%83%89%E3%82%B7%E3%83%BC%E3%83%88%E5%BA%83%E5%91%8A%E8%87%AA%E5%8B%95%E6%9B%B8%E3%81%8D%E5%87%BA%E3%81%97%E3%83%84%E3%83%BC%E3%83%AB/761670620603" target="_blank" rel="noopener">Marketplaceのページを開く</a></p>
+</div>
+<div class="rn">
+<div class="rnh"><p class="rno mono">02</p><h3 class="ka">自動更新。<wbr>開いたら、<wbr>もう最新。</h3><p class="rtx">一度保存すれば、決めたタイミングで数字が更新されます。成果や予算の動きは、いつものチャットにも届きます。</p></div>
+<div class="fw">
+<div class="fn"><span class="fic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2f7d55" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4h3l6 4V6l-6 4z"></path><path d="M17 9a4 4 0 0 1 0 6"></path></svg></span><div class="fstk"><span><i style="background: #4285F4"></i>Google広告</span><span><i style="background: #FF0033"></i>LINEヤフー広告</span><span><i style="background: #0866FF"></i>Meta広告</span><span><i style="background: #00A4EF"></i>Microsoft広告</span><span><i style="background: #25F4EE"></i>TikTok広告</span></div><h3>広告媒体</h3><p>5つの媒体に対応</p></div>
+<div class="pp" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="fn c"><div class="ring2"><svg width="48" height="48" viewBox="0 0 30 30" aria-hidden="true" style="flex: none"><rect width="30" height="30" rx="8" fill="#68d578"></rect><path d="M8 11h14M8 15.5h14M8 20h14M13 8v15" stroke="#3f7260" stroke-width="2" stroke-linecap="round"></path></svg></div><h3>アドシート</h3><p style="color: #e3f1ea">決めたタイミングで取得</p></div>
+<div class="pp" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="fn"><span class="fic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2f7d55" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"></rect><path d="M4 9h16M4 15h16M10 9v12"></path></svg></span><div class="ms"><i style="--i: 0"></i><i style="--i: 1"></i><i style="--i: 2"></i><i style="--i: 3"></i><i style="--i: 4"></i><i style="--i: 5"></i></div><h3>スプレッドシート</h3><p>いつものシートに書き出し</p></div>
+<div class="pp" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="fn"><span class="fic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2f7d55" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9a6 6 0 0 1 12 0c0 6 2 7 2 7H4s2-1 2-7z"></path><path d="M10 20a2 2 0 0 0 4 0"></path></svg></span><div class="nt"><span>きのうのCVは11件</span><span>予算の62%を消化</span></div><h3>チャット通知</h3><p>Slack・Chatwork・Discord・メール</p></div>
+</div>
+</div>
+<div class="rn">
+<div class="rnh"><p class="rno mono">03</p><h3 class="ka">無料から。<wbr>日本語で、<wbr>迷わない。</h3><p class="rtx">無料プランは、ずっと無料。有料プランも月990円からです。項目もメニューも、ぜんぶ日本語で書かれています。</p></div>
+<div class="scr">
+<div class="tb c4">
+<span class="l t"></span><span class="t">手作業</span><span class="t">一般的なレポートツール</span><span class="t me">アドシート</span>
+<span class="l">費用</span><span>0円<small>そのかわり時間がかかる</small></span><span>月数万円からのものも多い</span><span class="me">無料から<small>有料は月990円から</small></span>
+<span class="l">更新</span><span>毎回、手で貼り付け</span><span>自動</span><span class="me">自動<small>タイミングも指定できる</small></span>
+<span class="l">言葉</span><span>—</span><span>英語のツールも多い</span><span class="me">日本語</span>
+</div>
+</div>
+<p class="note" style="margin-top: 10px">※一般的な傾向をまとめたものです。ツールによって内容は異なります。</p>
+</div>
+</div>
+</section>
+
+<section id="reports" class="sec">
+<div class="wrap">
+<p class="eb">REPORTS</p>
+<h2 class="h2 ka">こんなレポートが、<wbr>すぐ作れます。</h2>
+<div class="rtabs" role="tablist" aria-label="レポートの例">
+
+<button type="button" role="tab" class="rtab on" aria-selected="true">日別の推移</button>
+
+<button type="button" role="tab" class="rtab " aria-selected="false">キャンペーン別</button>
+
+<button type="button" role="tab" class="rtab " aria-selected="false">先週と比べる</button>
+
+<button type="button" role="tab" class="rtab " aria-selected="false">予算の進み具合</button>
+
+<button type="button" role="tab" class="rtab " aria-selected="false">媒体まとめ</button>
+
+</div>
+<div class="rpv">
+<div class="rpvh"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="flex: none"><path d="M5 2h10l5 5v15H5z" fill="#1fa463"></path><path d="M15 2v5h5" fill="#0a7a43"></path><rect x="8" y="10.5" width="9" height="8" fill="#ffffff"></rect><path d="M8 13.2h9M8 15.8h9M11.6 10.5v8" stroke="#1fa463" stroke-width="1.2"></path></svg><b>日別の推移</b><span class="ka">毎朝の確認に。きのうまでの数字が、日ごとに並びます。</span></div>
+<div class="rgw"><div class="rg">
+<div class="rr hd"><span>日付</span><span>表示回数</span><span>クリック</span><span>費用</span><span>CV</span></div>
+
+<div class="rr "><span>11/15</span><span class="mono">4,812</span><span class="mono">212</span><span class="mono">¥31,040</span><span class="mono">6</span></div>
+
+<div class="rr "><span>11/16</span><span class="mono">5,104</span><span class="mono">238</span><span class="mono">¥33,620</span><span class="mono">8</span></div>
+
+<div class="rr "><span>11/17</span><span class="mono">4,960</span><span class="mono">221</span><span class="mono">¥32,180</span><span class="mono">7</span></div>
+
+<div class="rr "><span>11/18</span><span class="mono">5,388</span><span class="mono">254</span><span class="mono">¥35,910</span><span class="mono">9</span></div>
+
+<div class="rr hi"><span>11/19</span><span class="mono">5,471</span><span class="mono">263</span><span class="mono">¥36,400</span><span class="mono">11</span></div>
+
+</div></div>
+</div>
+<p class="note" style="margin-top: 10px">※画面と数値はイメージです。表の形は、選ぶ項目によって変わります。</p>
+<dl class="spec">
+<div><dt>主な項目</dt><dd>表示回数・クリック数・CTR・平均CPC・費用・CPM・コンバージョン ほか</dd></div>
+<div><dt>まとめる単位</dt><dd>アカウント・キャンペーン・広告グループ・広告</dd></div>
+<div><dt>取れる期間</dt><dd>当日の数字まで（無料プランは過去14日）</dd></div>
+</dl>
+</div>
+</section>
+
+<section id="feat" class="sec">
+<div class="wrap">
+<p class="eb">FEATURES</p>
+<h2 class="h2 ka">ほかにも、<wbr>運用がラクになる機能。</h2>
+<div class="bento">
+<div class="bx dk w3">
+<p class="k">01</p><h3>細かく書き出す</h3><p class="d ka">項目・期間・フィルターを<wbr>選んで取り込み。<wbr>当日のデータも<wbr>取得できます。</p>
+<div class="mk tags cyc"><span class="tag" style="--i: 0">キャンペーン</span><span class="tag" style="--i: 1">広告グループ</span><span class="tag" style="--i: 2">広告</span><span class="tag" style="--i: 3">期間を指定</span><span class="tag" style="--i: 4">フィルター</span><span class="tag" style="--i: 5">テンプレート</span></div>
+</div>
+<div class="bx w3">
+<p class="k">02</p><h3>AIで要約する</h3><p class="d ka">数字の動きを、<wbr>短い文章にまとめます。<wbr>使うかどうかは<wbr>選べます。</p>
+<div class="mk"><p class="typ"><span style="--i: 0">先週よりクリックが増えました。</span><span style="--i: 1">CVも増えています。</span><span style="--i: 2">CPAは下がりました。</span></p><p class="note" style="margin-top: 8px">※要約の文面はイメージです。</p></div>
+</div>
+<div class="bx w3">
+<p class="k">03</p><h3>案件ごとに見る</h3><p class="d ka">目標と今の数字を<wbr>並べて確認。<wbr>PDF・CSV出力も<wbr>できます。</p>
+<div class="mk kpi"><div class="r"><span>案件A</span><span class="bar"><i style="width: 82%"></i></span><span class="mono">82%</span></div><div class="r"><span>案件B</span><span class="bar"><i style="width: 61%"></i></span><span class="mono">61%</span></div><div class="r"><span>案件C</span><span class="bar"><i style="width: 97%"></i></span><span class="mono">97%</span></div><p class="note">※目標に対する進み具合のイメージです。</p></div>
+</div>
+<div class="bx dk w3">
+<p class="k">04</p><h3>設定ミスに気づく</h3><p class="d ka">リンク先と<wbr>命名ルールを点検して、<wbr>見つけたら通知します。</p>
+<div class="mk wn scan"><div><span>許可していないドメインのリンク先</span><span class="mono">1件</span></div><div><span>命名ルールから外れた名前</span><span class="mono">2件</span></div><div class="ok"><span>そのほかの広告</span><span>問題なし</span></div></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="band">
+<div class="wrap bandin">
+<p class="ka">まずは無料プランで、<wbr>1つ書き出してみる。</p>
+<a class="btn only-pc" href="https://workspace.google.com/marketplace/app/%F0%9F%9F%A9%E3%82%A2%E3%83%89%E3%82%B7%E3%83%BC%E3%83%88%E5%BA%83%E5%91%8A%E8%87%AA%E5%8B%95%E6%9B%B8%E3%81%8D%E5%87%BA%E3%81%97%E3%83%84%E3%83%BC%E3%83%AB/761670620603" target="_blank" rel="noopener">無料で使ってみる<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+<button class="btn only-sp" type="button"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5"></rect><path d="M8 20h8M12 16v4"></path></svg>PCで開くリンクを送る</button>
+</div>
+</section>
+
+<section id="calc" class="sec gray">
+<div class="wrap">
+<p class="eb">SIMULATION</p>
+<h2 class="h2 ka">レポート作業、<wbr>年間で何時間？</h2>
+<div class="clc">
+<div class="cin">
+<div class="crow"><p>広告アカウントの数</p><div class="stpr"><button type="button" aria-label="アカウント数を減らす">−</button><output class="mono">3<small>件</small></output><button type="button" aria-label="アカウント数を増やす">＋</button></div></div>
+<div class="crow"><p>1アカウントあたりの作業<small>（1週間）</small></p><div class="stpr"><button type="button" aria-label="作業時間を減らす">−</button><output class="mono">30<small>分</small></output><button type="button" aria-label="作業時間を増やす">＋</button></div></div>
+<div class="crow"><p>時給の目安</p><div class="stpr"><button type="button" aria-label="時給を下げる">−</button><output class="mono">2,000<small>円</small></output><button type="button" aria-label="時給を上げる">＋</button></div></div>
+</div>
+<div class="cout">
+<p class="co1">レポート作業の時間は、年間で</p>
+<p class="co2"><b class="mono">78</b><span>時間</span></p>
+<p class="co3 ka">1日8時間で、<wbr>約9.8日分。<wbr>時給2,000円なら、<wbr>約15.6万円分です。</p>
+<p class="co4 ka">アドシートのミニマムプランは<wbr>年11,880円（年払い）。<wbr>書き出しと更新の手間を、<wbr>ここから減らせます。</p>
+</div>
+</div>
+<p class="note" style="margin-top: 10px">※入力した値をもとにした目安です。数字を見て考える時間は含みません。</p>
+</div>
+</section>
+
+<section class="sec mksec">
+<div class="wrap">
+<div class="mk1">
+<img src="/assets/img/chars/auto.webp" alt="" class="mkimg">
+<div>
+<p class="eb">MAKER</p>
+<h3 class="ka">作っているのは、<wbr>広告の運用者です。</h3>
+<p>松崎 慎。複数アカウント合計で、月2,000万円規模の広告運用を経験。自分のレポート作りを楽にするために、アドシートを作りました。</p>
+<a class="lk" href="https://x.com/Shin_Adg" target="_blank" rel="noopener">Xで更新情報を見る</a>
+</div>
+</div>
+<p class="so1 ka">代理店のレポートを<wbr>第三者の目でチェックする<wbr>「しんのWeb広告セカンドオピニオン」も<wbr>行っています。<a href="/">くわしく見る</a></p>
+</div>
+</section>
+
+<section id="price" class="sec">
+<div class="wrap">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px">
+<div><p class="eb">PRICING</p><h2 class="h2 ka">無料から。<wbr>必要になったら、<wbr>月990円から。</h2></div>
+<div class="sw" role="group" aria-label="支払い方法"><button type="button" class="on" aria-pressed="true">年払い（20%OFF）</button><button type="button" class="" aria-pressed="false">月払い</button></div>
+</div>
+<div class="scr only-pc" style="margin-top: 36px">
+<div class="tb c5">
+<span class="l t"></span><span class="t">お試しプラン<small>動作確認に</small></span><span class="t me">ミニマム<span class="rec">高コスパ</span><small style="color: #e3f1ea">小規模の運用に</small></span><span class="t">スタンダード<span class="rec">人気</span><small>複数アカウントの取得に</small></span><span class="t">プレミアム<small>1日に何回も更新するなら</small></span>
+<span class="l">料金（1か月あたり）</span><span><span class="pn mono">0円</span><small>ずっと無料</small></span><span class="me"><span class="pn mono">990円</span><small>年払いの場合</small></span><span><span class="pn mono">3,500円</span><small>年払いの場合</small></span><span><span class="pn mono">5,900円</span><small>年払いの場合</small></span>
+<span class="l">書き出し行数</span><span>5,000行/月</span><span class="me">500,000行/月</span><span>5,000,000行</span><span>10,000,000行*</span>
+<span class="l">書き出し回数</span><span>30回/月</span><span class="me">300回/月</span><span>3,000回/月</span><span>10,000回/月*</span>
+<span class="l">取得期間</span><span>過去14日</span><span class="me">制限なし</span><span>制限なし</span><span>制限なし</span>
+<span class="l">アカウント数</span><span>最大2つ</span><span class="me">最大5つ</span><span>制限なし</span><span>制限なし</span>
+<span class="l">保存レポート</span><span>1件</span><span class="me">5件</span><span>50件</span><span>制限なし</span>
+<span class="l">自動書き出しの詳細設定</span><span>—</span><span class="me">あり</span><span>あり</span><span>あり</span>
+<span class="l">ユーザー数</span><span>1</span><span class="me">1</span><span>1</span><span>1</span>
+<span class="l">サポート</span><span>FAQ</span><span class="me">FAQ</span><span>FAQ・メール</span><span>FAQ・メール</span>
+<span class="l">無料お試し</span><span>—</span><span class="me">14日間</span><span>14日間</span><span>14日間</span>
+</div>
+</div>
+<div class="pcards only-sp"><div class="pcd"><div class="pch"><b>お試しプラン</b><span class="s">動作確認に</span></div><p class="pcp"><span class="pn mono">0円</span><small>ずっと無料</small></p><ul class="pcl"><li><span>書き出し行数</span><b>5,000行/月</b></li><li><span>書き出し回数</span><b>30回/月</b></li><li><span>取得期間</span><b>過去14日</b></li><li><span>アカウント数</span><b>最大2つ</b></li><li><span>保存レポート</span><b>1件</b></li><li><span>サポート</span><b>FAQ</b></li><li><span>無料お試し</span><b>—</b></li></ul></div><div class="pcd me"><div class="pch"><b>ミニマム</b><span class="rec">高コスパ</span><span class="s">小規模の運用に</span></div><p class="pcp"><span class="pn mono">990円</span><small>年払いの場合</small></p><ul class="pcl"><li><span>書き出し行数</span><b>500,000行/月</b></li><li><span>書き出し回数</span><b>300回/月</b></li><li><span>取得期間</span><b>制限なし</b></li><li><span>アカウント数</span><b>最大5つ</b></li><li><span>保存レポート</span><b>5件</b></li><li><span>サポート</span><b>FAQ</b></li><li><span>無料お試し</span><b>14日間</b></li></ul></div><div class="pcd"><div class="pch"><b>スタンダード</b><span class="rec">人気</span><span class="s">複数アカウントの取得に</span></div><p class="pcp"><span class="pn mono">3,500円</span><small>年払いの場合</small></p><ul class="pcl"><li><span>書き出し行数</span><b>5,000,000行</b></li><li><span>書き出し回数</span><b>3,000回/月</b></li><li><span>取得期間</span><b>制限なし</b></li><li><span>アカウント数</span><b>制限なし</b></li><li><span>保存レポート</span><b>50件</b></li><li><span>サポート</span><b>FAQ・メール</b></li><li><span>無料お試し</span><b>14日間</b></li></ul></div><div class="pcd"><div class="pch"><b>プレミアム</b><span class="s">1日に何回も更新するなら</span></div><p class="pcp"><span class="pn mono">5,900円</span><small>年払いの場合</small></p><ul class="pcl"><li><span>書き出し行数</span><b>10,000,000行*</b></li><li><span>書き出し回数</span><b>10,000回/月*</b></li><li><span>取得期間</span><b>制限なし</b></li><li><span>アカウント数</span><b>制限なし</b></li><li><span>保存レポート</span><b>制限なし</b></li><li><span>サポート</span><b>FAQ・メール</b></li><li><span>無料お試し</span><b>14日間</b></li></ul></div></div>
+<p class="swh only-sp">横にスワイプして、4つのプランを比べられます。</p>
+<p class="note" style="margin-top: 12px">※表示している金額は、β版特別価格の50%OFF価格です。さらに上限を増やしたい場合は、お問い合わせください。<br>※お支払いページでは、スプレッドシートの右上に表示されるメールアドレスを入力してください。</p>
+<p style="margin: 28px 0 0"><a class="btn only-pc" href="https://workspace.google.com/marketplace/app/%F0%9F%9F%A9%E3%82%A2%E3%83%89%E3%82%B7%E3%83%BC%E3%83%88%E5%BA%83%E5%91%8A%E8%87%AA%E5%8B%95%E6%9B%B8%E3%81%8D%E5%87%BA%E3%81%97%E3%83%84%E3%83%BC%E3%83%AB/761670620603" target="_blank" rel="noopener">無料プランで試してみる<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a><button class="btn only-sp" type="button"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5"></rect><path d="M8 20h8M12 16v4"></path></svg>PCで開くリンクを送る</button></p>
+<div class="safe">
+<p class="safet">安心して使えるように</p>
+<ul>
+<li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2f7d55" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"></path><path d="M8.5 12l2.5 2.5 4.5-5"></path></svg><p><b>公式APIで取得</b><span>各広告媒体が公開している公式のAPIで、データを取得します。</span></p></li>
+<li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2f7d55" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg><p><b>運営はデータを<wbr>見られない</b><span>Googleのログインの仕組みを使っているため、運営側がお客さまのデータを見ることはできません。</span></p></li>
+<li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2f7d55" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"></rect><path d="M4 9h16M4 15h16M10 9v12"></path></svg><p><b>数字は<wbr>自分のシートに</b><span>書き出した数字は、お使いのGoogleスプレッドシートに保存されます。</span></p></li>
+<li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2f7d55" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.6-5.9"></path><path d="M20 4v5h-5"></path></svg><p><b>いつでも<wbr>解約できる</b><span>マイページから、いつでもキャンセルできます。無料プランはずっと無料です。</span></p></li>
+</ul>
+<p class="sup ka">困ったときは、<wbr><a href="/how-to-use/">使い方</a>と<wbr><a href="/faq/">よくある質問</a>をいつでも見られます。<wbr>スタンダード以上のプランは、<wbr>メールでも相談できます。</p>
+</div>
+</div>
+</section>
+
+<section id="faq" class="sec gray">
+<div class="wrap two">
+<div>
+<p class="eb">FAQ</p>
+<h2 class="h2">よくある質問</h2>
+</div>
+<div>
+
+<div class="fq">
+<button type="button" aria-expanded="false"><span>導入までに、どのくらいかかりますか？</span><span class="s" aria-hidden="true">+</span></button>
+
+</div>
+
+<div class="fq">
+<button type="button" aria-expanded="false"><span>キャンペーン単位のレポートは作れますか？</span><span class="s" aria-hidden="true">+</span></button>
+
+</div>
+
+<div class="fq">
+<button type="button" aria-expanded="false"><span>当日のデータも取得できますか？</span><span class="s" aria-hidden="true">+</span></button>
+
+</div>
+
+<div class="fq">
+<button type="button" aria-expanded="false"><span>BIツールと連携できますか？</span><span class="s" aria-hidden="true">+</span></button>
+
+</div>
+
+<div class="fq">
+<button type="button" aria-expanded="false"><span>広告のデータを、運営側に見られませんか？</span><span class="s" aria-hidden="true">+</span></button>
+
+</div>
+
+<div class="fq">
+<button type="button" aria-expanded="false"><span>請求書や明細は出せますか？</span><span class="s" aria-hidden="true">+</span></button>
+
+</div>
+
+<div class="fq">
+<button type="button" aria-expanded="false"><span>解約はどうすればいいですか？</span><span class="s" aria-hidden="true">+</span></button>
+
+</div>
+
+<div class="fq">
+<button type="button" aria-expanded="false"><span>サポートはありますか？</span><span class="s" aria-hidden="true">+</span></button>
+
+</div>
+
+<p style="margin: 18px 0 0"><a class="lk" href="/faq/">ほかの質問を見る</a></p>
+</div>
+</div>
+</section>
+
+
+<section class="sec dark" style="padding: clamp(64px, 9vw, 110px) 0">
+<div class="wrap fin">
+<div>
+<h2 class="h2 ka" style="margin: 0">次のレポートから、<wbr>自動にしませんか。</h2>
+<p style="margin: 14px 0 0; color: #e3f1ea">無料プランは、ずっと無料です。</p>
+<p style="margin: 28px 0 0"><a class="btn only-pc" href="https://workspace.google.com/marketplace/app/%F0%9F%9F%A9%E3%82%A2%E3%83%89%E3%82%B7%E3%83%BC%E3%83%88%E5%BA%83%E5%91%8A%E8%87%AA%E5%8B%95%E6%9B%B8%E3%81%8D%E5%87%BA%E3%81%97%E3%83%84%E3%83%BC%E3%83%AB/761670620603" target="_blank" rel="noopener">今すぐ無料プランで試してみる<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a><button class="btn only-sp" type="button"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5"></rect><path d="M8 20h8M12 16v4"></path></svg>PCで開くリンクを送る</button></p>
+<p class="pcn only-sp" style="color: #e3f1ea">アドシートはPCのGoogleスプレッドシートで使います。<b></b></p>
+<p class="fin2"><a href="/inquiry/">導入の前に相談したい方は、お問い合わせへ</a></p>
+</div>
+<img src="/assets/img/chars/thumbs.webp" alt="親指を立てるアドシートのキャラクター" style="display: block; width: clamp(150px, 20vw, 210px); height: auto">
+</div>
+</section>
+
+<footer class="ft">
+<div class="wrap" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px 24px">
+<p style="margin: 0; font-weight: 900; color: #ffffff">アドシート</p>
+<p style="margin: 0; display: flex; flex-wrap: wrap; gap: 8px 20px"><a href="/tos/">利用規約</a><a href="/privacy/">プライバシーポリシー</a><a href="/tokusho/">特定商取引法に基づく表記</a><a href="/inquiry/">お問い合わせ</a></p>
+<p style="margin: 0; width: 100%; font-size: 12px; color: #d3e6dc">Google 広告、Google スプレッドシートは Google LLC の商標です。その他の会社名・サービス名は、各社の商標または登録商標です。<br>LINEヤフー広告は旧Yahoo!広告です。　© アドシート</p>
+</div>
+</footer>
+
+</div></div>
+<script src="/assets/js/dc-lite.js?v=a6bd79c7aa" defer></script>
+<script src="/assets/js/tool.js?v=2ed8d83951" defer></script>
+</body>
+</html>
