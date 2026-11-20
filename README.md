@@ -23,3 +23,15 @@ node qa.js      # 動作チェック
 ```
 
 `dist/` の中身を `main` ブランチのルートにコピーして push すると公開されます。
+
+## 新車ディーラー版（/lp/car/）
+
+| 場所 | 中身 |
+|---|---|
+| `carlp/project/Main.src.html` | ページの元データ（画像は `__B_名前__` の置き換え前） |
+| `carlp/blobs.json` | 画像・動画の対応表（Claude Design のアセットID → 元ファイル → 公開パス） |
+| `car3d/src/car.js` | 架空の車「HINATA」の3Dモデル（Three.js） |
+| `car3d/src/shorts.js` | 縦型動画（9:16）の場面づくり |
+| `car3d/render_assets.js` ・ `render_shorts.js` | 360度・横向きの画像と、縦型動画の書き出し |
+| `car3d/shorts/` | 書き出した縦型動画（9:16・4:5） |
+| `deck_car/project/` | ディーラー向け資料（Claude Slides）の元データ |
