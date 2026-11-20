@@ -1,0 +1,79 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:transparent;overflow:hidden}canvas{display:block}</style>
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>
+</head><body>
+<script type="module">
+import * as THREE from 'three';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { buildCar, setCarColor, rollWheels, makeShadow, COLORS } from './car.js';
+
+const q = new URLSearchParams(location.search);
+const W = +q.get('w') || 960, H = +q.get('h') || 540;
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true });
+renderer.setPixelRatio(+q.get('pr') || 1);
+renderer.setSize(W, H);
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.05;
+renderer.setClearColor(0x000000, 0);
+document.body.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.035).texture;
+scene.environmentIntensity = 0.9;
+const hemi = new THREE.HemisphereLight(0xffffff, 0x8a8f86, 0.55);
+scene.add(hemi);
+const key = new THREE.DirectionalLight(0xffffff, 1.6);
+key.position.set(4, 7, 5);
+scene.add(key);
+const rim = new THREE.DirectionalLight(0xffffff, 0.6);
+rim.position.set(-5, 3, -4);
+scene.add(rim);
+
+const car = buildCar(q.get('color') || 'mint');
+scene.add(car);
+const shadow = makeShadow(0.6);
+car.add(shadow);
+
+const camera = new THREE.PerspectiveCamera(28, W / H, 0.1, 100);
+const target = new THREE.Vector3(0, 0.8, 0);
+function view(o = {}) {
+  const az = (o.az ?? 35) * Math.PI / 180, el = (o.el ?? 8) * Math.PI / 180, d = o.dist ?? 10;
+  camera.fov = o.fov ?? 28;
+  target.set(o.tx ?? 0, o.ty ?? 0.8, o.tz ?? 0);
+  camera.position.set(target.x + Math.cos(el) * Math.cos(az) * d, target.y + Math.sin(el) * d, target.z + Math.cos(el) * Math.sin(az) * d);
+  camera.lookAt(target);
+  camera.updateProjectionMatrix();
+}
+view();
+// タイヤの奥を黒くする円（タイヤを隠したとき用）
+const wells = new THREE.Group();
+for (const x of [1.37, -1.37]) {
+  const d = new THREE.Mesh(new THREE.CylinderGeometry(0.37, 0.37, 1.2, 40), new THREE.MeshBasicMaterial({ color: 0x0b0c0d }));
+  d.rotation.x = Math.PI / 2; d.position.set(x, 0.33, 0); wells.add(d);
+}
+wells.visible = false;
+car.add(wells);
+function project(v3) {
+  const v = v3.clone().project(camera);
+  const s = renderer.getSize(new THREE.Vector2());
+  return { x: (v.x + 1) / 2 * s.x, y: (1 - v.y) / 2 * s.y };
+}
+window.api = {
+  wells,
+  project: (x, y, z) => project(new THREE.Vector3(x, y, z)),
+  showWheels: (on, onlyIndex) => car.userData.wheels.forEach((w, i) => { w.visible = on && (onlyIndex == null || onlyIndex === i); }),
+  showBody: (on) => { car.userData.body.visible = on; },
+  THREE, scene, car, camera, renderer, shadow, COLORS,
+  view,
+  setColor: (k) => setCarColor(car, k),
+  roll: (d) => rollWheels(car, d),
+  size: (w, h) => { renderer.setSize(w, h); camera.aspect = w / h; camera.updateProjectionMatrix(); },
+  render: () => renderer.render(scene, camera),
+  shot: () => { renderer.render(scene, camera); return renderer.domElement.toDataURL('image/png'); }
+};
+window.__ready = true;
+</script>
+</body></html>

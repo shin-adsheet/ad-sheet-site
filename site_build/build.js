@@ -37,6 +37,9 @@ const BLOB = {
   '97dc525440af3ec2fd561a4e3986db0d': 'adsheet/logo_full.png',
   'b0ca86a2f529e86f51eab2b60f3a4d89': 'adsheet/logo_mark.png'
 };
+// 新車ディーラー版（/lp/car/）の画像・動画
+const CAR_BLOBS = JSON.parse(fs.readFileSync(path.join(W, 'carlp', 'blobs.json'), 'utf8'));
+for (const [, [id, file, rel]] of Object.entries(CAR_BLOBS)) BLOB[id] = rel;
 const IMG_FILES = {
   'chars/auto.webp': W + '/mob/chars/auto.webp',
   'chars/point_r.webp': W + '/mob/chars/point_r.webp',
@@ -51,6 +54,8 @@ const IMG_FILES = {
   'adsheet/logo_full.png': W + '/adsheet/logo_full.png',
   'adsheet/logo_mark.png': W + '/adsheet/logo_mark.png'
 };
+for (const [, [id, file, rel]] of Object.entries(CAR_BLOBS)) IMG_FILES[rel] = path.join(W, file);
+const assetUrl = (rel) => (rel.endsWith('.mp4') ? '/assets/media/' : '/assets/img/') + rel;
 
 // ---- 小道具 -----------------------------------------------------------------
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -92,7 +97,7 @@ function cutDiv(s, marker) {
 function blobs(s) {
   return s.replace(/\/_blob\/([0-9a-f]{32})/g, (m, id) => {
     if (!BLOB[id]) throw new Error('未登録の画像ID: ' + id);
-    return '/assets/img/' + BLOB[id];
+    return assetUrl(BLOB[id]);
   });
 }
 function parseDC(src) {
@@ -191,6 +196,17 @@ const MAIN = [
       if (/ad-sheet\.com\/(tos|privacy|tokusho|inquiry|faq|how-to-use)/.test(s)) throw new Error('旧URLが残っています');
       return s;
     }
+  },
+  {
+    key: 'car',
+    out: 'lp/car/index.html',
+    src: W + '/carlp/project/Main.dc.html',
+    url: ORIGIN + '/lp/car/',
+    site: 'しんのWeb広告セカンドオピニオン',
+    title: '新車ディーラーのWeb広告セカンドオピニオン｜代理店の広告を、来店につながる数字で無料点検',
+    desc: '新車ディーラーの広告を5年以上運用している担当者が、代理店のレポートと広告アカウントを点検します。配信面・計測・自動の設定など8か所をチェック。代理店はそのままで、まずは無料点検から。',
+    og: 'og-car.png',
+    fix(s) { return s; }
   }
 ];
 
@@ -314,6 +330,13 @@ function docBody(key) {
 }
 
 function inquiryPage() {
+  const prefillCar = new URLSearchParams({
+    embedded: 'true',
+    usp: 'pp_url',
+    'entry.1674989680': '__other_option__',
+    'entry.1674989680.other_option_response': '無料診断（セカンドオピニオン）の予約',
+    'entry.1665734970': '【無料診断の予約（新車ディーラー）】\n見てほしい広告媒体：\n月の広告費（だいたい）：\n店舗の数：\n気になっていること：\nご都合のよい日時（候補を2〜3つ）：'
+  }).toString();
   const prefill = new URLSearchParams({
     embedded: 'true',
     usp: 'pp_url',
@@ -351,9 +374,12 @@ function inquiryPage() {
   if (h) h.textContent = '無料診断のご予約';
   var eb = document.querySelector('.ttl .eb a');
   if (eb) { eb.textContent = 'しんのWeb広告セカンドオピニオン'; eb.setAttribute('href', '/'); }
+  var car = q.get('from') === 'car';
   var f = document.getElementById('gform');
-  f.src = ${JSON.stringify(FORM + '?' + prefill)};
-  document.getElementById('gform-open').href = ${JSON.stringify(FORM + '?' + prefill.replace('embedded=true&', ''))};
+  var pre = car ? ${JSON.stringify(prefillCar)} : ${JSON.stringify(prefill)};
+  f.src = ${JSON.stringify(FORM + '?')} + pre;
+  document.getElementById('gform-open').href = ${JSON.stringify(FORM + '?')} + pre.replace('embedded=true&', '');
+  if (car) { var back = c.querySelector('.back'); if (back) { back.setAttribute('href', '/lp/car/'); back.textContent = '新車ディーラー版のページに戻る'; } }
   document.title = '無料診断のご予約｜しんのWeb広告セカンドオピニオン';
 })();
 </script>`;
@@ -397,8 +423,9 @@ let DOC_CSS_V = '';
 
   // 画像
   for (const [rel, file] of Object.entries(IMG_FILES)) {
-    fs.mkdirSync(path.dirname(path.join(DIST, 'assets/img', rel)), { recursive: true });
-    fs.copyFileSync(file, path.join(DIST, 'assets/img', rel));
+    const dest = path.join(DIST, assetUrl(rel).slice(1));
+    fs.mkdirSync(path.dirname(dest), { recursive: true });
+    fs.copyFileSync(file, dest);
   }
   execFileSync('python3', ['-c', `
 from PIL import Image
@@ -447,7 +474,7 @@ m.save(d + '/favicon.ico', sizes=[(16, 16), (32, 32), (48, 48)])
   write('.nojekyll', '');
   write('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${ORIGIN}/sitemap.xml\n`);
   const today = new Date().toISOString().slice(0, 10);
-  const urls = ['/', '/tool/', '/how-to-use/', '/faq/', '/inquiry/', '/tos/', '/privacy/', '/tokusho/'];
+  const urls = ['/', '/lp/car/', '/tool/', '/how-to-use/', '/faq/', '/inquiry/', '/tos/', '/privacy/', '/tokusho/'];
   write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => `  <url><loc>${ORIGIN}${u}</loc><lastmod>${today}</lastmod></url>`).join('\n')}\n</urlset>\n`);
 
   // SSR：ブラウザで初回描画した結果をHTMLに焼き込む
@@ -470,7 +497,7 @@ m.save(d + '/favicon.ico', sizes=[(16, 16), (32, 32), (48, 48)])
 
   // OGP画像（og/*.html を撮影した専用カード）
   execFileSync('node', [path.join(B, 'og', 'render.js')]);
-  for (const f of ['og-top.png', 'og-tool.png']) fs.copyFileSync(path.join(B, 'og', f), path.join(DIST, 'assets/img', f));
+  for (const f of ['og-top.png', 'og-tool.png', 'og-car.png']) fs.copyFileSync(path.join(B, 'og', f), path.join(DIST, 'assets/img', f));
 
   await browser.close();
   srv.close();
