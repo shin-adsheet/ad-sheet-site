@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<style>
+@font-face{font-family:J;font-weight:500;src:local('Noto Sans CJK JP Medium')}
+@font-face{font-family:J;font-weight:700;src:local('Noto Sans CJK JP Bold')}
+@font-face{font-family:J;font-weight:900;src:local('Noto Sans CJK JP Black')}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1200px;height:630px;overflow:hidden}
+body{font-family:J,sans-serif;color:#10201c;background:linear-gradient(180deg,#d9efe9 0%,#f2f9f6 58%,#f7f3e7 100%);position:relative}
+.sun{position:absolute;right:120px;top:40px;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,#ffe7a3 0 45%,rgba(255,231,163,.35) 46% 62%,transparent 63%)}
+.brand{position:absolute;left:60px;top:44px;display:flex;align-items:center;gap:12px}
+.brand img{width:40px;height:40px}
+.brand b{font-size:23px;font-weight:900}
+.brand i{font-style:normal;margin-left:10px;padding:3px 12px;border-radius:999px;background:#f2c14e;color:#3a2b00;font-size:16px;font-weight:900}
+h1{position:absolute;left:56px;top:112px;font-size:60px;line-height:1.22;font-weight:900;letter-spacing:-.01em}
+h1 .q{color:#0c5e54}
+h1 .mk{background:linear-gradient(transparent 62%,#fcefc7 62%)}
+.sub{position:absolute;left:60px;top:350px;line-height:1.5;font-size:24px;font-weight:900;color:#2c3d38}
+.road{position:absolute;left:0;right:0;bottom:0;height:150px;background:#2b3532}
+.road::before{content:"";position:absolute;left:0;right:0;top:0;height:10px;background:#9aa6a1}
+.road::after{content:"";position:absolute;left:0;right:0;top:70px;height:7px;background:repeating-linear-gradient(90deg,#fff 0 60px,transparent 60px 120px)}
+.car{position:absolute;right:24px;bottom:108px;width:500px}
+.chips{position:absolute;left:60px;bottom:40px;display:flex;gap:12px;z-index:2}
+.chips span{display:inline-flex;align-items:center;height:44px;padding:0 20px;border-radius:999px;background:#ffffff;color:#10201c;font-size:19px;font-weight:900}
+.url{position:absolute;right:40px;bottom:50px;color:#d9f0eb;font-size:18px;font-weight:700;z-index:2}
+</style></head>
+<body>
+<div class="sun"></div>
+<div class="brand"><img src="../dist/assets/img/adsheet/logo_mark.png" alt=""><b>しんのWeb広告セカンドオピニオン</b><i>新車ディーラー版</i></div>
+<h1>広告は<span class="q">“好調”</span>。<br>なのに、<br><span class="mk">ショールーム</span>は静か？</h1>
+<p class="sub">新車ディーラーの広告を、<br>来店につながる数字で点検します。</p>
+<div class="road"></div>
+<img class="car" src="../../carlp/assets/side_full_sun.webp" alt="">
+<div class="chips"><span>相談・点検は無料</span><span>閲覧権限だけで</span><span>代理店はそのまま</span></div>
+<p class="url">ad-sheet.com/lp/car</p>
+</body></html>

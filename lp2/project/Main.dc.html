@@ -328,6 +328,43 @@ br.nopc{display:none}
 .sel::before{clip-path:none}.sel::after{transform:none}
 .ty,.tyl{clip-path:none}.lg{opacity:1}
 }
+
+/* 仕上げ：余白とスマホの並び */
+.mk{margin-top:clamp(56px,8vw,112px)}
+.csgo{margin-top:16px;display:inline-flex;align-items:center;gap:6px;align-self:flex-start;padding:9px 14px;border:1px solid rgba(255,255,255,.28);border-radius:999px;font-size:13px;font-weight:900;line-height:1.4;color:#ffffff;text-decoration:none;transition:background .2s ease}
+.csgo:hover{background:rgba(255,255,255,.1);color:#ffffff}
+.csgo svg{flex:none;transition:transform .2s ease}
+.csgo:hover svg{transform:translateX(3px)}
+.csgo:focus-visible{outline:3px solid #FBBC04;outline-offset:2px}
+.swh{display:none}
+@media (max-width:600px){
+.isg{gap:12px !important}
+.isg .pain{padding:18px 20px 20px !important}
+.mkc{padding:22px 20px 18px}
+.mkn .num{font-size:54px}
+.mkt{font-size:16px}
+.pst{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.pst > div{padding:16px 8px !important}
+.pst .num{font-size:38px !important}
+.pst > div:nth-child(n+3) > p:last-child{margin-top:8px !important;font-size:15px !important;line-height:1.7 !important}
+.swp{display:flex !important;gap:12px;margin-left:-20px;margin-right:-20px;padding:0 20px 6px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 20px;overscroll-behavior-x:contain;scrollbar-width:none;align-items:stretch}
+.swp::-webkit-scrollbar{display:none}
+.swp > *{flex:0 0 86%;scroll-snap-align:start;animation:none !important}
+.swh{display:flex;align-items:center;justify-content:center;gap:8px;margin:10px 0 0;font-size:12px;font-weight:700;color:#4b5b58}
+.swh svg{color:var(--ac);animation:nudge 1.6s ease-in-out infinite}
+.rhead{grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important}
+.rhead > span:first-child{display:none}
+.rrow{grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important}
+.rrow > span:first-child{grid-column:1/-1;border-right:0 !important;padding:14px 16px 0 !important;font-size:13px !important;color:#4b5b58}
+.rrow > span:nth-child(2),.rrow > span:nth-child(3){padding:4px 16px 12px !important;font-size:17px !important}
+.rrow > span:nth-child(4){padding:0 16px 14px !important}
+.frow .arw{padding:2px 0}
+.frow .arw svg{width:24px;height:24px}
+}
+@keyframes nudge{50%{transform:translateX(4px)}}
+@supports (animation-timeline: view()){
+@media (max-width:600px){.swp{animation:rv linear both;animation-timeline:view();animation-range:entry 0% entry 32%}}
+}
 </style>
 </helmet>
 <div class="lp" style="--ac: {{accent}}; min-height: 100vh; background: #ffffff; color: #0f1d1b; font-family: 'Noto Sans JP', sans-serif; font-weight: 500; padding-bottom: 56px; overflow-x: clip">
@@ -372,7 +409,7 @@ br.nopc{display:none}
 <div class="fvcopy">
 
 <p style="margin: 0; font-size: clamp(18px, 5vw, 24px); font-weight: 900; line-height: 1.95; letter-spacing: .04em">代理店のレポートを、<br /><span style="background: linear-gradient(transparent 62%, var(--ac-md) 62%)">第三者がチェックします。</span></p>
-<p style="margin: 22px 0 0; font-size: 15px; line-height: 2.3; letter-spacing: .05em; color: #2c3b38">代理店は、そのままに。<br />運用の現場を知る目で、<br class="nopc" />ムダと伸びしろを見つけます。</p>
+<p style="margin: 22px 0 0; font-size: 15px; line-height: 2.1; letter-spacing: .05em; color: #2c3b38">代理店は、そのままに。<br />運用の現場を知る目で、<br class="nopc" />ムダと伸びしろを見つけます。</p>
 <div style="margin-top: 40px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px">
 <a class="cta" href="#s-booking" style="display: inline-flex; align-items: center; gap: 12px; min-height: 64px; padding: 10px 28px; background: var(--ac); color: #ffffff; border-radius: 999px; font-size: clamp(16px, 1.8vw, 18px); font-weight: 900; letter-spacing: .04em"><span style="display: flex; flex-direction: column; align-items: flex-start; line-height: 1.35; white-space: nowrap"><span style="font-size: 12px; font-weight: 700; opacity: .92">代理店を替えずに</span><span>無料で診断を予約する</span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
 <a class="fv2" href="#s-dl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"></path></svg><span>無料の資料を見る</span></a>
@@ -454,18 +491,18 @@ br.nopc{display:none}
 </div>
 </div>
 </section>
-<section id="s-q" data-sec="1" style="scroll-margin-top: 120px; padding: clamp(130px, 17vw, 230px) 20px; background: #0f1d1b; color: #ffffff; text-align: center">
+<section id="s-q" data-sec="1" style="scroll-margin-top: 120px; padding: clamp(84px, 10.5vw, 148px) 20px; background: #0f1d1b; color: #ffffff; text-align: center">
 <div style="max-width: 1120px; margin: 0 auto">
 <h2 style="margin: 0; font-size: clamp(30px, 8.4vw, 116px); font-weight: 900; line-height: 1.22; letter-spacing: -.02em">
 <span class="stl"><span>その広告費、</span></span>
 <span class="stl d2"><span>代理店の報告だけで</span></span>
 <span class="stl d3"><span style="color: var(--mint)">決めていませんか？</span></span>
 </h2>
-<p class="rv" style="margin: clamp(40px, 5vw, 64px) 0 0; font-size: clamp(16px, 1.8vw, 18px); line-height: 2.35; letter-spacing: .06em; color: #c9d6d3">レポートは、毎月届く。<br />でも、専門用語だらけで、<wbr />正直よく分からない。<br /><strong style="display: inline-block; margin-top: 18px; font-size: clamp(24px, 3.2vw, 34px); font-weight: 900; letter-spacing: .04em; color: #ffffff">今さら、聞けない。</strong></p>
+<p class="rv" style="margin: clamp(40px, 5vw, 64px) 0 0; font-size: clamp(16px, 1.8vw, 18px); line-height: 2.15; letter-spacing: .06em; color: #c9d6d3">レポートは、毎月届く。<br />でも、専門用語だらけで、<wbr />正直よく分からない。<br /><strong style="display: inline-block; margin-top: 18px; font-size: clamp(24px, 3.2vw, 34px); font-weight: 900; letter-spacing: .04em; color: #ffffff">今さら、聞けない。</strong></p>
 </div>
 </section>
 
-<section id="s-problem" data-sec="2" style="scroll-margin-top: 120px; padding: clamp(120px, 16vw, 190px) 20px; background: #f4f8f7">
+<section id="s-problem" data-sec="2" style="scroll-margin-top: 120px; padding: clamp(72px, 9vw, 128px) 20px; background: #f4f8f7">
 <div style="max-width: 760px; margin: 0 auto; text-align: center">
 <div class="rv">
 <p class="mono" style="margin: 0; font-size: 13px; font-weight: 600; letter-spacing: .14em; color: var(--ac-dk)">C1 / CHECK</p>
@@ -494,7 +531,7 @@ br.nopc{display:none}
 <p style="margin: 10px 0 0; display: flex; align-items: baseline; justify-content: center; gap: 8px"><span class="num" style="font-size: 88px; line-height: 1; color: var(--ac-dk)">{{count}}</span><span class="num" style="font-size: 24px; color: #5f6d6a">/ 7</span></p>
 <div style="margin-top: 28px; display: flex; flex-direction: column; align-items: center">
 <p class="bub tb" style="margin: 0 0 14px; font-size: 16px; line-height: 2.1; white-space: pre-line">{{countMsg}}</p>
-<img class="float" src="/_blob/6f4c399d8bbd12c7a5f299875d481492" alt="書類の山に囲まれて悩むスプレッドシート担当のキャラクター" style="display: block; width: clamp(180px, 28vw, 250px); height: auto" />
+<img loading="lazy" decoding="async" width="582" height="640" class="float" src="/_blob/6f4c399d8bbd12c7a5f299875d481492" alt="書類の山に囲まれて悩むスプレッドシート担当のキャラクター" style="display: block; width: clamp(150px, 28vw, 250px); height: auto" />
 </div>
 </div>
 </div>
@@ -521,14 +558,14 @@ br.nopc{display:none}
 </div>
 </section>
 
-<section id="s-issue" data-sec="3" style="scroll-margin-top: 120px; padding: clamp(120px, 16vw, 200px) 20px">
+<section id="s-issue" data-sec="3" style="scroll-margin-top: 120px; padding: clamp(72px, 9vw, 128px) 20px">
 <div style="max-width: 1100px; margin: 0 auto">
 <div class="rv" style="text-align: center">
 <p class="mono" style="margin: 0; font-size: 13px; font-weight: 600; letter-spacing: .14em; color: #b3261e">D1 / ISSUES</p>
 <h2 style="margin: 18px 0 0; font-size: clamp(30px, 5vw, 56px); font-weight: 900; line-height: 1.5; letter-spacing: .02em">丸投げの現場で、<br /><span style="background: linear-gradient(transparent 62%, #f8c9c3 62%)">実際に起きていること。</span></h2>
-<p style="margin: 32px 0 0; font-size: clamp(15px, 1.7vw, 17px); line-height: 2.3; letter-spacing: .05em; color: #2c3b38">管理画面を見られないと、<wbr />どれも気づけません。</p>
+<p style="margin: 32px 0 0; font-size: clamp(15px, 1.7vw, 17px); line-height: 2.1; letter-spacing: .05em; color: #2c3b38">管理画面を見られないと、<wbr />どれも気づけません。</p>
 </div>
-<div class="g3" style="margin-top: 56px; gap: 22px">
+<div class="g3 isg" style="margin-top: clamp(36px, 5vw, 56px); gap: 22px">
 <div class="pain rv" style="padding: 24px 24px 26px"><p class="mono" style="margin: 0; font-size: 11px; font-weight: 600; letter-spacing: .12em; color: #b3261e">ISSUE 01</p><p style="margin: 10px 0 0; font-size: clamp(16px, 1.8vw, 18px); font-weight: 900; line-height: 1.75">縦型の動画が、<wbr />横向きの画面に<wbr />出ていた</p><p style="margin: 10px 0 0; font-size: 14px; line-height: 2.05; color: #4b5b58">動画の形と配信面が合っておらず、<wbr />作った動画が活きていない。</p></div><div class="pain rv" style="padding: 24px 24px 26px"><p class="mono" style="margin: 0; font-size: 11px; font-weight: 600; letter-spacing: .12em; color: #b3261e">ISSUE 02</p><p style="margin: 10px 0 0; font-size: clamp(16px, 1.8vw, 18px); font-weight: 900; line-height: 1.75">頼んだはずの除外が、<wbr />されていなかった</p><p style="margin: 10px 0 0; font-size: 14px; line-height: 2.05; color: #4b5b58">出したくないチャンネルやサイトに、<wbr />広告が出続けていた。</p></div><div class="pain rv" style="padding: 24px 24px 26px"><p class="mono" style="margin: 0; font-size: 11px; font-weight: 600; letter-spacing: .12em; color: #b3261e">ISSUE 03</p><p style="margin: 10px 0 0; font-size: clamp(16px, 1.8vw, 18px); font-weight: 900; line-height: 1.75">「予算が使い切れない」と、<wbr />単価を上げる</p><p style="margin: 10px 0 0; font-size: 14px; line-height: 2.05; color: #4b5b58">予算を使うことが目的になり、<wbr />1回あたりの費用が高いまま。</p></div><div class="pain rv" style="padding: 24px 24px 26px"><p class="mono" style="margin: 0; font-size: 11px; font-weight: 600; letter-spacing: .12em; color: #b3261e">ISSUE 04</p><p style="margin: 10px 0 0; font-size: clamp(16px, 1.8vw, 18px); font-weight: 900; line-height: 1.75">前回の設定を、<wbr />コピーしただけ</p><p style="margin: 10px 0 0; font-size: 14px; line-height: 2.05; color: #4b5b58">今回の目的に合わせた設計が、<wbr />されていない。</p></div><div class="pain rv" style="padding: 24px 24px 26px"><p class="mono" style="margin: 0; font-size: 11px; font-weight: 600; letter-spacing: .12em; color: #b3261e">ISSUE 05</p><p style="margin: 10px 0 0; font-size: clamp(16px, 1.8vw, 18px); font-weight: 900; line-height: 1.75">質問しても、<wbr />理由が返ってこない</p><p style="margin: 10px 0 0; font-size: 14px; line-height: 2.05; color: #4b5b58">「どこを見ればわかるか」も教えてもらえず、<wbr />ブラックボックスのまま。</p></div><div class="pain rv" style="padding: 24px 24px 26px"><p class="mono" style="margin: 0; font-size: 11px; font-weight: 600; letter-spacing: .12em; color: #b3261e">ISSUE 06</p><p style="margin: 10px 0 0; font-size: clamp(16px, 1.8vw, 18px); font-weight: 900; line-height: 1.75">営業と運用の担当が、<wbr />分かれている</p><p style="margin: 10px 0 0; font-size: 14px; line-height: 2.05; color: #4b5b58">伝言ゲームになり、<wbr />こちらの意図が運用まで届かない。</p></div>
 </div>
 <p style="margin: 22px 0 0; font-size: 12px; line-height: 2; color: #4b5b58">※実際の支援で見かけた事例をもとに、<wbr />内容を一般化しています。</p>
@@ -538,12 +575,13 @@ br.nopc{display:none}
 <h3 style="margin: 14px 0 0; font-size: clamp(24px, 3.6vw, 40px); font-weight: 900; line-height: 1.6">第三者が入ると、<wbr />会話がこう変わる。</h3>
 <p style="margin: 14px 0 0; font-size: 15px; line-height: 2.1; color: #2c3b38">動画広告を代理店に任せていた、<wbr />ある会社の実例です。</p>
 </div>
-<div class="csl">
+<div class="csl swp">
 <div class="cst rv"><div class="csh"><span class="csno mono">DAY 1</span><span class="cstag">見つける</span></div><p class="cstt">管理画面を、<wbr />第三者が確認</p><ul class="csf"><li>事前に頼んだ除外が、<wbr />入っていない</li><li>縦型の動画が、<wbr />横向きの画面に出ている</li><li>伝えた上限より、<wbr />高い単価で入札されている</li></ul></div>
 <div class="cst rv"><div class="csh"><span class="csno mono">DAY 2</span><span class="cstag">聞ける</span></div><p class="cstt">どこを見れば、<wbr />指摘できるか</p><div class="csm u"><span class="csw">担当者</span><p>管理画面のどこを見たら、<wbr />指摘できるのか分かりません。</p></div><div class="csm a"><span class="csw">第三者</span><p>見る場所はここです。<wbr />この画面を、<wbr />代理店に<wbr />見せてください。</p></div></div>
 <div class="cst rv"><div class="csh"><span class="csno mono">DAY 2</span><span class="cstag">言える</span></div><p class="cstt">代理店の返答を、<wbr />整理する</p><div class="csm g"><span class="csw">代理店</span><p>意図して配信しています。<wbr />単価を下げると、<wbr />予算を使い切れません。</p></div><div class="csm a"><span class="csw">第三者</span><p>予算を使い切ることは、<wbr />目的ではありません。<wbr />依頼は、この2点に絞りましょう。</p></div></div>
 <div class="cst rv"><div class="csh"><span class="csno mono">DAY 5</span><span class="cstag">決められる</span></div><p class="cstt">数字で、<wbr />判断する</p><div class="csm g"><span class="csw">代理店</span><p>届けきれないと、<wbr />集客の機会損失になります。</p></div><div class="csm u"><span class="csw">担当者</span><p>そう言われると、<wbr />迷います…。</p></div><div class="csm a"><span class="csw">第三者</span><p>同じ単価で<wbr />配信できている<wbr />例があります。<wbr />配信面を直せば、<wbr />届けられます。</p></div></div>
 </div>
+<p class="swh" aria-hidden="true"><span>横にスワイプして、DAY 5まで</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></p>
 <div class="csr rv">
 <p class="csrl">入札を見直した結果</p>
 <p class="csrn">1回の視聴あたりの費用が、<span class="num">約半分</span>に。</p>
@@ -554,7 +592,7 @@ br.nopc{display:none}
 </div>
 </section>
 
-<section id="s-turn" data-sec="4" style="scroll-margin-top: 120px; position: relative; padding: clamp(130px, 17vw, 220px) 20px; background: var(--ac); color: #ffffff; overflow: hidden; text-align: center">
+<section id="s-turn" data-sec="4" style="scroll-margin-top: 120px; position: relative; padding: clamp(84px, 10.5vw, 148px) 20px; background: var(--ac); color: #ffffff; overflow: hidden; text-align: center">
 <svg class="ring" width="560" height="560" viewBox="0 0 36 36" aria-hidden="true" style="position: absolute; right: -180px; top: -120px; opacity: .14"><g transform="rotate(-90 18 18)" fill="none" stroke-width="4"><circle cx="18" cy="18" r="14" stroke="#ffffff" stroke-dasharray="20 2"></circle></g></svg>
 <div style="position: relative; max-width: 1100px; margin: 0 auto">
 <p class="rv" style="margin: 0; font-size: clamp(20px, 2.6vw, 28px); font-weight: 900; letter-spacing: .08em">だから、</p>
@@ -562,7 +600,7 @@ br.nopc{display:none}
 <span class="stl"><span>代理店は、</span></span>
 <span class="stl d2"><span>そのままでいい。</span></span>
 </h2>
-<p class="rv" style="margin: clamp(40px, 5vw, 56px) 0 0; font-size: clamp(16px, 1.8vw, 18px); line-height: 2.35; letter-spacing: .06em; color: #e6f4f1">代理店を替えるのは、<wbr />社内の手続きも<wbr />引き継ぎも大仕事。<br />セカンドオピニオンなら、<wbr />今の体制のまま、<br />判断の材料だけを増やせます。</p>
+<p class="rv" style="margin: clamp(40px, 5vw, 56px) 0 0; font-size: clamp(16px, 1.8vw, 18px); line-height: 2.15; letter-spacing: .06em; color: #e6f4f1">代理店を替えるのは、<wbr />社内の手続きも<wbr />引き継ぎも大仕事。<br />セカンドオピニオンなら、<wbr />今の体制のまま、<br />判断の材料だけを増やせます。</p>
 <div class="rv dgm" style="margin-top: clamp(56px, 7vw, 80px)">
 <div class="dnode" style="position: relative; padding: 26px 20px 24px; background: #0f1d1b; border-radius: 20px; text-align: center; box-shadow: 0 30px 60px -30px rgba(0,0,0,.6)">
 <p class="mono" style="margin: 0; font-size: 11px; font-weight: 600; letter-spacing: .16em; color: var(--mint)">SECOND OPINION</p>
@@ -582,23 +620,23 @@ br.nopc{display:none}
 <p style="margin: 8px 0 0; font-size: 13px; line-height: 1.85; color: #e6f4f1">今のまま、<wbr />運用を続ける</p>
 </div>
 </div>
-<p class="rv" style="margin: 56px 0 0; font-size: clamp(19px, 2.4vw, 28px); font-weight: 900; line-height: 1.85; letter-spacing: .03em">代理店の敵でも味方でもなく、<br class="sp" />御社の側の目として。</p>
+<p class="rv" style="margin: clamp(36px, 5vw, 56px) 0 0; font-size: clamp(19px, 2.4vw, 28px); font-weight: 900; line-height: 1.85; letter-spacing: .03em">代理店の敵でも味方でもなく、<br class="sp" />御社の側の目として。</p>
 <div class="rv" style="margin-top: 40px; display: flex; flex-direction: column; align-items: center">
 <p class="bub tb" style="margin: 0 0 14px; font-size: clamp(14px, 1.8vw, 16px)">聞きにくいことも、代わりに聞きます。</p>
-<img class="float" src="/_blob/d009faf0f2363bdce882360048468aa5" alt="手を差し出して紹介するスプレッドシート担当のキャラクター" style="display: block; width: clamp(130px, 17vw, 170px); height: auto" />
+<img loading="lazy" decoding="async" width="413" height="640" class="float" src="/_blob/d009faf0f2363bdce882360048468aa5" alt="手を差し出して紹介するスプレッドシート担当のキャラクター" style="display: block; width: clamp(130px, 17vw, 170px); height: auto" />
 </div>
 </div>
 </section>
 
-<section id="s-check" data-sec="5" style="scroll-margin-top: 120px; padding: clamp(120px, 16vw, 200px) 20px">
+<section id="s-check" data-sec="5" style="scroll-margin-top: 120px; padding: clamp(72px, 9vw, 128px) 20px">
 <div style="max-width: 1200px; margin: 0 auto">
 <div class="rv" style="text-align: center">
 <p style="margin: 0; display: flex; align-items: baseline; justify-content: center; gap: 14px"><span class="mono" style="font-size: 14px; font-weight: 600; letter-spacing: .14em; color: var(--ac-dk)">点検する領域</span><span class="num" style="font-size: clamp(72px, 10vw, 112px); line-height: 1; color: var(--ac)">4</span></p>
 <p class="mono" style="margin: 6px 0 0; font-size: 13px; font-weight: 600; letter-spacing: .14em; color: #4b5b58">F1 / WHAT WE CHECK</p>
 <h2 style="margin: 24px 0 0; font-size: clamp(30px, 5vw, 56px); font-weight: 900; line-height: 1.45; letter-spacing: .02em">広告だけじゃなく、<br /><span style="background: linear-gradient(transparent 62%, var(--ac-md) 62%)">体制まで見る。</span></h2>
-<p style="margin: 32px 0 0; font-size: clamp(15px, 1.7vw, 17px); line-height: 2.3; letter-spacing: .05em; color: #2c3b38">数字のズレが<wbr />どこで生まれているかを、<br />4つの領域から確かめます。</p>
+<p style="margin: 32px 0 0; font-size: clamp(15px, 1.7vw, 17px); line-height: 2.1; letter-spacing: .05em; color: #2c3b38">数字のズレが<wbr />どこで生まれているかを、<br />4つの領域から確かめます。</p>
 </div>
-<div class="g4" style="margin-top: 56px">
+<div class="g4" style="margin-top: clamp(36px, 5vw, 56px)">
 <article class="ccard rv" style="background: #ffffff; border: 1px solid #cfd9d6; border-radius: 16px; overflow: hidden">
 <div class="mono" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 16px; background: #f1f4f3; border-bottom: 1px solid #dfe6e4; font-size: 12px; font-weight: 600; color: #4b5b58"><span>A</span><span>ACCOUNT</span></div>
 <div style="padding: 24px 22px 28px">
@@ -655,15 +693,15 @@ br.nopc{display:none}
 </div>
 </section>
 
-<section id="s-self" data-sec="6" style="scroll-margin-top: 120px; padding: clamp(120px, 16vw, 200px) 20px; background: #f4f8f7">
+<section id="s-self" data-sec="6" style="scroll-margin-top: 120px; padding: clamp(72px, 9vw, 128px) 20px; background: #f4f8f7">
 <div style="max-width: 1060px; margin: 0 auto">
 <div class="rv" style="text-align: center">
 <p class="mono" style="margin: 0; font-size: 13px; font-weight: 600; letter-spacing: .14em; color: var(--ac-dk)">G1 / SELF CHECK</p>
 <h2 style="margin: 18px 0 0; font-size: clamp(30px, 5vw, 56px); font-weight: 900; line-height: 1.5; letter-spacing: .02em">まずは、<br /><span style="background: linear-gradient(transparent 62%, var(--ac-md) 62%)">自分で見てみる。</span></h2>
-<p style="margin: 32px 0 0; font-size: clamp(15px, 1.7vw, 17px); line-height: 2.3; letter-spacing: .05em; color: #2c3b38">管理画面の、<wbr />ここだけ見れば大丈夫。<br />媒体ごとに、<wbr />すぐできるチェックをまとめました。</p>
+<p style="margin: 32px 0 0; font-size: clamp(15px, 1.7vw, 17px); line-height: 2.1; letter-spacing: .05em; color: #2c3b38">管理画面の、<wbr />ここだけ見れば大丈夫。<br />媒体ごとに、<wbr />すぐできるチェックをまとめました。</p>
 <div style="margin-top: 36px; display: flex; flex-direction: column; align-items: center">
 <p class="bub tb" style="margin: 0 0 14px; font-size: clamp(14px, 1.8vw, 16px)">赤い枠のところを、<wbr />見てみてね。</p>
-<img class="float" src="/_blob/9e99daa89bd9b584cdc0f0b84a27d01f" alt="左を指さすスプレッドシート担当のキャラクター" style="display: block; width: clamp(120px, 15vw, 160px); height: auto" />
+<img loading="lazy" decoding="async" width="421" height="640" class="float" src="/_blob/9e99daa89bd9b584cdc0f0b84a27d01f" alt="左を指さすスプレッドシート担当のキャラクター" style="display: block; width: clamp(120px, 15vw, 160px); height: auto" />
 </div>
 </div>
 <div style="margin-top: 48px; display: grid; gap: 14px">
@@ -728,14 +766,14 @@ br.nopc{display:none}
 </div>
 </section>
 
-<section id="s-find" data-sec="7" style="scroll-margin-top: 120px; padding: clamp(120px, 16vw, 200px) 20px; background: #f4f8f7">
+<section id="s-find" data-sec="7" style="scroll-margin-top: 120px; padding: clamp(72px, 9vw, 128px) 20px; background: #f4f8f7">
 <div style="max-width: 1040px; margin: 0 auto">
 <div class="rv" style="text-align: center">
 <p class="mono" style="margin: 0; font-size: 13px; font-weight: 600; letter-spacing: .14em; color: var(--ac-dk)">H1 / FINDINGS</p>
 <h2 style="margin: 18px 0 0; font-size: clamp(30px, 5vw, 56px); font-weight: 900; line-height: 1.45; letter-spacing: .02em">指摘で終わらせず、<br /><span style="background: linear-gradient(transparent 62%, var(--ac-md) 62%)">直し方まで。</span></h2>
 <div style="margin-top: 36px; display: flex; flex-direction: column; align-items: center">
 <p class="bub tb" style="margin: 0 0 14px; font-size: clamp(14px, 1.8vw, 16px)">見つけたら、直し方もセットで。</p>
-<img class="float" src="/_blob/fc377c8e75ee4f8dd6f56fea7ae316e2" alt="アラートの鳴ったタブレットを持つスプレッドシート担当のキャラクター" style="display: block; width: clamp(120px, 16vw, 160px); height: auto" />
+<img loading="lazy" decoding="async" width="349" height="640" class="float" src="/_blob/fc377c8e75ee4f8dd6f56fea7ae316e2" alt="アラートの鳴ったタブレットを持つスプレッドシート担当のキャラクター" style="display: block; width: clamp(120px, 16vw, 160px); height: auto" />
 </div>
 </div>
 <div class="mono rv" style="margin-top: 48px; display: grid; grid-template-columns: minmax(0, 1fr) 64px minmax(0, 1fr); font-size: 12px; font-weight: 600; letter-spacing: .12em; color: #4b5b58" aria-hidden="true"><span>所見（よくある例）</span><span></span><span class="hide-sm">改善</span></div>
@@ -765,14 +803,14 @@ br.nopc{display:none}
 </div>
 </section>
 
-<section id="s-next" data-sec="8" style="scroll-margin-top: 120px; padding: clamp(130px, 17vw, 220px) 20px; background: #0f1d1b; color: #ffffff">
+<section id="s-next" data-sec="8" style="scroll-margin-top: 120px; padding: clamp(84px, 10.5vw, 148px) 20px; background: #0f1d1b; color: #ffffff">
 <div style="max-width: 1040px; margin: 0 auto">
 <div class="rv" style="text-align: center">
 <p class="mono" style="margin: 0; font-size: 13px; font-weight: 600; letter-spacing: .14em; color: var(--mint)">I1 / NEXT STEP</p>
 <h2 style="margin: 18px 0 0; font-size: clamp(30px, 5vw, 56px); font-weight: 900; line-height: 1.5; letter-spacing: .02em">どんな結果でも、<br /><span style="color: var(--mint)">次の一手</span>が見つかる。</h2>
-<p style="margin: 32px 0 0; font-size: clamp(15px, 1.7vw, 17px); line-height: 2.3; letter-spacing: .05em; color: #c9d6d3">点検の結果は、大きく2通り。<br />どちらでも、<wbr />御社がやることが<wbr />はっきりします。</p>
+<p style="margin: 32px 0 0; font-size: clamp(15px, 1.7vw, 17px); line-height: 2.1; letter-spacing: .05em; color: #c9d6d3">点検の結果は、大きく2通り。<br />どちらでも、<wbr />御社がやることが<wbr />はっきりします。</p>
 </div>
-<div class="rv" style="margin-top: 64px; display: flex; flex-direction: column; align-items: center">
+<div class="rv" style="margin-top: clamp(40px, 5.5vw, 64px); display: flex; flex-direction: column; align-items: center">
 <div style="width: 100%; max-width: 480px; background: #ffffff; color: #0f1d1b; border-radius: 16px; overflow: hidden; box-shadow: 0 30px 60px -30px rgba(0,0,0,.6)">
 <div class="mono" style="display: flex; align-items: center; gap: 10px; padding: 10px 16px; border-bottom: 1px solid #dfe6e4; font-size: 12px; white-space: nowrap; overflow: hidden"><span style="font-style: italic; font-weight: 600; color: #5f6d6a">fx</span>=IF(運用に問題, 結果B, 結果A)</div>
 <p style="margin: 0; padding: 20px; font-size: 18px; font-weight: 900; text-align: center">セカンドオピニオン監査</p>
@@ -788,7 +826,7 @@ br.nopc{display:none}
 <div style="padding: 28px 26px; background: #ffffff; color: #0f1d1b; border-radius: 18px; box-shadow: 0 30px 60px -30px rgba(0,0,0,.6)">
 <p class="mono" style="margin: 0; font-size: 11px; font-weight: 600; letter-spacing: .16em; color: var(--ac-dk)">MERIT</p>
 <h3 style="margin: 10px 0 0; font-size: clamp(20px, 2.2vw, 24px); font-weight: 900; line-height: 1.55">別の視点から、<br />伸ばす提案を。</h3>
-<p style="margin: 14px 0 0; font-size: 15px; line-height: 2.2; color: #2c3b38">代理店とは違う角度から、<wbr />予算配分や訴求の<wbr />改善案を出します。<br />今の体制のまま、<wbr />成果の上積みを狙えます。</p>
+<p style="margin: 14px 0 0; font-size: 15px; line-height: 2.05; color: #2c3b38">代理店とは違う角度から、<wbr />予算配分や訴求の<wbr />改善案を出します。<br />今の体制のまま、<wbr />成果の上積みを狙えます。</p>
 </div>
 </div>
 <div class="rv nxB">
@@ -799,7 +837,7 @@ br.nopc{display:none}
 <div style="padding: 28px 26px; background: #ffffff; color: #0f1d1b; border-radius: 18px; box-shadow: 0 30px 60px -30px rgba(0,0,0,.6)">
 <p class="mono" style="margin: 0; font-size: 11px; font-weight: 600; letter-spacing: .16em; color: var(--ac-dk)">MERIT</p>
 <h3 style="margin: 10px 0 0; font-size: clamp(20px, 2.2vw, 24px); font-weight: 900; line-height: 1.55">関係を崩さずに、<br />伝えられる。</h3>
-<p style="margin: 14px 0 0; font-size: 15px; line-height: 2.2; color: #2c3b38">代理店との関係を崩さないよう、<wbr />伝え方と依頼の内容を<wbr />一緒に整理します。<br />定例での確認も、<wbr />代わりに行えます。</p>
+<p style="margin: 14px 0 0; font-size: 15px; line-height: 2.05; color: #2c3b38">代理店との関係を崩さないよう、<wbr />伝え方と依頼の内容を<wbr />一緒に整理します。<br />定例での確認も、<wbr />代わりに行えます。</p>
 </div>
 <div class="vl" aria-hidden="true"></div>
 <p style="margin: 0; text-align: center"><span style="display: inline-block; padding: 5px 14px; border: 1px solid var(--mint); border-radius: 999px; background: #0f1d1b; font-size: 13px; font-weight: 900; letter-spacing: .06em; color: var(--mint)">それでも改善しない場合</span></p>
@@ -807,32 +845,32 @@ br.nopc{display:none}
 <div style="padding: 26px 26px; border: 2px dashed rgba(255,255,255,.4); border-radius: 18px">
 <p class="mono" style="margin: 0; font-size: 11px; font-weight: 600; letter-spacing: .16em; color: var(--mint)">OPTION</p>
 <h3 style="margin: 10px 0 0; font-size: clamp(19px, 2vw, 22px); font-weight: 900; line-height: 1.55">社内で回せる体制へ。</h3>
-<p style="margin: 14px 0 0; font-size: 15px; line-height: 2.2; color: #c9d6d3">インハウス化の支援や、<wbr />運用の引き継ぎも<wbr />ご相談いただけます。<br />無理にお勧めすることは<wbr />ありません。</p>
+<p style="margin: 14px 0 0; font-size: 15px; line-height: 2.05; color: #c9d6d3">インハウス化の支援や、<wbr />運用の引き継ぎも<wbr />ご相談いただけます。<br />無理にお勧めすることは<wbr />ありません。</p>
 </div>
 </div>
 </div>
-<div class="rv" style="margin-top: 80px; display: flex; flex-direction: column; align-items: center; text-align: center">
+<div class="rv" style="margin-top: clamp(44px, 6.5vw, 80px); display: flex; flex-direction: column; align-items: center; text-align: center">
 <p class="bub tb" style="margin: 0 0 14px; font-size: clamp(14px, 1.8vw, 16px)">どっちの結果でも、<wbr />ムダになりません。</p>
-<img class="float" src="/_blob/57ae9add0a8c7f5b18ed39e3952e8d79" alt="指さして案内するスプレッドシート担当のキャラクター" style="display: block; width: clamp(120px, 15vw, 160px); height: auto" />
+<img loading="lazy" decoding="async" width="401" height="640" class="float" src="/_blob/57ae9add0a8c7f5b18ed39e3952e8d79" alt="指さして案内するスプレッドシート担当のキャラクター" style="display: block; width: clamp(120px, 15vw, 160px); height: auto" />
 <a class="cta" href="#s-booking" style="margin-top: 28px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 64px; padding: 0 30px; background: var(--ac); color: #ffffff; border-radius: 999px; font-size: clamp(15px, 1.8vw, 17px); font-weight: 900; letter-spacing: .04em"><span>自社の広告も診断してもらう（無料）</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
 </div>
 </div>
 </section>
 
-<section id="s-plan" data-sec="9" style="scroll-margin-top: 120px; padding: clamp(120px, 16vw, 200px) 20px; background-image: linear-gradient(#eef3f1 1px, transparent 1px), linear-gradient(90deg, #eef3f1 1px, transparent 1px); background-size: 120px 36px">
+<section id="s-plan" data-sec="9" style="scroll-margin-top: 120px; padding: clamp(72px, 9vw, 128px) 20px; background-image: linear-gradient(#eef3f1 1px, transparent 1px), linear-gradient(90deg, #eef3f1 1px, transparent 1px); background-size: 120px 36px">
 <div style="max-width: 1200px; margin: 0 auto">
 <div class="rv" style="text-align: center">
 <p class="mono" style="margin: 0; font-size: 13px; font-weight: 600; letter-spacing: .14em; color: var(--ac-dk)">J1 / PLAN</p>
 <h2 style="margin: 18px 0 0; font-size: clamp(30px, 5vw, 56px); font-weight: 900; line-height: 1.45; letter-spacing: .02em">まずは<br class="sp" />無料診断から。<br />続けるかは、<br class="sp" />そのあとで。</h2>
 </div>
-<div class="g3 glowwrap" style="margin-top: 64px; align-items: stretch">
+<div class="g3 glowwrap" style="margin-top: clamp(40px, 5.5vw, 64px); align-items: stretch">
 <article class="rv" style="position: relative; display: flex; flex-direction: column; background: #ffffff; border: 1px solid #cfd9d6; border-radius: 24px; overflow: hidden">
 <div class="mono" style="display: flex; align-items: center; justify-content: space-between; padding: 9px 20px; background: #f1f4f3; border-bottom: 1px solid #dfe6e4; font-size: 12px; font-weight: 600; color: #4b5b58"><span>STEP 01</span><span>A</span></div>
 <div style="flex: 1; display: flex; flex-direction: column; padding: 28px 26px 30px">
 <h3 style="margin: 0; font-size: 24px; font-weight: 900; line-height: 1.45">無料診断</h3>
 <p style="margin: 18px 0 0; display: flex; align-items: baseline; gap: 6px"><span class="num" style="font-size: 56px; line-height: 1">0</span><span style="font-size: 17px; font-weight: 900">円</span></p>
 <p style="margin: 8px 0 0; font-size: 13px; font-weight: 700; color: #4b5b58">オンライン・60分</p>
-<p style="margin: 18px 0 0; font-size: 15px; line-height: 2.2; color: #2c3b38">広告アカウントを拝見し、<wbr />優先して見直す点を<wbr />3つお伝えします。</p>
+<p style="margin: 18px 0 0; font-size: 15px; line-height: 2.05; color: #2c3b38">広告アカウントを拝見し、<wbr />優先して見直す点を<wbr />3つお伝えします。</p>
 <ul style="list-style: none; margin: auto 0 0; padding: 22px 0 0; display: grid; gap: 14px; font-size: 14px; font-weight: 700; border-top: 1px solid #dfe6e4">
 <li style="display: flex; align-items: center; gap: 10px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--ac)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>閲覧権限だけで確認</li>
 <li style="display: flex; align-items: center; gap: 10px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--ac)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>見直す点を3つに絞って提示</li>
@@ -846,7 +884,7 @@ br.nopc{display:none}
 <h3 style="margin: 0; font-size: 24px; font-weight: 900; line-height: 1.45">セカンドオピニオン<wbr />監査</h3>
 <p style="margin: 18px 0 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px"><span class="num" style="font-size: 56px; line-height: 1">10</span><span style="font-size: 17px; font-weight: 900">万円</span><span style="font-size: 12px; font-weight: 700; color: #4b5b58">（税別）</span></p>
 <p style="margin: 8px 0 0; font-size: 13px; font-weight: 700; color: #4b5b58">1回のみ・約2週間</p>
-<p style="margin: 18px 0 0; font-size: 15px; line-height: 2.2; color: #2c3b38">広告・計測・LPを点検し、<wbr />所見と改善案を<wbr />レポートにまとめます。</p>
+<p style="margin: 18px 0 0; font-size: 15px; line-height: 2.05; color: #2c3b38">広告・計測・LPを点検し、<wbr />所見と改善案を<wbr />レポートにまとめます。</p>
 <ul style="list-style: none; margin: auto 0 0; padding: 22px 0 0; display: grid; gap: 14px; font-size: 14px; font-weight: 700; border-top: 1px solid #dfe6e4">
 <li style="display: flex; align-items: center; gap: 10px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--ac)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>4つの領域をまとめて点検</li>
 <li style="display: flex; align-items: center; gap: 10px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--ac)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>優先度つきの改善案</li>
@@ -896,13 +934,13 @@ br.nopc{display:none}
 </div>
 </section>
 
-<section id="s-adv" data-sec="10" style="scroll-margin-top: 120px; padding: clamp(120px, 16vw, 200px) 20px; background: var(--ac-lt)">
+<section id="s-adv" data-sec="10" style="scroll-margin-top: 120px; padding: clamp(72px, 9vw, 128px) 20px; background: var(--ac-lt)">
 <div style="max-width: 1200px; margin: 0 auto">
 <div class="rv" style="text-align: center">
 <p class="mono" style="margin: 0; font-size: 13px; font-weight: 600; letter-spacing: .14em; color: var(--ac-dk)">K1 / MONTHLY</p>
 <h2 style="margin: 18px 0 0; font-size: clamp(30px, 5vw, 56px); font-weight: 900; line-height: 1.45; letter-spacing: .02em">顧問になると、<br />毎月これを<br class="sp" />やります。</h2>
 </div>
-<div style="margin-top: 56px; display: flex; flex-wrap: wrap; align-items: flex-start; gap: 48px clamp(40px, 6vw, 72px)">
+<div style="margin-top: clamp(36px, 5vw, 56px); display: flex; flex-wrap: wrap; align-items: flex-start; gap: 48px clamp(40px, 6vw, 72px)">
 <ol class="rv" style="flex: 1 1 440px; min-width: 0; list-style: none; margin: 0; padding: 0; background: #ffffff; border: 1px solid #cfd9d6; border-radius: 18px; overflow: hidden">
 <li style="display: grid; grid-template-columns: 44px minmax(0, 1fr); border-bottom: 1px solid #dfe6e4"><span class="mono" style="display: flex; align-items: center; justify-content: center; background: #f1f4f3; border-right: 1px solid #dfe6e4; font-size: 12px; font-weight: 600; color: #4b5b58">1</span><div style="padding: 18px 20px"><p style="margin: 0; font-size: 18px; font-weight: 900">代理店との定例に同席</p><p style="margin: 4px 0 0; font-size: 14px; line-height: 2.05; color: #4b5b58">確認と質問を、<wbr />御社に代わって行います。</p></div></li>
 <li style="display: grid; grid-template-columns: 44px minmax(0, 1fr); border-bottom: 1px solid #dfe6e4"><span class="mono" style="display: flex; align-items: center; justify-content: center; background: #f1f4f3; border-right: 1px solid #dfe6e4; font-size: 12px; font-weight: 600; color: #4b5b58">2</span><div style="padding: 18px 20px"><p style="margin: 0; font-size: 18px; font-weight: 900">予算と優先順位を決める</p><p style="margin: 4px 0 0; font-size: 14px; line-height: 2.05; color: #4b5b58">月ごとに、<wbr />予算の配分と<wbr />改善の順番を決めます。</p></div></li>
@@ -913,7 +951,7 @@ br.nopc{display:none}
 <div class="rv" style="flex: 1 1 460px; min-width: 0">
 <div style="display: flex; align-items: flex-end; justify-content: flex-end; gap: 4px; margin-bottom: -20px; padding-right: 8px; position: relative; z-index: 2; pointer-events: none">
 <p class="bub tbr" style="min-width: 0; margin: 0 0 56px; font-size: clamp(12px, 1.4vw, 14px)">成果も、<wbr />数字で報告します。</p>
-<img class="float" src="/_blob/b3d66591b4c5e2c1ff3aeaaccd6c177f" alt="ノートパソコンで作業するスプレッドシート担当のキャラクター" style="display: block; width: clamp(110px, 13vw, 140px); height: auto" />
+<img loading="lazy" decoding="async" width="487" height="640" class="float" src="/_blob/b3d66591b4c5e2c1ff3aeaaccd6c177f" alt="ノートパソコンで作業するスプレッドシート担当のキャラクター" style="display: block; width: clamp(110px, 13vw, 140px); height: auto" />
 </div>
 <div style="background: #ffffff; border: 1px solid #cfd9d6; border-radius: 18px; box-shadow: 0 30px 60px -30px rgba(15,29,27,.35); overflow: hidden">
 <div style="display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-bottom: 1px solid #dfe6e4">
@@ -942,12 +980,12 @@ br.nopc{display:none}
 </div>
 </section>
 
-<section id="s-tool" data-sec="11" style="scroll-margin-top: 120px; padding: clamp(120px, 16vw, 200px) 20px">
+<section id="s-tool" data-sec="11" style="scroll-margin-top: 120px; padding: clamp(72px, 9vw, 128px) 20px">
 <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 56px clamp(40px, 6vw, 80px)">
 <div class="rv" style="flex: 1 1 420px; min-width: 0">
 <p class="mono" style="margin: 0; font-size: 13px; font-weight: 600; letter-spacing: .14em; color: var(--ac-dk)">L1 / OUR TOOL</p>
 <h2 style="margin: 18px 0 0; font-size: clamp(30px, 4.6vw, 52px); font-weight: 900; line-height: 1.45; letter-spacing: .02em">数字は、<br />御社のシートに<br />残ります。</h2>
-<p style="margin: 32px 0 0; font-size: clamp(15px, 1.7vw, 17px); line-height: 2.3; letter-spacing: .05em; color: #2c3b38">代理店のレポートとは別に、<wbr />広告の数字が毎朝、<wbr />御社のGoogleスプレッドシートに<wbr />届きます。<br />自社で数字を持てるので、<wbr />代理店の報告と<wbr />照らし合わせて確認できます。</p>
+<p style="margin: 32px 0 0; font-size: clamp(15px, 1.7vw, 17px); line-height: 2.1; letter-spacing: .05em; color: #2c3b38">代理店のレポートとは別に、<wbr />広告の数字が毎朝、<wbr />御社のGoogleスプレッドシートに<wbr />届きます。<br />自社で数字を持てるので、<wbr />代理店の報告と<wbr />照らし合わせて確認できます。</p>
 <div style="margin-top: 26px; display: flex; flex-wrap: wrap; gap: 10px">
 <p style="margin: 0; padding: 8px 16px; background: #0f1d1b; color: #ffffff; border-radius: 999px; font-size: 13px; font-weight: 900; letter-spacing: .04em">自社開発ツール「アドシート」</p>
 <p style="margin: 0; display: flex; align-items: center; gap: 8px; padding: 8px 16px; background: var(--ac-lt); color: var(--ac-dk); border-radius: 999px; font-size: 13px; font-weight: 900; letter-spacing: .04em"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Google Workspace Marketplace 掲載</p>
@@ -958,7 +996,7 @@ br.nopc{display:none}
 <div class="rv" style="flex: 1 1 480px; min-width: 0">
 <div style="display: flex; align-items: flex-end; justify-content: flex-end; gap: 4px; margin-bottom: -22px; padding-right: 8px; position: relative; z-index: 2; pointer-events: none">
 <p class="bub tbr" style="min-width: 0; margin: 0 0 54px; font-size: clamp(12px, 1.4vw, 14px)">集計は、<wbr />ぼくにおまかせ。</p>
-<img class="float" src="/_blob/3c846d0d4f378e42b91b887e37142bf2" alt="パソコンの横でくつろぐスプレッドシート担当のキャラクター" style="display: block; width: clamp(120px, 14vw, 160px); height: auto" />
+<img loading="lazy" decoding="async" width="579" height="640" class="float" src="/_blob/3c846d0d4f378e42b91b887e37142bf2" alt="パソコンの横でくつろぐスプレッドシート担当のキャラクター" style="display: block; width: clamp(120px, 14vw, 160px); height: auto" />
 </div>
 <div style="background: #ffffff; border: 1px solid #cfd9d6; border-radius: 18px; overflow: hidden; box-shadow: 0 30px 60px -30px rgba(15,29,27,.35)">
 <div style="display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-bottom: 1px solid #dfe6e4">
@@ -1011,13 +1049,13 @@ br.nopc{display:none}
 </div>
 </section>
 
-<section id="s-me" data-sec="12" style="scroll-margin-top: 120px; padding: clamp(120px, 16vw, 200px) 20px; background: #f4f8f7">
+<section id="s-me" data-sec="12" style="scroll-margin-top: 120px; padding: clamp(72px, 9vw, 128px) 20px; background: #f4f8f7">
 <div style="max-width: 1040px; margin: 0 auto">
 <div class="rv" style="text-align: center">
 <p class="mono" style="margin: 0; font-size: 13px; font-weight: 600; letter-spacing: .14em; color: var(--ac-dk)">M1 / ADVISOR</p>
 <h2 style="margin: 18px 0 0; font-size: clamp(30px, 5vw, 56px); font-weight: 900; line-height: 1.45; letter-spacing: .02em">担当するのは、<br />運用の現場に<br class="sp" />いる人です。</h2>
 </div>
-<div class="rv" style="margin-top: 52px; display: flex; flex-wrap: wrap; align-items: center; gap: 28px 40px; padding: clamp(28px, 4vw, 48px); background: #0f1d1b; color: #ffffff; border-radius: 28px; box-shadow: 0 40px 80px -48px rgba(15,29,27,.7)">
+<div class="rv" style="margin-top: clamp(32px, 4.5vw, 52px); display: flex; flex-wrap: wrap; align-items: center; gap: 28px 40px; padding: clamp(28px, 4vw, 48px); background: #0f1d1b; color: #ffffff; border-radius: 28px; box-shadow: 0 40px 80px -48px rgba(15,29,27,.7)">
 <div style="flex: none; position: relative; width: 120px; height: 120px">
 <svg class="ring" width="120" height="120" viewBox="0 0 36 36" aria-hidden="true" style="position: absolute; inset: 0"><g transform="rotate(-90 18 18)" fill="none" stroke-width="2"><circle cx="18" cy="18" r="17" stroke="#EA4335" stroke-dasharray="26.7 80.1"></circle><circle cx="18" cy="18" r="17" stroke="#FBBC04" stroke-dasharray="26.7 80.1" stroke-dashoffset="-26.7"></circle><circle cx="18" cy="18" r="17" stroke="#34A853" stroke-dasharray="26.7 80.1" stroke-dashoffset="-53.4"></circle><circle cx="18" cy="18" r="17" stroke="#4285F4" stroke-dasharray="26.7 80.1" stroke-dashoffset="-80.1"></circle></g></svg>
 <div style="position: absolute; inset: 10px; border-radius: 50%; background: var(--ac); display: flex; align-items: center; justify-content: center; font-size: 46px; font-weight: 900; color: #ffffff">松</div>
@@ -1026,11 +1064,11 @@ br.nopc{display:none}
 <p class="mono" style="margin: 0; font-size: 12px; font-weight: 600; letter-spacing: .14em; color: var(--mint)">ADVISOR</p>
 <p style="margin: 8px 0 0; font-size: clamp(28px, 3.4vw, 40px); font-weight: 900; letter-spacing: .04em">松崎 慎</p>
 <p style="margin: 6px 0 0; font-size: 14px; font-weight: 700; color: var(--mint)">Web広告アドバイザー／<wbr />アドシート制作者</p>
-<p style="margin: 18px 0 0; font-size: 15px; line-height: 2.3; color: #c9d6d3">広告の運用と、<wbr />成果を測る仕組みづくりを<wbr />担当してきました。<br />レポート作りを<wbr />自動化するために、<wbr />アドシートを開発しました。</p>
+<p style="margin: 18px 0 0; font-size: 15px; line-height: 2.1; color: #c9d6d3">広告の運用と、<wbr />成果を測る仕組みづくりを<wbr />担当してきました。<br />レポート作りを<wbr />自動化するために、<wbr />アドシートを開発しました。</p>
 <div class="snsb" style="margin-top: 20px"><a class="sns x" href="https://x.com/Shin_Adg" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg><span>Xで広告の話を発信中</span></a><a class="sns li" href="https://www.linkedin.com/" target="_blank" rel="noopener"><span class="lig" aria-hidden="true">in</span><span>詳しい経歴はLinkedIn</span></a></div>
 </div>
 </div>
-<div class="rv g4" style="margin-top: 16px">
+<div class="rv g4 pst" style="margin-top: 16px">
 <div style="padding: 24px; background: #ffffff; border: 1px solid #cfd9d6; border-radius: 18px; text-align: center">
 <p style="margin: 0; font-size: 13px; font-weight: 700; color: #4b5b58">最大月間運用額</p>
 <p style="margin: 10px 0 0; display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center; gap: 4px; white-space: nowrap"><span class="num" style="font-size: 54px; line-height: 1; color: var(--ac-dk)">2,000</span><span style="font-size: 16px; font-weight: 900">万円</span></p>
@@ -1048,18 +1086,19 @@ br.nopc{display:none}
 <p style="margin: 14px 0 0; font-size: 18px; font-weight: 900; line-height: 1.85">Google・Yahoo!・<wbr />Microsoft・Meta<wbr /><span style="font-size: 14px; color: #4b5b58">ほか</span></p>
 </div>
 </div>
-<div class="rv" style="margin-top: 72px; text-align: center">
+<div class="rv" style="margin-top: clamp(52px, 6.5vw, 72px); text-align: center">
 <p class="mono" style="margin: 0; font-size: 13px; font-weight: 600; letter-spacing: .14em; color: var(--ac-dk)">RESULTS</p>
 <h3 style="margin: 14px 0 0; font-size: clamp(26px, 4vw, 42px); font-weight: 900; line-height: 1.5">改善の実績も、<wbr />数字で。</h3>
 </div>
-<div class="g3" style="margin-top: 36px">
+<div class="g3 csrow swp" style="margin-top: 36px">
 <div class="rv cs"><p class="csl">スポーツインナー（EC）</p><p class="csk">広告経由の年間売上</p><p class="csn"><span class="num">5.7</span><span class="u">倍</span></p><div class="ba"><div class="bar"><span>2023年</span><span class="t"><i style="width: 17.6%"></i><b>463万円</b></span></div><div class="bar on"><span>2025年</span><span class="t"><i style="width: 100%"></i><b>2,630万円</b></span></div></div><div class="chips"><span>ROAS <em>193%→225%</em></span><span>客単価 <em>4,607→5,657円</em></span></div><p class="csd">広告費を広げながら、<wbr />効率も上げました。<wbr />2026年はROAS 320%で推移中。</p></div>
-<div class="rv cs"><p class="csl">新車ディーラー</p><p class="csk">任されている年間の広告費</p><p class="csn"><span class="u">約</span><span class="num" style="font-size: clamp(50px, 5.2vw, 70px)">5,600</span><span class="u">万円</span></p><div class="ba"><div class="bar"><span>2020年</span><span class="t"><i style="width: 65.5%"></i><b>3,670万円</b></span></div><div class="bar on"><span>2025年</span><span class="t"><i style="width: 100%"></i><b>5,600万円</b></span></div></div><div class="chips"><span>CV数 <em>250%増</em></span><span>CPA <em>40%改善</em></span><span>中古車の成約 <em>2倍</em></span></div><p class="csd"><b style="color: #ffffff">5年以上、継続して担当。</b><wbr />Google・Yahoo!・Metaを<wbr />横断して運用し、<wbr />任される予算も増えてきました。</p></div>
+<div class="rv cs"><p class="csl">新車ディーラー</p><p class="csk">任されている年間の広告費</p><p class="csn"><span class="u">約</span><span class="num" style="font-size: clamp(50px, 5.2vw, 70px)">5,600</span><span class="u">万円</span></p><div class="ba"><div class="bar"><span>2020年</span><span class="t"><i style="width: 65.5%"></i><b>3,670万円</b></span></div><div class="bar on"><span>2025年</span><span class="t"><i style="width: 100%"></i><b>5,600万円</b></span></div></div><div class="chips"><span>CV数 <em>250%増</em></span><span>CPA <em>40%改善</em></span><span>中古車の成約 <em>2倍</em></span></div><p class="csd"><b style="color: #ffffff">5年以上、継続して担当。</b><wbr />Google・Yahoo!・Metaを<wbr />横断して運用し、<wbr />任される予算も増えてきました。</p><a class="csgo" href="/lp/car/">新車ディーラー向けの<wbr />ページを見る<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a></div>
 <div class="rv cs"><p class="csl">水まわり修理</p><p class="csk">管理画面と、実際の数字のズレ</p><p class="csn"><span class="num">2.5</span><span class="u">倍</span></p><div class="ba"><div class="bar"><span>管理画面</span><span class="t"><i style="width: 40%"></i><b>CPA 1.9万円</b></span></div><div class="bar ng"><span>実際の案件</span><span class="t"><i style="width: 100%"></i><b>CPA 4.7万円</b></span></div></div><div class="chips"><span>成果の薄い29語に <em>約620万円</em></span></div><p class="csd">通話の中身まで照合して、<wbr />“好調”に見えていた<wbr />数字の実態を、<wbr />洗い出しました。</p></div>
 </div>
+<p class="swh" aria-hidden="true"><span>横にスワイプして、ほかの実績も</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></p>
 <div class="rv" style="margin-top: 20px; background: #ffffff; border: 1px solid #cfd9d6; border-radius: 18px; overflow: hidden; box-shadow: 0 24px 50px -34px rgba(15,29,27,.35)">
-<div class="mono" style="display: flex; align-items: center; gap: 10px; padding: 10px 16px; border-bottom: 1px solid #dfe6e4; font-size: 12px"><span style="font-style: italic; font-weight: 600; color: #5f6d6a">fx</span>=改善実績(業種別)</div>
-<div class="mono" style="display: grid; grid-template-columns: minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr); background: #f1f4f3; border-bottom: 1px solid #dfe6e4; font-size: 12px; font-weight: 600; color: #4b5b58"><span style="padding: 9px 14px; border-right: 1px solid #dfe6e4">A 業種</span><span style="padding: 9px 14px; border-right: 1px solid #dfe6e4">B 成果</span><span style="padding: 9px 14px">C 効率</span></div><div style="display: grid; grid-template-columns: minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr); border-bottom: 1px solid #dfe6e4; background: var(--ac-lt);"><span style="padding: 16px 14px; border-right: 1px solid #dfe6e4; font-size: 15px; font-weight: 900; line-height: 1.6; word-break: keep-all; overflow-wrap: anywhere">新車ディーラー</span><span style="padding: 16px 14px; border-right: 1px solid #dfe6e4; font-size: 15px; font-weight: 900; line-height: 1.6"><span style="color: #1e8e3e">▲</span> 250%増</span><span style="padding: 16px 14px; font-size: 15px; font-weight: 900; line-height: 1.6"><span style="color: #1e8e3e">▼</span> 40%改善</span><span style="grid-column: 1 / -1; padding: 0 14px 16px; font-size: 13px; font-weight: 700; line-height: 1.9; color: #4b5b58; word-break: keep-all; overflow-wrap: anywhere">中古車の2週間キャンペーンでは、<wbr />広告費30万円で、<wbr />チラシだけの時の2倍の成約。</span></div><div style="display: grid; grid-template-columns: minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr); border-bottom: 1px solid #dfe6e4; "><span style="padding: 16px 14px; border-right: 1px solid #dfe6e4; font-size: 15px; font-weight: 900; line-height: 1.6; word-break: keep-all; overflow-wrap: anywhere">スポーツインナー（EC）</span><span style="padding: 16px 14px; border-right: 1px solid #dfe6e4; font-size: 15px; font-weight: 900; line-height: 1.6"><span style="color: #1e8e3e">▲</span> 売上5.7倍</span><span style="padding: 16px 14px; font-size: 15px; font-weight: 900; line-height: 1.6"><span style="color: #1e8e3e">▲</span> ROAS 225%</span><span style="grid-column: 1 / -1; padding: 0 14px 16px; font-size: 13px; font-weight: 700; line-height: 1.9; color: #4b5b58; word-break: keep-all; overflow-wrap: anywhere">広告経由の売上 463万円→2,630万円<wbr />（2023年→2025年）。<wbr />LPの改善も自分で実施。</span></div><div style="display: grid; grid-template-columns: minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr); border-bottom: 1px solid #dfe6e4; "><span style="padding: 16px 14px; border-right: 1px solid #dfe6e4; font-size: 15px; font-weight: 900; line-height: 1.6; word-break: keep-all; overflow-wrap: anywhere">水まわり修理</span><span style="padding: 16px 14px; border-right: 1px solid #dfe6e4; font-size: 15px; font-weight: 900; line-height: 1.6"><span style="color: #EA4335">●</span> 実CPAは2.5倍</span><span style="padding: 16px 14px; font-size: 15px; font-weight: 900; line-height: 1.6"><span style="color: #EA4335">●</span> ムダ 約620万円</span><span style="grid-column: 1 / -1; padding: 0 14px 16px; font-size: 13px; font-weight: 700; line-height: 1.9; color: #4b5b58; word-break: keep-all; overflow-wrap: anywhere">管理画面のCPA 1.9万円に対し、<wbr />実際の案件化CPAは4.7万円。<wbr />成果の薄い29語を洗い出し。</span></div><div style="display: grid; grid-template-columns: minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr); border-bottom: 1px solid #dfe6e4; "><span style="padding: 16px 14px; border-right: 1px solid #dfe6e4; font-size: 15px; font-weight: 900; line-height: 1.6; word-break: keep-all; overflow-wrap: anywhere">ベビー用品の雑貨店</span><span style="padding: 16px 14px; border-right: 1px solid #dfe6e4; font-size: 15px; font-weight: 900; line-height: 1.6"><span style="color: #1e8e3e">▲</span> 200%増</span><span style="padding: 16px 14px; font-size: 15px; font-weight: 900; line-height: 1.6"><span style="color: #1e8e3e">▼</span> 30%改善</span></div><div style="display: grid; grid-template-columns: minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr); border-bottom: 1px solid #dfe6e4; "><span style="padding: 16px 14px; border-right: 1px solid #dfe6e4; font-size: 15px; font-weight: 900; line-height: 1.6; word-break: keep-all; overflow-wrap: anywhere">リフォーム</span><span style="padding: 16px 14px; border-right: 1px solid #dfe6e4; font-size: 15px; font-weight: 900; line-height: 1.6">維持</span><span style="padding: 16px 14px; font-size: 15px; font-weight: 900; line-height: 1.6"><span style="color: #1e8e3e">▼</span> 30%改善</span><span style="grid-column: 1 / -1; padding: 0 14px 16px; font-size: 13px; font-weight: 700; line-height: 1.9; color: #4b5b58; word-break: keep-all; overflow-wrap: anywhere">同じ件数を、<wbr />3割安く獲得。</span></div><div style="display: grid; grid-template-columns: minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr);  "><span style="padding: 16px 14px; border-right: 1px solid #dfe6e4; font-size: 15px; font-weight: 900; line-height: 1.6; word-break: keep-all; overflow-wrap: anywhere">人材派遣（電機系）</span><span style="padding: 16px 14px; border-right: 1px solid #dfe6e4; font-size: 15px; font-weight: 900; line-height: 1.6"><span style="color: #1e8e3e">▲</span> 120%増</span><span style="padding: 16px 14px; font-size: 15px; font-weight: 900; line-height: 1.6"><span style="color: #1e8e3e">▼</span> 20%改善</span></div>
+<div class="mono" style="display: flex; align-items: center; gap: 10px; padding: 10px 16px; border-bottom: 1px solid #dfe6e4; font-size: 12px"><span style="font-style: italic; font-weight: 600; color: #5f6d6a">fx</span>=改善実績(そのほかの業種)</div>
+<div class="mono rhead" style="display: grid; grid-template-columns: minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr); background: #f1f4f3; border-bottom: 1px solid #dfe6e4; font-size: 12px; font-weight: 600; color: #4b5b58"><span style="padding: 9px 14px; border-right: 1px solid #dfe6e4">A 業種</span><span style="padding: 9px 14px; border-right: 1px solid #dfe6e4">B 成果</span><span style="padding: 9px 14px">C 効率</span></div><div class="rrow" style="display: grid; grid-template-columns: minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr); border-bottom: 1px solid #dfe6e4; "><span style="padding: 16px 14px; border-right: 1px solid #dfe6e4; font-size: 15px; font-weight: 900; line-height: 1.6; word-break: keep-all; overflow-wrap: anywhere">ベビー用品の雑貨店</span><span style="padding: 16px 14px; border-right: 1px solid #dfe6e4; font-size: 15px; font-weight: 900; line-height: 1.6"><span style="color: #1e8e3e">▲</span> 200%増</span><span style="padding: 16px 14px; font-size: 15px; font-weight: 900; line-height: 1.6"><span style="color: #1e8e3e">▼</span> 30%改善</span></div><div class="rrow" style="display: grid; grid-template-columns: minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr); border-bottom: 1px solid #dfe6e4; "><span style="padding: 16px 14px; border-right: 1px solid #dfe6e4; font-size: 15px; font-weight: 900; line-height: 1.6; word-break: keep-all; overflow-wrap: anywhere">リフォーム</span><span style="padding: 16px 14px; border-right: 1px solid #dfe6e4; font-size: 15px; font-weight: 900; line-height: 1.6">維持</span><span style="padding: 16px 14px; font-size: 15px; font-weight: 900; line-height: 1.6"><span style="color: #1e8e3e">▼</span> 30%改善</span><span style="grid-column: 1 / -1; padding: 0 14px 16px; font-size: 13px; font-weight: 700; line-height: 1.9; color: #4b5b58; word-break: keep-all; overflow-wrap: anywhere">同じ件数を、<wbr />3割安く獲得。</span></div><div class="rrow" style="display: grid; grid-template-columns: minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr);  "><span style="padding: 16px 14px; border-right: 1px solid #dfe6e4; font-size: 15px; font-weight: 900; line-height: 1.6; word-break: keep-all; overflow-wrap: anywhere">人材派遣（電機系）</span><span style="padding: 16px 14px; border-right: 1px solid #dfe6e4; font-size: 15px; font-weight: 900; line-height: 1.6"><span style="color: #1e8e3e">▲</span> 120%増</span><span style="padding: 16px 14px; font-size: 15px; font-weight: 900; line-height: 1.6"><span style="color: #1e8e3e">▼</span> 20%改善</span></div>
 </div>
 <div class="rv g3" style="margin-top: 16px">
 <div style="padding: 22px; background: #ffffff; border: 1px solid #cfd9d6; border-radius: 16px"><p style="margin: 0; font-size: 13px; font-weight: 700; color: #4b5b58">アドアフィリエイト（個人）</p><p style="margin: 8px 0 0; font-size: 17px; font-weight: 900; line-height: 1.7">年間売上 最高<span class="num" style="font-size: 30px; color: var(--ac-dk)"> 2,000</span>万円</p><p style="margin: 6px 0 0; font-size: 13px; line-height: 1.9; color: #4b5b58">LP・広告画像・運用を<wbr />1人で担当。<wbr />広告費 約1,700万円で、<wbr />成果 7,800件超。</p></div>
@@ -1070,18 +1109,18 @@ br.nopc{display:none}
 </div>
 </section>
 
-<section id="s-faq" data-sec="13" style="scroll-margin-top: 120px; padding: clamp(120px, 16vw, 200px) 20px">
+<section id="s-faq" data-sec="13" style="scroll-margin-top: 120px; padding: clamp(72px, 9vw, 128px) 20px">
 <div style="max-width: 760px; margin: 0 auto">
 <div class="rv" style="text-align: center">
 <p class="mono" style="margin: 0; font-size: 13px; font-weight: 600; letter-spacing: .14em; color: var(--ac-dk)">N1 / FAQ</p>
 <h2 style="margin: 18px 0 0; font-size: clamp(28px, 4.4vw, 48px); font-weight: 900; line-height: 1.5; letter-spacing: .02em">よくある質問</h2>
 </div>
-<div style="margin-top: 48px; border: 1px solid #dfe6e4; border-radius: 16px; overflow: hidden; background: #ffffff">
+<div style="margin-top: clamp(32px, 4.2vw, 48px); border: 1px solid #dfe6e4; border-radius: 16px; overflow: hidden; background: #ffffff">
 <sc-for list="{{faqs}}" as="f" hint-placeholder-count="8">
 <div style="border-top: {{f.border}}">
 <button class="fq" type="button" onClick="{{f.toggle}}" aria-expanded="{{f.expanded}}" style="width: 100%; min-height: 68px; display: flex; align-items: center; gap: 14px; padding: 18px 22px; border: 0; cursor: pointer; text-align: left; font-family: inherit; font-size: 16px; font-weight: 900; letter-spacing: .03em; color: #0f1d1b"><span class="mono" style="flex: none; font-size: 13px; font-weight: 600; color: var(--ac-dk)">Q{{f.no}}</span><span style="flex: 1; line-height: 1.85">{{f.q}}</span><span style="flex: none; display: flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 50%; background: #f4f8f7; font-size: 18px; font-weight: 700">{{f.sign}}</span></button>
 <sc-if value="{{f.open}}" hint-placeholder-val="{{false}}">
-<p style="margin: 0; padding: 0 22px 22px 58px; font-size: 15px; line-height: 2.3; letter-spacing: .04em; color: #2c3b38">{{f.a}}</p>
+<p style="margin: 0; padding: 0 22px 22px 58px; font-size: 15px; line-height: 2.1; letter-spacing: .04em; color: #2c3b38">{{f.a}}</p>
 </sc-if>
 </div>
 </sc-for>
@@ -1089,7 +1128,7 @@ br.nopc{display:none}
 </div>
 </section>
 
-<section id="s-booking" data-sec="14" style="scroll-margin-top: 120px; padding: clamp(120px, 16vw, 200px) 20px; background-image: linear-gradient(#eef3f1 1px, transparent 1px), linear-gradient(90deg, #eef3f1 1px, transparent 1px); background-size: 120px 36px">
+<section id="s-booking" data-sec="14" style="scroll-margin-top: 120px; padding: clamp(72px, 9vw, 128px) 20px; background-image: linear-gradient(#eef3f1 1px, transparent 1px), linear-gradient(90deg, #eef3f1 1px, transparent 1px); background-size: 120px 36px">
 <div style="max-width: 860px; margin: 0 auto">
 <div class="rv" style="text-align: center; margin-bottom: 56px">
 <p class="mono" style="margin: 0; font-size: 13px; font-weight: 600; letter-spacing: .14em; color: var(--ac-dk)">O1 / FREE DIAGNOSIS</p>
@@ -1097,13 +1136,13 @@ br.nopc{display:none}
 </div>
 <div class="rv" style="display: flex; flex-direction: column; align-items: center; margin-bottom: -4px; position: relative; z-index: 1">
 <p class="bub tb" style="margin: 0 0 12px; font-size: clamp(14px, 1.8vw, 16px)">まずは、見せてください。</p>
-<img class="float" src="/_blob/a4ec0ea43cbb84e44281187bad1be94a" alt="親指を立てるスプレッドシート担当のキャラクター" style="display: block; width: clamp(130px, 18vw, 180px); height: auto" />
+<img loading="lazy" decoding="async" width="352" height="640" class="float" src="/_blob/a4ec0ea43cbb84e44281187bad1be94a" alt="親指を立てるスプレッドシート担当のキャラクター" style="display: block; width: clamp(130px, 18vw, 180px); height: auto" />
 </div>
 <div class="rv" style="position: relative; background: #ffffff; border: 1px solid #cfd9d6; border-radius: 24px; overflow: hidden; box-shadow: 0 40px 80px -48px rgba(15,29,27,.45)">
 <div class="mono" style="display: flex; align-items: center; gap: 10px; padding: 12px 20px; border-bottom: 1px solid #dfe6e4; font-size: 13px"><span style="font-style: italic; font-weight: 600; color: #5f6d6a">fx</span>=無料診断("予約")</div>
 <div style="padding: clamp(40px, 6vw, 64px) clamp(20px, 4vw, 48px); text-align: center">
 <h2 style="margin: 0; font-size: clamp(30px, 5vw, 56px); font-weight: 900; line-height: 1.4; letter-spacing: .02em">まずは、<br /><span style="color: var(--ac-dk)">無料診断</span>から。</h2>
-<p style="margin: 24px 0 0; font-size: 16px; line-height: 2.35; letter-spacing: .05em; color: #2c3b38">広告アカウントの<wbr />閲覧権限だけで、<br />すぐに診断できます。<br />無理な営業はしません。</p>
+<p style="margin: 24px 0 0; font-size: 16px; line-height: 2.15; letter-spacing: .05em; color: #2c3b38">広告アカウントの<wbr />閲覧権限だけで、<br />すぐに診断できます。<br />無理な営業はしません。</p>
 <div style="max-width: 520px; margin: 34px auto 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid #dfe6e4; border-radius: 14px; overflow: hidden">
 <div style="padding: 18px 6px 20px; border-right: 1px solid #dfe6e4; text-align: center"><p style="margin: 0; display: flex; align-items: baseline; justify-content: center; gap: 2px"><span class="num" style="font-size: clamp(36px, 5vw, 46px); line-height: 1; color: var(--ac-dk)">3</span><span style="font-size: 14px; font-weight: 900">つ</span></p><p style="margin: 10px 0 0; font-size: 12px; font-weight: 700; line-height: 1.8; color: #4b5b58">見直す点を<wbr />3つに絞る</p></div>
 <div style="padding: 18px 6px 20px; border-right: 1px solid #dfe6e4; text-align: center"><p style="margin: 0; display: flex; align-items: baseline; justify-content: center; gap: 2px"><span class="num" style="font-size: clamp(36px, 5vw, 46px); line-height: 1; color: var(--ac-dk)">1</span><span style="font-size: 14px; font-weight: 900">枚</span></p><p style="margin: 10px 0 0; font-size: 12px; font-weight: 700; line-height: 1.8; color: #4b5b58">結果は<wbr />シート1枚</p></div>
@@ -1136,7 +1175,7 @@ br.nopc{display:none}
 
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#138275","options":["#138275","#1a73e8","#0f1d1b","#c2410c"],"section":"カラー"},"$preview":{"width":1440,"height":25600}}'>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#138275","options":["#138275","#1a73e8","#0f1d1b","#c2410c"],"section":"カラー"},"$preview":{"width":1440,"height":25200}}'>
 class Component extends DCLogic {
   constructor(props) {
     super(props);

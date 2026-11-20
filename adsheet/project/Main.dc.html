@@ -335,7 +335,8 @@ html{scroll-behavior:smooth}
 .pts span{color:#5b6f64}
 .s3w{position:relative;width:min(560px,92vw);margin:0 auto;animation:ent 1.2s cubic-bezier(.2,1.5,.3,1) .2s backwards}
 @keyframes ent{from{opacity:0;transform:scale(.25) rotate(-30deg) translateY(120px)}}
-.s3d{width:100%;aspect-ratio:1;background-image:url(/_blob/9735d181bd74249e3a7dd510f323b16d);background-size:1200% 800%;background-position:0 0;animation:sx .5s steps(12,jump-none) infinite,sy 4s steps(8,jump-none) infinite}
+.s3d{width:100%;aspect-ratio:1;background-size:1200% 800%;background-position:0 0;animation:sx .5s steps(12,jump-none) infinite,sy 4s steps(8,jump-none) infinite}
+.s3w.on .s3d{background-image:url(/_blob/9735d181bd74249e3a7dd510f323b16d)}
 @keyframes sx{from{background-position-x:0%}to{background-position-x:100%}}
 @keyframes sy{from{background-position-y:0%}to{background-position-y:100%}}
 .cf{position:absolute;width:18px;height:18px;border-radius:5px;animation:cfl 5s ease-in-out infinite}
@@ -826,7 +827,7 @@ p.only-sp{display:block !important}
 <p class="eb">WHY ADSHEET</p>
 <h2 class="h2 ka">選ばれる理由は、<wbr />3つ。</h2>
 </div>
-<div class="s3w" role="img" aria-label="スプレッドシートの上に数字の棒が立ち上がり、広告媒体のブロックから数字が流れ込む3Dアニメーション"><i class="cf c1"></i><i class="cf c2"></i><i class="cf c3"></i><i class="cf c4"></i><div class="s3d"></div></div>
+<div class="s3w {{s3cls}}" role="img" aria-label="スプレッドシートの上に数字の棒が立ち上がり、広告媒体のブロックから数字が流れ込む3Dアニメーション"><i class="cf c1"></i><i class="cf c2"></i><i class="cf c3"></i><i class="cf c4"></i><div class="s3d"></div></div>
 </div>
 <div class="rn">
 <div class="rnh"><p class="rno mono">01</p><h3 class="ka">直感操作。<wbr />選んで、<wbr />押すだけ。</h3><p class="rtx">Marketplaceから追加して、スプレッドシートの「拡張機能」から呼び出すだけ。媒体と項目を選んで「書き出す」を押せば完了です。</p></div>
@@ -961,7 +962,7 @@ p.only-sp{display:block !important}
 <div class="clc">
 <div class="cin">
 <div class="crow"><p>広告アカウントの数</p><div class="stpr"><button type="button" aria-label="アカウント数を減らす" onClick="{{decA}}">−</button><output class="mono">{{cA}}<small>件</small></output><button type="button" aria-label="アカウント数を増やす" onClick="{{incA}}">＋</button></div></div>
-<div class="crow"><p>1アカウントあたりの作業<small>（1週間）</small></p><div class="stpr"><button type="button" aria-label="作業時間を減らす" onClick="{{decM}}">−</button><output class="mono">{{cM}}<small>分</small></output><button type="button" aria-label="作業時間を増やす" onClick="{{incM}}">＋</button></div></div>
+<div class="crow"><p class="ka">1アカウントの<wbr />作業時間<small>（1週間）</small></p><div class="stpr"><button type="button" aria-label="作業時間を減らす" onClick="{{decM}}">−</button><output class="mono">{{cM}}<small>分</small></output><button type="button" aria-label="作業時間を増やす" onClick="{{incM}}">＋</button></div></div>
 <div class="crow"><p>時給の目安</p><div class="stpr"><button type="button" aria-label="時給を下げる" onClick="{{decW}}">−</button><output class="mono">{{cWs}}<small>円</small></output><button type="button" aria-label="時給を上げる" onClick="{{incW}}">＋</button></div></div>
 </div>
 <div class="cout">
@@ -1056,7 +1057,7 @@ p.only-sp{display:block !important}
 <p class="pcn only-sp" style="color: #e3f1ea">アドシートはPCのGoogleスプレッドシートで使います。<b>{{shareMsg}}</b></p>
 <p class="fin2"><a href="https://www.ad-sheet.com/inquiry" target="_blank" rel="noopener">導入の前に相談したい方は、お問い合わせへ</a></p>
 </div>
-<img src="/_blob/e75bf4817e3ee91217b26f9e29df6ebd" alt="親指を立てるアドシートのキャラクター" style="display: block; width: clamp(150px, 20vw, 210px); height: auto" />
+<img loading="lazy" decoding="async" width="352" height="640" src="/_blob/e75bf4817e3ee91217b26f9e29df6ebd" alt="親指を立てるアドシートのキャラクター" style="display: block; width: clamp(150px, 20vw, 210px); height: auto" />
 </div>
 </section>
 
@@ -1075,7 +1076,21 @@ p.only-sp{display:block !important}
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { m: 0, bill: 'y', faq: -1, copied: 0, rep: 0, cA: 3, cM: 30, cW: 2000 };
+    this.state = { m: 0, bill: 'y', faq: -1, copied: 0, rep: 0, cA: 3, cM: 30, cW: 2000, s3: false };
+  }
+
+  componentDidMount() {
+    const el = document.querySelector('.s3w');
+    if (!el) return;
+    if (!('IntersectionObserver' in window)) { this.setState({ s3: true }); return; }
+    this.io = new IntersectionObserver((es) => {
+      if (es.some((e) => e.isIntersecting)) { this.setState({ s3: true }); this.io.disconnect(); }
+    }, { rootMargin: '600px 0px' });
+    this.io.observe(el);
+  }
+
+  componentWillUnmount() {
+    if (this.io) this.io.disconnect();
   }
 
   renderVals() {
@@ -1131,7 +1146,7 @@ class Component extends DCLogic {
       byCls: y ? 'on' : '', bmCls: y ? '' : 'on', byOn: y ? 'true' : 'false', bmOn: y ? 'false' : 'true',
       setY: () => this.setState({ bill: 'y' }), setM: () => this.setState({ bill: 'm' }),
       pMin: y ? '990円' : '1,237円', pStd: y ? '3,500円' : '4,375円', pPre: y ? '5,900円' : '7,375円', pNote: y ? '年払いの場合' : '月払いの場合',
-      faqs: faqs,
+      faqs: faqs, s3cls: s.s3 ? 'on' : '',
       repTabs: repTabs, repRows: repRows, repTitle: R.t, repCap: R.cap,
       repHead: { h0: R.h[0], h1: R.h[1], h2: R.h[2], h3: R.h[3], h4: R.h[4] },
       cA: s.cA, cM: s.cM, cWs: s.cW.toLocaleString('ja-JP'),

@@ -51,8 +51,8 @@ const IMG_FILES = {
   'chars/magnify.webp': W + '/mob/chars/magnify.webp',
   'chars/alert.webp': W + '/mob/chars/alert.webp',
   'adsheet/hero3d.webp': W + '/adsheet/sheet.webp',
-  'adsheet/logo_full.png': W + '/adsheet/logo_full.png',
-  'adsheet/logo_mark.png': W + '/adsheet/logo_mark.png'
+  'adsheet/logo_full.png': W + '/adsheet/logo_full_web.png', // 640px・減色（元は1280px）
+  'adsheet/logo_mark.png': W + '/adsheet/logo_mark_web.png' // 128px・減色（元は381px）
 };
 for (const [, [id, file, rel]] of Object.entries(CAR_BLOBS)) IMG_FILES[rel] = path.join(W, file);
 const assetUrl = (rel) => (rel.endsWith('.mp4') ? '/assets/media/' : '/assets/img/') + rel;
@@ -162,7 +162,7 @@ const MAIN = [
       s = must(s, '<a class="cta" href="#s-booking" style="margin-top: 36px;', '<a class="cta" href="/inquiry/?type=shindan" style="margin-top: 36px;');
       s = must(s,
         '<a href="#s-top" style="color: #e6eeec">特定商取引法に基づく表記</a><a href="#s-top" style="color: #e6eeec">プライバシーポリシー</a><a href="#s-booking" style="color: #e6eeec">お問い合わせ</a>',
-        '<a href="/tokusho/" style="color: #e6eeec">特定商取引法に基づく表記</a><a href="/privacy/" style="color: #e6eeec">プライバシーポリシー</a><a href="/inquiry/?type=shindan" style="color: #e6eeec">お問い合わせ</a><a href="/tool/" style="color: #e6eeec">広告レポート自動化ツール「アドシート」</a>');
+        '<a href="/tokusho/" style="color: #e6eeec">特定商取引法に基づく表記</a><a href="/privacy/" style="color: #e6eeec">プライバシーポリシー</a><a href="/inquiry/?type=shindan" style="color: #e6eeec">お問い合わせ</a><a href="/lp/car/" style="color: #e6eeec">新車ディーラーの方へ</a><a href="/tool/" style="color: #e6eeec">広告レポート自動化ツール「アドシート」</a>');
       // 顧問の解約条件は未確定のため、仮置きの文字を出さない
       s = s.replace(/\u200b?\[更新・解約の条件\]/, () => '');
       if (s.includes('更新・解約の条件]')) throw new Error('仮置きの文字が残っています');
@@ -210,11 +210,37 @@ const MAIN = [
   }
 ];
 
+// 検索エンジン向けの構造化データ（ページに書いてある事実だけ）
+const PERSON = { '@type': 'Person', '@id': ORIGIN + '/#shin', name: '松崎 慎', jobTitle: 'Web広告アドバイザー', url: ORIGIN + '/', sameAs: ['https://x.com/Shin_Adg', LINKEDIN] };
+const OFFERS = [
+  { '@type': 'Offer', name: '無料診断', price: '0', priceCurrency: 'JPY' },
+  { '@type': 'Offer', name: 'セカンドオピニオン監査', price: '100000', priceCurrency: 'JPY', valueAddedTaxIncluded: false },
+  { '@type': 'Offer', name: 'Web広告アドバイザー（月額・6か月から）', price: '400000', priceCurrency: 'JPY', valueAddedTaxIncluded: false }
+];
+const LD = {
+  top: { '@context': 'https://schema.org', '@graph': [
+    { '@type': 'WebSite', '@id': ORIGIN + '/#website', url: ORIGIN + '/', name: 'しんのWeb広告セカンドオピニオン', inLanguage: 'ja' },
+    PERSON,
+    { '@type': 'Service', '@id': ORIGIN + '/#service', name: 'しんのWeb広告セカンドオピニオン', serviceType: 'Web広告のセカンドオピニオン', url: ORIGIN + '/', provider: { '@id': ORIGIN + '/#shin' }, areaServed: { '@type': 'Country', name: '日本' }, offers: OFFERS }
+  ] },
+  tool: { '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: 'アドシート', url: ORIGIN + '/tool/', applicationCategory: 'BusinessApplication', operatingSystem: 'Google スプレッドシート', inLanguage: 'ja', offers: { '@type': 'Offer', price: '0', priceCurrency: 'JPY' }, author: { '@type': 'Person', name: '松崎 慎', url: ORIGIN + '/' } },
+  car: { '@context': 'https://schema.org', '@graph': [
+    PERSON,
+    { '@type': 'Service', name: '新車ディーラーのWeb広告セカンドオピニオン', serviceType: 'Web広告のセカンドオピニオン', url: ORIGIN + '/lp/car/', audience: { '@type': 'BusinessAudience', name: '新車ディーラーの販促・Web担当' }, provider: { '@id': ORIGIN + '/#shin' }, areaServed: { '@type': 'Country', name: '日本' }, offers: OFFERS },
+    { '@type': 'BreadcrumbList', itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'しんのWeb広告セカンドオピニオン', item: ORIGIN + '/' },
+      { '@type': 'ListItem', position: 2, name: '新車ディーラー版', item: ORIGIN + '/lp/car/' }
+    ] }
+  ] }
+};
+const ldTag = (o) => o ? `<script type="application/ld+json">${JSON.stringify(o).replace(/</g, '\\u003c')}</script>` : '';
+
 function mainShell(p, helmet, ssr, v) {
   return `<!doctype html>
 <html lang="ja">
 <head>
 ${headCommon(p)}
+${ldTag(LD[p.key])}
 ${helmet}
 </head>
 <body>
@@ -240,6 +266,7 @@ function docShell({ path: p, title, desc, h1, body, robots, extra }) {
 ${headCommon({ title, desc, url: p ? ORIGIN + p : '', og: 'og-tool.png', site: 'アドシート', robots })}
 ${FONT_DOC}
 <link rel="stylesheet" href="/assets/css/doc.css?v=${DOC_CSS_V}">
+${h1 && p ? ldTag({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'アドシート', item: ORIGIN + '/tool/' }, { '@type': 'ListItem', position: 2, name: h1, item: ORIGIN + p }] }) : ''}
 </head>
 <body>
 <header class="hd"><div class="wrap">
@@ -326,7 +353,30 @@ function docBody(key) {
   if (key === 'tos') {
     raw = must(raw, 'お問い合わせフォームよりご連絡ください。', '<a href="/inquiry/">お問い合わせフォーム</a>よりご連絡ください。');
   }
-  return docify(raw);
+  return addToc(docify(raw));
+}
+
+// 見出し（h3）が3つ以上あるページに「このページの内容」を入れる
+function addToc(html) {
+  const heads = [];
+  let n = 0;
+  const out = html.replace(/<h3>([\s\S]*?)<\/h3>/g, (m, inner) => {
+    n += 1;
+    const id = 'sec' + n;
+    const label = inner.replace(/<[^>]+>/g, '').replace(/[\s\u3000]+/g, ' ').replace(/ ・ /g, '・').replace(/ (?=[\u3040-\u30ff\u4e00-\u9fff])/g, '').trim();
+    heads.push({ id, label });
+    return `<h3 id="${id}">${inner}</h3>`;
+  });
+  if (heads.length < 3) return html;
+  const items = heads.map((h) => `<li><a href="#${h.id}">${h.label}</a></li>`).join('');
+  const many = heads.length > 6;
+  const toc = many
+    ? `<details class="toc many"><summary>このページの内容<span>${heads.length}項目</span></summary><ol>${items}</ol></details>`
+    : `<nav class="toc" aria-label="このページの内容"><p class="tch">このページの内容</p><ol>${items}</ol></nav>`;
+  const i3 = out.indexOf('<h3 id="sec1"');
+  const iq = out.indexOf('<h4 class="q"');
+  const at = iq >= 0 && iq < i3 ? iq : i3;
+  return out.slice(0, at) + toc + '\n' + out.slice(at);
 }
 
 function inquiryPage() {

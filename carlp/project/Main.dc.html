@@ -130,7 +130,7 @@ a{color:#0c5e54}a:hover{color:#0f1d1b}
 @media (max-width:560px){.scene{border-radius:20px}.meter{width:36%}.tg2{display:none}.scene .paint{display:none}.paintM{display:flex;justify-content:center;align-items:center;gap:8px;margin:10px 0 0}.paintM span{font-size:12px;font-weight:900;color:var(--sub);margin-right:2px}}
 
 /* セクション共通 */
-.sec{position:relative;padding:clamp(96px,13vw,170px) 0}
+.sec{position:relative;padding:clamp(64px,8.5vw,120px) 0}
 .eb{margin:0;font-size:13px;font-weight:600;letter-spacing:.12em;color:var(--ac-dk)}
 .h2{margin:14px 0 0;font-size:clamp(28px,4.6vw,52px);line-height:1.32;font-weight:900;letter-spacing:-.01em}
 .sub{margin:18px 0 0;font-size:clamp(15px,1.7vw,17px);font-weight:700;color:var(--sub);line-height:1.9}
@@ -145,7 +145,7 @@ a{color:#0c5e54}a:hover{color:#0f1d1b}
 
 /* あるある */
 .aru{background:var(--bg2)}
-.aruG{margin-top:44px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:28px;align-items:start}
+.aruG{margin-top:clamp(28px,4vw,44px);display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:28px;align-items:start}
 @media (max-width:900px){.aruG{grid-template-columns:minmax(0,1fr)}}
 .alist{display:flex;flex-direction:column;gap:10px}
 .ai{display:flex;align-items:center;gap:14px;width:100%;min-height:64px;padding:12px 16px;border:2px solid #d6e0dc;border-radius:16px;background:#ffffff;color:var(--ink);font:inherit;font-size:clamp(14px,1.6vw,16px);font-weight:700;text-align:left;cursor:pointer;transition:border-color .2s ease,background .2s ease,transform .2s ease}
@@ -173,7 +173,7 @@ a{color:#0c5e54}a:hover{color:#0f1d1b}
 .dcta a{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 22px;border-radius:999px;background:var(--sun);color:#3a2b00 !important;font-size:15px;font-weight:900;text-decoration:none}
 
 /* 現場で起きていること */
-.isG{margin-top:44px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.isG{margin-top:clamp(28px,4vw,44px);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
 @media (max-width:900px){.isG{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:600px){.isG{grid-template-columns:minmax(0,1fr)}}
 .isc{position:relative;padding:22px 22px 20px;border:1px solid var(--line);border-radius:20px;background:#ffffff;overflow:hidden}
@@ -189,7 +189,7 @@ a{color:#0c5e54}a:hover{color:#0f1d1b}
 
 /* 点検する8か所 */
 .ck{background:linear-gradient(180deg,#ffffff 0%,#f3f7f5 100%)}
-.ckG{margin-top:40px;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:28px;align-items:center}
+.ckG{margin-top:clamp(28px,4vw,40px);display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:28px;align-items:center}
 @media (max-width:900px){.ckG{grid-template-columns:minmax(0,1fr)}}
 .ckCar{position:relative;padding:4% 2% 2%;border-radius:28px;background:#ffffff;border:1px solid var(--line);background-image:linear-gradient(#eef3f1 1px,transparent 1px),linear-gradient(90deg,#eef3f1 1px,transparent 1px);background-size:40px 40px}
 .ckStage{position:relative;aspect-ratio:1600/660}
@@ -215,7 +215,7 @@ a{color:#0c5e54}a:hover{color:#0f1d1b}
 .ckChips button.on{border-color:var(--ac);background:var(--ac-lt);color:var(--ac-dk)}
 
 /* 実績 */
-.res{margin-top:44px;padding:clamp(22px,3.4vw,40px);border-radius:28px;background:#13201c;color:#e7f0ec;overflow:hidden;position:relative}
+.res{margin-top:clamp(28px,4vw,44px);padding:clamp(22px,3.4vw,40px);border-radius:28px;background:#13201c;color:#e7f0ec;overflow:hidden;position:relative}
 .resh{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
 .resh .tag{padding:4px 14px;border-radius:999px;background:var(--sun);color:#3a2b00;font-size:14px;font-weight:900}
 .resh span{font-size:14px;font-weight:700;color:#b9ccc5}
@@ -254,7 +254,7 @@ a{color:#0c5e54}a:hover{color:#0f1d1b}
 .odo .dg span{animation:odo linear both;animation-timeline:view();animation-range:entry 0% entry 80%;animation-timing-function:steps(var(--d),end)}
 }
 @keyframes odo{from{transform:translateY(0)}to{transform:translateY(calc(var(--d) * -1em))}}
-.doh{margin:56px 0 0;font-size:clamp(20px,2.4vw,26px);font-weight:900}
+.doh{margin:clamp(40px,5vw,56px) 0 0;font-size:clamp(20px,2.4vw,26px);font-weight:900}
 .doG{margin:20px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 @media (max-width:700px){.doG{grid-template-columns:minmax(0,1fr)}}
 .doG li{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border:1px solid var(--line);border-radius:16px;background:#ffffff;font-size:15px;font-weight:700;line-height:1.7}
@@ -266,7 +266,7 @@ a{color:#0c5e54}a:hover{color:#0f1d1b}
 .vd .h2{color:#ffffff}
 .vd .sub{color:#b9ccc5}
 .vd .note{color:#9fb4ad}
-.vG{margin-top:48px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,4vw,48px);max-width:860px;margin-left:auto;margin-right:auto}
+.vG{margin-top:clamp(32px,4.4vw,48px);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,4vw,48px);max-width:860px;margin-left:auto;margin-right:auto}
 .ph{position:relative;margin:0 auto;width:100%;max-width:330px;padding:11px;border-radius:46px;background:#050807;box-shadow:0 0 0 2px #2c3b36,0 40px 60px -30px rgba(0,0,0,.8)}
 .ph::before{content:"";position:absolute;left:50%;top:20px;z-index:2;width:30%;height:22px;border-radius:999px;background:#050807;transform:translateX(-50%)}
 .ph video{display:block;width:100%;aspect-ratio:9/16;border-radius:36px;background:#fbf6ec;object-fit:cover}
@@ -274,7 +274,7 @@ a{color:#0c5e54}a:hover{color:#0f1d1b}
 .vcap .t{margin:0;display:flex;align-items:center;gap:8px;font-size:17px;font-weight:900;color:#ffffff}
 .vcap .t i{font-style:normal;padding:2px 10px;border-radius:999px;background:var(--sun);color:#3a2b00;font-size:12px}
 .vcap .f{margin:6px 0 0;font-size:13px;font-weight:700;color:#b9ccc5;line-height:1.7}
-.rules{margin:64px auto 0;max-width:960px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:28px;align-items:center}
+.rules{margin:clamp(40px,6vw,64px) auto 0;max-width:960px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:28px;align-items:center}
 @media (max-width:860px){.rules{grid-template-columns:minmax(0,1fr)}}
 .spinBox{position:relative;padding:18px 18px 16px;border-radius:26px;background:#f7f4ea;color:var(--ink)}
 .spinBox .st{margin:0;font-size:15px;font-weight:900}
@@ -289,7 +289,7 @@ a{color:#0c5e54}a:hover{color:#0f1d1b}
 .rlist li svg{flex:none;margin-top:3px;color:var(--sun)}
 
 /* 料金 */
-.plG{margin-top:44px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:stretch}
+.plG{margin-top:clamp(28px,4vw,44px);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:stretch}
 @media (max-width:900px){.plG{grid-template-columns:minmax(0,1fr)}}
 .pl{position:relative;display:flex;flex-direction:column;padding:26px 24px 24px;border:1px solid var(--line);border-radius:24px;background:#ffffff}
 .pl.main{border:2px solid var(--ac);box-shadow:0 30px 50px -36px color-mix(in srgb,var(--ac) 80%,transparent)}
@@ -307,7 +307,7 @@ a{color:#0c5e54}a:hover{color:#0f1d1b}
 
 /* 担当 */
 .me{background:var(--bg2)}
-.meC{margin-top:40px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:28px;align-items:center;padding:clamp(22px,3.4vw,40px);border-radius:28px;background:#ffffff;border:1px solid var(--line)}
+.meC{margin-top:clamp(28px,4vw,40px);display:grid;grid-template-columns:auto minmax(0,1fr);gap:28px;align-items:center;padding:clamp(22px,3.4vw,40px);border-radius:28px;background:#ffffff;border:1px solid var(--line)}
 @media (max-width:700px){.meC{grid-template-columns:minmax(0,1fr)}}
 .av{position:relative;width:clamp(110px,14vw,150px);aspect-ratio:1;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#13201c;color:#ffffff;font-size:clamp(44px,6vw,60px);font-weight:900}
 .av::after{content:"";position:absolute;inset:-7px;border-radius:50%;border:6px solid transparent;border-top-color:#EA4335;border-right-color:#FBBC04;border-bottom-color:#34A853;border-left-color:#4285F4}
@@ -316,7 +316,7 @@ a{color:#0c5e54}a:hover{color:#0f1d1b}
 .meC .ro{margin:4px 0 0;font-size:14px;font-weight:700;color:var(--sub)}
 .meC .tx{margin:14px 0 0;font-size:15px;font-weight:700;line-height:1.9}
 .meS{margin:18px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-@media (max-width:560px){.meS{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:560px){.meS{grid-template-columns:minmax(0,1fr);gap:0;border-radius:14px;overflow:hidden;background:var(--bg2)}.meS li{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:11px 14px;border-radius:0;background:transparent}.meS li + li{border-top:1px solid #dfe8e4}.meS .v{margin-top:0;font-size:19px}}
 .meS li{padding:12px 14px;border-radius:14px;background:var(--bg2)}
 .meS .k{display:block;font-size:12px;font-weight:700;color:var(--sub)}
 .meS .v{display:block;margin-top:2px;font-size:20px;line-height:1.2}
@@ -330,15 +330,16 @@ a{color:#0c5e54}a:hover{color:#0f1d1b}
 .lig{display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:3px;background:#ffffff;color:#0A66C2;font-size:11px;font-weight:900;line-height:1;font-family:Arial,sans-serif}
 
 /* FAQ */
-.fqL{margin-top:40px;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#ffffff}
+.fqL{margin-top:clamp(28px,4vw,40px);border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#ffffff}
 .fqI + .fqI{border-top:1px solid var(--line)}
 .fqB{display:flex;align-items:center;gap:14px;width:100%;min-height:68px;padding:16px 20px;border:0;background:#ffffff;color:var(--ink);font:inherit;font-size:clamp(15px,1.7vw,17px);font-weight:900;text-align:left;cursor:pointer}
 .fqB .qn{flex:none;font-size:14px;color:var(--ac-dk)}
 .fqB .sg{margin-left:auto;flex:none;font-size:22px;color:var(--sub)}
 .fqA{margin:0;padding:0 20px 20px 54px;font-size:15px;font-weight:500;line-height:1.9;color:#2d3d38}
+.cp .fqA{word-break:normal;word-break:auto-phrase;line-break:strict}
 
 /* 予約 */
-.bk{padding:clamp(100px,14vw,180px) 0;background:linear-gradient(180deg,#ffffff 0%,#eef6f2 100%)}
+.bk{padding:clamp(64px,9vw,128px) 0;background:linear-gradient(180deg,#ffffff 0%,#eef6f2 100%)}
 .pit{position:relative;max-width:760px;margin:0 auto;aspect-ratio:760/230}
 .pit .gar{position:absolute;right:0;bottom:12%;width:44%;height:88%;border-radius:22px 22px 0 0;background:#13201c}
 .pit .gar::before{content:"PIT";position:absolute;left:50%;top:7%;transform:translateX(-50%);padding:0 12px;border-radius:6px;background:var(--sun);color:#3a2b00;font-family:'Lato',sans-serif;font-size:clamp(11px,1.6vw,15px);font-weight:900;letter-spacing:.2em}
@@ -381,6 +382,27 @@ a{color:#0c5e54}a:hover{color:#0f1d1b}
 .sbar a{margin-left:auto;flex:none;display:inline-flex;align-items:center;gap:8px;min-height:50px;padding:0 20px;border-radius:999px;background:var(--ac);color:#ffffff !important;font-size:15px;font-weight:900;text-decoration:none}
 @media (min-width:981px){.sbar{left:auto;right:20px;bottom:20px;border:1px solid var(--line);border-radius:999px;padding:8px 8px 8px 20px;box-shadow:0 20px 40px -24px rgba(16,32,28,.5)}}
 @media (prefers-reduced-motion:reduce){.cp *{animation:none !important;transition:none !important}}
+
+/* 仕上げ：スマホの並び */
+@media (max-width:560px){
+.trust{grid-template-columns:minmax(0,1fr);gap:0;border:1px solid var(--line);border-radius:14px;background:#ffffff;overflow:hidden}
+.trust li{display:flex;align-items:baseline;gap:12px;padding:10px 14px;border:0;border-radius:0}
+.trust li + li{border-top:1px solid var(--line)}
+.trust .v{flex:none;min-width:5.4em}
+.trust .k{margin-top:0;font-size:13px}
+.trust .k br{display:none}
+.isG{display:flex;gap:12px;margin-left:-20px;margin-right:-20px;padding:6px 20px 8px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 20px;overscroll-behavior-x:contain;scrollbar-width:none}
+.isG::-webkit-scrollbar{display:none}
+.isG > .isc{flex:0 0 84%;scroll-snap-align:start;animation:none !important}
+.doG{gap:8px}
+.doG li{padding:12px 14px;gap:12px;font-size:14px}
+.doG li .n{width:30px;height:30px;font-size:13px}
+.ckChips button{min-height:38px;padding:0 12px}
+}
+.swh{display:none}
+@media (max-width:560px){.swh{display:flex;align-items:center;justify-content:center;gap:8px;margin:6px 0 0;font-size:12px;font-weight:700;color:var(--sub)}.swh svg{color:var(--ac);animation:nudge 1.6s ease-in-out infinite}}
+@keyframes nudge{50%{transform:translateX(4px)}}
+@supports (animation-timeline: view()){@media (max-width:560px){.isG{animation:rv linear both;animation-timeline:view();animation-range:entry 0% entry 34%}}}
 
 /* 360度の色 */
 .spin.c-mint{background-image:url(/_blob/f5a54ad074f1232d9f002193448991e4)}
@@ -495,6 +517,7 @@ a{color:#0c5e54}a:hover{color:#0f1d1b}
 <div class="isG">
 <sc-for list="{{issues}}" as="s" hint-placeholder-count="6"><article class="isc pop"><div class="ish"><span class="no mono">{{s.no}}</span><h3>{{s.area}}</h3><span class="stamp">要調整</span></div><dl><dt>見つかったこと</dt><dd>{{s.found}}</dd><dt>直し方</dt><dd class="fix">{{s.fix}}</dd></dl></article></sc-for>
 </div>
+<p class="swh" aria-hidden="true"><span>横にスワイプして、6つの事例を見る</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></p>
 <p class="note">※実際の運用で見かけた事例をもとに、内容を一般化しています。</p>
 </div>
 </section>
@@ -507,7 +530,7 @@ a{color:#0c5e54}a:hover{color:#0f1d1b}
 <div class="ckG">
 <div class="ckCar">
 <div class="ckStage">
-<img class="ckImg" src="/_blob/b64ee9482e18662419a28f8a25896bc7" alt="架空の車を横から見た図。広告の点検ポイントを8つの番号で示している" />
+<img class="ckImg" loading="lazy" decoding="async" src="/_blob/b64ee9482e18662419a28f8a25896bc7" alt="架空の車を横から見た図。広告の点検ポイントを8つの番号で示している" />
 <sc-for list="{{spots}}" as="s" hint-placeholder-count="8"><button type="button" class="spot {{s.cls}}" style="left: {{s.x}}%; top: {{s.y}}%" aria-pressed="{{s.on}}" aria-label="{{s.aria}}" onClick="{{s.pick}}"><span>{{s.no}}</span></button></sc-for>
 </div>
 <div class="ckChips">
@@ -535,7 +558,7 @@ a{color:#0c5e54}a:hover{color:#0f1d1b}
 <p class="rh3">任されている年間の広告費が、<br class="sp" />少しずつ増えてきました。</p>
 <div class="rroad">
 <div class="ry"><div class="bar b1"></div><span class="yv num">3,670<small>万円</small></span><span class="yk">2020年</span></div>
-<div class="rtrack"><span class="rarrow">5年で 約1.5倍</span><div class="rcar"><img src="/_blob/53c03a7ae0a004fe110ba1a4d6c33f60" alt="" /></div></div>
+<div class="rtrack"><span class="rarrow">5年で 約1.5倍</span><div class="rcar"><img loading="lazy" decoding="async" src="/_blob/53c03a7ae0a004fe110ba1a4d6c33f60" alt="" /></div></div>
 <div class="ry"><div class="bar b2"></div><span class="yv num">5,600<small>万円</small></span><span class="yk">2025年</span></div>
 </div>
 <div class="kp">
@@ -559,18 +582,18 @@ a{color:#0c5e54}a:hover{color:#0f1d1b}
 <p class="sub rv">新型の登場、機能、月々のお支払い、週末のフェア。<br class="pc" />ディーラーでよく使う形を、目的ごとに作り分けます。</p>
 <div class="vG">
 <div>
-<div class="ph"><video class="pv" src="/_blob/8d6acf9551a30508d2ac2efd3dd7e309" poster="/_blob/925bc1db94b9d2fccf5919c8a87ec009" muted="" loop="" playsinline="" autoplay="" preload="metadata" aria-label="架空の車HINATAの縦型動画。カラー、荷室、小回り、安全、お店、試乗の順に紹介する"></video></div>
+<div class="ph"><video class="pv" src="/_blob/8d6acf9551a30508d2ac2efd3dd7e309" poster="/_blob/925bc1db94b9d2fccf5919c8a87ec009" muted="" loop="" playsinline="" preload="none" aria-label="架空の車HINATAの縦型動画。カラー、荷室、小回り、安全、お店、試乗の順に紹介する"></video></div>
 <div class="vcap"><p class="t"><i>A</i>機能と家族</p><p class="f">カラー → 荷室 → 小回り → 安全 → お店 → 試乗</p></div>
 </div>
 <div>
-<div class="ph"><video class="pv" src="/_blob/fbb0b57826b3c33069ebc14f2f337c31" poster="/_blob/b612c8af5f340fa6f40f780903073ae7" muted="" loop="" playsinline="" autoplay="" preload="metadata" aria-label="架空の車HINATAの縦型動画。登場、新しいところ、月々のお支払い例、試乗の順に紹介する"></video></div>
+<div class="ph"><video class="pv" src="/_blob/fbb0b57826b3c33069ebc14f2f337c31" poster="/_blob/b612c8af5f340fa6f40f780903073ae7" muted="" loop="" playsinline="" preload="none" aria-label="架空の車HINATAの縦型動画。登場、新しいところ、月々のお支払い例、試乗の順に紹介する"></video></div>
 <div class="vcap"><p class="t"><i>B</i>新型と月々</p><p class="f">登場 → ここが新しい → 月々のお支払い例 → 試乗</p></div>
 </div>
 </div>
 <div class="rules">
 <div class="spinBox">
 <p class="st">ボディカラーも、ぐるっと。</p>
-<div class="spin c-{{spinC}}" role="img" aria-label="架空の車HINATAを回して見られる360度ビュー。ドラッグで回せます" onPointerDown="{{spinDown}}"></div>
+<div class="spin {{spinCls}}" role="img" aria-label="架空の車HINATAを回して見られる360度ビュー。ドラッグで回せます" onPointerDown="{{spinDown}}"></div>
 <div class="spinRow">
 <sc-for list="{{spinSw}}" as="s" hint-placeholder-count="4"><button type="button" class="sw {{s.cls}}" style="--c: {{s.color}}" aria-pressed="{{s.on}}" aria-label="{{s.name}}" onClick="{{s.pick}}"></button></sc-for>
 <span class="lbl">{{spinName}}</span>
@@ -674,7 +697,7 @@ a{color:#0c5e54}a:hover{color:#0f1d1b}
 
 <section id="c-book" class="bk">
 <div class="wrap">
-<div class="pit pop" aria-hidden="true"><div class="gar"><div class="door"></div></div><div class="grd"></div><div class="pcar"><img src="/_blob/b64ee9482e18662419a28f8a25896bc7" alt="" /></div></div>
+<div class="pit pop" aria-hidden="true"><div class="gar"><div class="door"></div></div><div class="grd"></div><div class="pcar"><img loading="lazy" decoding="async" src="/_blob/b64ee9482e18662419a28f8a25896bc7" alt="" /></div></div>
 <div class="bkC">
 <h2>まずは、<br class="sp" /><em>広告の無料点検</em>から。</h2>
 <p class="bl">広告アカウントの閲覧権限だけで、<br class="sp" />すぐに点検できます。<br />無理な営業はしません。</p>
@@ -686,7 +709,7 @@ a{color:#0c5e54}a:hover{color:#0f1d1b}
 <a class="cta" href="/inquiry/?type=shindan&amp;from=car">無料点検を予約する<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
 <p class="bkS"><span>相談・点検は無料</span><span>オンライン・60分</span><span>代理店はそのまま</span></p>
 </div>
-<img class="chr" src="/_blob/c71210e3284ab9f98d9758186bdf3485" alt="親指を立てるスプレッドシート担当のキャラクター" />
+<img class="chr" loading="lazy" decoding="async" width="352" height="640" src="/_blob/c71210e3284ab9f98d9758186bdf3485" alt="親指を立てるスプレッドシート担当のキャラクター" />
 </div>
 </section>
 
@@ -705,11 +728,11 @@ a{color:#0c5e54}a:hover{color:#0f1d1b}
 
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#138275","options":["#138275","#1a73e8","#0f1d1b","#c2410c"],"section":"カラー"},"$preview":{"width":1440,"height":12300}}'>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#138275","options":["#138275","#1a73e8","#0f1d1b","#c2410c"],"section":"カラー"},"$preview":{"width":1440,"height":11400}}'>
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { fv: 'mint', aru: [false, false, false, false, false, false, false], spot: 0, faq: 0, spinC: 'mint' };
+    this.state = { fv: 'mint', aru: [false, false, false, false, false, false, false], spot: 0, faq: 0, spinC: 'mint', spinOn: false };
     this._frame = 0;
     this._tries = 0;
   }
@@ -725,6 +748,7 @@ class Component extends DCLogic {
     if (this._bootT) clearTimeout(this._bootT);
     if (this._io) this._io.disconnect();
     if (this._io2) this._io2.disconnect();
+    if (this._io3) this._io3.disconnect();
   }
 
   boot() {
@@ -752,6 +776,8 @@ class Component extends DCLogic {
         });
       }, { threshold: 0.2 });
       Array.prototype.forEach.call(vids, (v) => this._io.observe(v));
+    } else if (!reduce) {
+      Array.prototype.forEach.call(vids, (v) => { const p = v.play(); if (p && p.catch) p.catch(() => {}); });
     }
     if (sp) {
       this.setFrame(0);
@@ -759,7 +785,11 @@ class Component extends DCLogic {
       if ('IntersectionObserver' in window) {
         this._io2 = new IntersectionObserver((es) => { es.forEach((e) => { this._spinVis = e.isIntersecting; }); }, { threshold: 0.1 });
         this._io2.observe(sp);
-      } else this._spinVis = true;
+        this._io3 = new IntersectionObserver((es) => {
+          if (es.some((e) => e.isIntersecting)) { this.setState({ spinOn: true }); this._io3.disconnect(); }
+        }, { rootMargin: '700px 0px' });
+        this._io3.observe(sp);
+      } else { this._spinVis = true; this.setState({ spinOn: true }); }
       if (!reduce) {
         this._spinT = setInterval(() => {
           if (!this._alive || this._drag || !this._spinVis || this._hold) return;
@@ -805,7 +835,7 @@ class Component extends DCLogic {
     const lamp = {};
     s.aru.forEach((v, i) => { lamp['l' + i] = v ? 'on' : ''; });
     const countMsg = count === 0 ? '点検ランプは、ついていません。' : (count <= 2 ? '点検ランプが、ついています。' : '点検をおすすめします。');
-    const countSub = count === 0 ? '左の項目を、タップしてみてください。' : (count <= 2 ? '小さなズレも、積み重なると大きな差に。' : '代理店はそのままで、まずは無料で点検を。');
+    const countSub = count === 0 ? '当てはまる項目を、タップしてみてください。' : (count <= 2 ? '小さなズレも、積み重なると大きな差に。' : '代理店はそのままで、まずは無料で点検を。');
     const needle = -90 + (count / 7) * 180;
     const arc = Math.round((count / 7) * 100);
 
@@ -849,7 +879,7 @@ class Component extends DCLogic {
     const dos = dosText.map((t, i) => ({ no: String(i + 1).padStart(2, '0'), text: t }));
 
     const fbase = [
-      { q: 'メーカーや会社のルールがあっても、大丈夫ですか？', a: 'はい。車の写真の扱いなど、決まっているルールに沿って点検と改善案を出します。' },
+      { q: 'メーカーや会社の\u200bルールがあっても、大丈夫ですか？', a: 'はい。車の写真の扱いなど、決まっているルールに沿って点検と改善案を出します。' },
       { q: '代理店に知られずに、相談できますか？', a: '無料診断と監査は、広告アカウントの閲覧権限をいただければ行えます。顧問として定例に同席する場合は、代理店へのご紹介をお願いしています。' },
       { q: '店舗がいくつもあります。', a: '店舗ごとの配信エリアや、予算の分け方も点検の対象です。' },
       { q: '中古車の広告も、見てもらえますか？', a: 'はい。新車と中古車を分けて点検します。' },
@@ -870,7 +900,7 @@ class Component extends DCLogic {
       prevSpot: () => this.setState({ spot: (this.state.spot + 7) % 8 }),
       nextSpot: () => this.setState({ spot: (this.state.spot + 1) % 8 }),
       dos: dos,
-      spinC: s.spinC, spinSw: spinSw, spinName: spinName,
+      spinC: s.spinC, spinCls: s.spinOn ? 'c-' + s.spinC : '', spinSw: spinSw, spinName: spinName,
       spinDown: (e) => {
         const el = e && e.target && e.target.closest ? e.target.closest('.spin') : null;
         if (!el) return;
