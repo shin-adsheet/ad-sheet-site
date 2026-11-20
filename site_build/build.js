@@ -158,6 +158,11 @@ const MAIN = [
       s = must(s,
         '<a href="#s-top" style="color: #e6eeec">特定商取引法に基づく表記</a><a href="#s-top" style="color: #e6eeec">プライバシーポリシー</a><a href="#s-booking" style="color: #e6eeec">お問い合わせ</a>',
         '<a href="/tokusho/" style="color: #e6eeec">特定商取引法に基づく表記</a><a href="/privacy/" style="color: #e6eeec">プライバシーポリシー</a><a href="/inquiry/?type=shindan" style="color: #e6eeec">お問い合わせ</a><a href="/tool/" style="color: #e6eeec">広告レポート自動化ツール「アドシート」</a>');
+      // 顧問の解約条件は未確定のため、仮置きの文字を出さない
+      s = s.replace(/\u200b?\[更新・解約の条件\]/, () => '');
+      if (s.includes('更新・解約の条件]')) throw new Error('仮置きの文字が残っています');
+      // アドシートの対応媒体を最新に（/tool/ と合わせる）
+      s = must(s, '公開版の対象は、<wbr />Google広告です。', 'Google・LINEヤフー・Meta・<wbr />Microsoft・TikTokの広告に対応しています。');
       if (s.includes('#s-dl')) throw new Error('#s-dl への参照が残っています');
       return s;
     }
