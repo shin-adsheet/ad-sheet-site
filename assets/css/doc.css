@@ -36,7 +36,7 @@ a:hover{color:#235f41}
 .doc{max-width:800px;margin:0 auto;padding:44px 20px 104px}
 .doc > :first-child{margin-top:0}
 .doc h2{margin:44px 0 14px;font-size:21px;line-height:1.6;font-weight:900;color:var(--ink2)}
-.doc h3{margin:60px 0 18px;padding-left:14px;border-left:5px solid var(--g);font-size:20px;line-height:1.6;font-weight:900;color:var(--ink2)}
+.doc h3{margin:60px 0 18px;scroll-margin-top:84px;padding-left:14px;border-left:5px solid var(--g);font-size:20px;line-height:1.6;font-weight:900;color:var(--ink2)}
 .doc h4{margin:34px 0 10px;font-size:17px;line-height:1.7;font-weight:900;color:var(--ink2)}
 .doc h4.q{position:relative;margin-top:30px;padding:24px 0 0 44px;border-top:1px solid var(--bd)}
 .doc h4.q::before{content:"Q";position:absolute;left:0;top:22px;width:30px;height:30px;border-radius:9px;background:var(--gl);color:var(--gd);font-size:15px;line-height:30px;text-align:center;font-weight:900}
@@ -55,6 +55,38 @@ a:hover{color:#235f41}
 .btn.ghost{background:#fff;border:2px solid var(--bd);color:var(--ink2) !important}
 .btn.ghost:hover{border-color:var(--g);background:var(--gl)}
 .small{font-size:13px;color:var(--mut)}
+
+/* このページの内容 */
+.toc{margin:6px 0 36px;padding:18px 20px 16px;border:1px solid var(--bd);border-radius:16px;background:var(--bg)}
+.toc .tch,.toc summary{margin:0;font-size:14px;font-weight:900;color:var(--ink2)}
+.toc ol{margin:10px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.toc li{margin:0}
+.toc a{display:inline-flex;align-items:center;min-height:38px;padding:0 14px;border:1px solid var(--bd);border-radius:999px;background:#fff;color:var(--ink2);font-size:14px;font-weight:700;line-height:1.4;text-decoration:none}
+.toc a:hover{border-color:var(--g);background:var(--gl);color:var(--gd)}
+.toc.many summary{display:flex;align-items:center;gap:10px;cursor:pointer;list-style:none}
+.toc.many summary::-webkit-details-marker{display:none}
+.toc.many summary span{font-size:12px;font-weight:700;color:var(--mut)}
+.toc.many summary::after{content:"";margin-left:auto;width:9px;height:9px;border-right:2px solid var(--gd);border-bottom:2px solid var(--gd);transform:rotate(45deg) translateY(-3px);transition:transform .2s ease}
+.toc.many[open] summary::after{transform:rotate(-135deg) translateY(-1px)}
+.toc.many ol{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px 20px;counter-reset:t}
+.toc.many li{counter-increment:t}
+.toc.many a{display:flex;gap:10px;min-height:0;padding:7px 0;border:0;border-radius:0;background:none;font-size:14px}
+.toc.many a::before{content:counter(t,decimal-leading-zero);flex:none;font-size:12px;font-weight:900;color:var(--gd);line-height:1.7}
+.toc.many a:hover{background:none;text-decoration:underline}
+@media (max-width:640px){.toc.many ol{grid-template-columns:minmax(0,1fr)}}
+
+/* スマホでの行間・余白 */
+@media (max-width:760px){
+  body{font-size:15.5px;line-height:1.85}
+  .doc{padding:32px 20px 80px}
+  .doc h2{margin:36px 0 12px;font-size:19px}
+  .doc h3{margin:44px 0 14px;font-size:19px;scroll-margin-top:100px}
+  .doc h4{margin:26px 0 8px;font-size:16px}
+  .doc h4.q{margin-top:22px;padding-top:20px}
+  .doc h4.q::before{top:18px}
+  .doc hr{margin:28px 0}
+  .doc img{margin:16px 0 18px}
+}
 
 /* 特定商取引法の表 */
 .tk{margin:0;border-top:1px solid var(--bd)}

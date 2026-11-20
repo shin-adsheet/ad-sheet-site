@@ -21,6 +21,7 @@
 <link rel="icon" href="/assets/img/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <meta name="theme-color" content="#ffffff">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"アドシート","url":"https://www.ad-sheet.com/tool/","applicationCategory":"BusinessApplication","operatingSystem":"Google スプレッドシート","inLanguage":"ja","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"author":{"@type":"Person","name":"松崎 慎","url":"https://www.ad-sheet.com/"}}</script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=JetBrains+Mono:wght@500;700&display=swap" />
 <style>
 body{margin:0}
@@ -347,7 +348,8 @@ html{scroll-behavior:smooth}
 .pts span{color:#5b6f64}
 .s3w{position:relative;width:min(560px,92vw);margin:0 auto;animation:ent 1.2s cubic-bezier(.2,1.5,.3,1) .2s backwards}
 @keyframes ent{from{opacity:0;transform:scale(.25) rotate(-30deg) translateY(120px)}}
-.s3d{width:100%;aspect-ratio:1;background-image:url(/assets/img/adsheet/hero3d.webp);background-size:1200% 800%;background-position:0 0;animation:sx .5s steps(12,jump-none) infinite,sy 4s steps(8,jump-none) infinite}
+.s3d{width:100%;aspect-ratio:1;background-size:1200% 800%;background-position:0 0;animation:sx .5s steps(12,jump-none) infinite,sy 4s steps(8,jump-none) infinite}
+.s3w.on .s3d{background-image:url(/assets/img/adsheet/hero3d.webp)}
 @keyframes sx{from{background-position-x:0%}to{background-position-x:100%}}
 @keyframes sy{from{background-position-y:0%}to{background-position-y:100%}}
 .cf{position:absolute;width:18px;height:18px;border-radius:5px;animation:cfl 5s ease-in-out infinite}
@@ -839,7 +841,7 @@ p.only-sp{display:block !important}
 <p class="eb">WHY ADSHEET</p>
 <h2 class="h2 ka">選ばれる理由は、<wbr>3つ。</h2>
 </div>
-<div class="s3w" role="img" aria-label="スプレッドシートの上に数字の棒が立ち上がり、広告媒体のブロックから数字が流れ込む3Dアニメーション"><i class="cf c1"></i><i class="cf c2"></i><i class="cf c3"></i><i class="cf c4"></i><div class="s3d"></div></div>
+<div class="s3w " role="img" aria-label="スプレッドシートの上に数字の棒が立ち上がり、広告媒体のブロックから数字が流れ込む3Dアニメーション"><i class="cf c1"></i><i class="cf c2"></i><i class="cf c3"></i><i class="cf c4"></i><div class="s3d"></div></div>
 </div>
 <div class="rn">
 <div class="rnh"><p class="rno mono">01</p><h3 class="ka">直感操作。<wbr>選んで、<wbr>押すだけ。</h3><p class="rtx">Marketplaceから追加して、スプレッドシートの「拡張機能」から呼び出すだけ。媒体と項目を選んで「書き出す」を押せば完了です。</p></div>
@@ -990,7 +992,7 @@ p.only-sp{display:block !important}
 <div class="clc">
 <div class="cin">
 <div class="crow"><p>広告アカウントの数</p><div class="stpr"><button type="button" aria-label="アカウント数を減らす">−</button><output class="mono">3<small>件</small></output><button type="button" aria-label="アカウント数を増やす">＋</button></div></div>
-<div class="crow"><p>1アカウントあたりの作業<small>（1週間）</small></p><div class="stpr"><button type="button" aria-label="作業時間を減らす">−</button><output class="mono">30<small>分</small></output><button type="button" aria-label="作業時間を増やす">＋</button></div></div>
+<div class="crow"><p class="ka">1アカウントの<wbr>作業時間<small>（1週間）</small></p><div class="stpr"><button type="button" aria-label="作業時間を減らす">−</button><output class="mono">30<small>分</small></output><button type="button" aria-label="作業時間を増やす">＋</button></div></div>
 <div class="crow"><p>時給の目安</p><div class="stpr"><button type="button" aria-label="時給を下げる">−</button><output class="mono">2,000<small>円</small></output><button type="button" aria-label="時給を上げる">＋</button></div></div>
 </div>
 <div class="cout">
@@ -1120,7 +1122,7 @@ p.only-sp{display:block !important}
 <p class="pcn only-sp" style="color: #e3f1ea">アドシートはPCのGoogleスプレッドシートで使います。<b></b></p>
 <p class="fin2"><a href="/inquiry/">導入の前に相談したい方は、お問い合わせへ</a></p>
 </div>
-<img src="/assets/img/chars/thumbs.webp" alt="親指を立てるアドシートのキャラクター" style="display: block; width: clamp(150px, 20vw, 210px); height: auto">
+<img loading="lazy" decoding="async" width="352" height="640" src="/assets/img/chars/thumbs.webp" alt="親指を立てるアドシートのキャラクター" style="display: block; width: clamp(150px, 20vw, 210px); height: auto">
 </div>
 </section>
 
@@ -1134,6 +1136,6 @@ p.only-sp{display:block !important}
 
 </div></div>
 <script src="/assets/js/dc-lite.js?v=a6bd79c7aa" defer></script>
-<script src="/assets/js/tool.js?v=2ed8d83951" defer></script>
+<script src="/assets/js/tool.js?v=9e391f6d84" defer></script>
 </body>
 </html>
