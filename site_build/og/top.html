@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<style>
+@font-face{font-family:J;font-weight:500;src:local('Noto Sans CJK JP Medium')}
+@font-face{font-family:J;font-weight:700;src:local('Noto Sans CJK JP Bold')}
+@font-face{font-family:J;font-weight:900;src:local('Noto Sans CJK JP Black')}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1200px;height:630px;overflow:hidden}
+body{font-family:J,sans-serif;color:#0f1d1b;background:#fff;position:relative;
+  background-image:linear-gradient(#eef3f1 1px,transparent 1px),linear-gradient(90deg,#eef3f1 1px,transparent 1px);background-size:120px 36px}
+.brand{position:absolute;left:64px;top:52px;display:flex;align-items:center;gap:14px}
+.brand img{width:46px;height:46px}
+.brand b{font-size:25px;font-weight:900;letter-spacing:.01em}
+.brand small{display:block;font-size:13px;font-weight:700;color:#4b5b58;letter-spacing:.06em;margin-top:2px}
+.chip{position:absolute;left:64px;top:140px;display:inline-flex;align-items:center;gap:10px;padding:9px 18px;border:1.5px solid #cfd9d6;border-radius:999px;background:#fff;font-size:19px;font-weight:700}
+.chip i{display:flex;gap:4px}.chip i span{width:9px;height:9px;border-radius:50%}
+h1{position:absolute;left:58px;top:200px;font-size:84px;line-height:1.24;font-weight:900;letter-spacing:-.02em}
+h1 .box{position:relative;display:inline-block;padding:0 8px;margin-right:4px;border:4px solid #138275;background:#e7f3f1;color:#0c5e54;line-height:1.1}
+h1 .box::after{content:"";position:absolute;right:-9px;bottom:-9px;width:14px;height:14px;background:#138275;border:3px solid #fff}
+.sub{position:absolute;left:64px;top:430px;font-size:29px;font-weight:900;line-height:1.5}
+.sub span{background:linear-gradient(transparent 62%,#bfe3dc 62%)}
+.bar{position:absolute;left:0;right:0;bottom:0;height:78px;background:#138275;display:flex;align-items:center;gap:14px;padding:0 64px}
+.bar span{display:inline-flex;align-items:center;height:42px;padding:0 20px;border-radius:999px;background:rgba(255,255,255,.14);color:#fff;font-size:20px;font-weight:900;letter-spacing:.02em}
+.bar em{margin-left:auto;font-style:normal;color:#d9f0eb;font-size:18px;font-weight:700}
+.char{position:absolute;right:70px;bottom:62px;height:470px}
+.bub{position:absolute;right:300px;top:96px;padding:16px 22px;border:3px solid #0f1d1b;border-radius:18px;background:#fff;font-size:22px;font-weight:900;line-height:1.5;box-shadow:6px 6px 0 #0f1d1b}
+.bub::after{content:"";position:absolute;right:-17px;top:30px;width:22px;height:22px;background:#fff;border-right:3px solid #0f1d1b;border-top:3px solid #0f1d1b;transform:rotate(45deg)}
+</style></head>
+<body>
+<div class="brand"><img src="../dist/assets/img/adsheet/logo_mark.png" alt=""><div><b>しんのWeb広告セカンドオピニオン</b><small>Web広告アドバイザー｜アドシート</small></div></div>
+<div class="chip"><i><span style="background:#ea4335"></span><span style="background:#fbbc04"></span><span style="background:#34a853"></span><span style="background:#4285f4"></span></i>大手代理店に、広告を任せている会社へ</div>
+<h1>“好調です”は、<br><span class="box">本当</span>ですか？</h1>
+<p class="sub"><span>代理店のレポートを、第三者がチェックします。</span></p>
+<div class="bub">“好調”の中身、<br>見てみます。</div>
+<img class="char" src="../dist/assets/img/chars/magnify.webp" alt="">
+<div class="bar"><span>相談・診断は無料</span><span>オンライン60分</span><span>閲覧権限だけで診断</span><em>ad-sheet.com</em></div>
+</body></html>

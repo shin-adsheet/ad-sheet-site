@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<style>
+@font-face{font-family:J;font-weight:500;src:local('Noto Sans CJK JP Medium')}
+@font-face{font-family:J;font-weight:700;src:local('Noto Sans CJK JP Bold')}
+@font-face{font-family:J;font-weight:900;src:local('Noto Sans CJK JP Black')}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1200px;height:630px;overflow:hidden}
+body{font-family:J,sans-serif;color:#2b4a3c;background:#fff;position:relative}
+.bg{position:absolute;right:-60px;top:-80px;width:640px;height:790px;border-radius:48px;background:#f1f6f3;transform:rotate(-6deg)}
+.logo{position:absolute;left:64px;top:50px;height:52px}
+.tag{position:absolute;left:64px;top:126px;display:inline-flex;align-items:center;gap:10px;padding:8px 18px;border:1.5px solid #d5e2da;border-radius:999px;background:#fff;font-size:19px;font-weight:700;color:#3f7260}
+.tag i{width:10px;height:10px;border-radius:50%;background:#68d578}
+h1{position:absolute;left:60px;top:176px;font-size:58px;line-height:1.3;font-weight:900;letter-spacing:.01em;color:#264536}
+h1 em{font-style:normal;display:inline-block;padding:0 12px;background:#68d578;color:#123222}
+.media{position:absolute;left:64px;top:462px;display:flex;gap:10px}
+.media span{display:flex;flex-direction:column;align-items:center;justify-content:center;width:106px;height:72px;border:1.5px solid #d5e2da;border-radius:12px;background:#fff;font-size:17px;font-weight:900;color:#264536;line-height:1.3}
+.media span small{font-size:12px;font-weight:700;color:#5b6f64}
+.lbl{position:absolute;left:64px;top:430px;font-size:16px;font-weight:900;color:#2f7d55}
+.foot{position:absolute;left:64px;bottom:34px;font-size:17px;font-weight:700;color:#5b6f64}
+.sheet{position:absolute;right:48px;top:84px;width:480px;border:10px solid #2c4a3b;border-radius:18px;background:#fff;box-shadow:0 24px 50px rgba(30,60,45,.18);overflow:hidden}
+.sheet .tb{display:flex;align-items:center;gap:10px;height:46px;padding:0 16px;border-bottom:1px solid #e1e9e4;font-size:16px;font-weight:900;color:#264536}
+.sheet .tb b{width:18px;height:22px;border-radius:3px;background:#22a565}
+.sheet table{width:100%;border-collapse:collapse;font-size:16px}
+.sheet th,.sheet td{height:40px;padding:0 12px;border-bottom:1px solid #edf2ef;text-align:right;font-weight:700}
+.sheet th{background:#f5f8f6;color:#3f7260;font-size:14px}
+.sheet td:first-child,.sheet th:first-child{text-align:left}
+.sheet tr.new td{background:#ecfaef;color:#1f6b45}
+.sheet .auto{position:absolute;right:14px;top:9px;display:flex;align-items:center;gap:8px;height:28px;padding:0 12px;border-radius:999px;background:#68d578;color:#123222;font-size:14px;font-weight:900}
+.char{position:absolute;right:46px;bottom:-6px;height:236px}
+</style></head>
+<body>
+<div class="bg"></div>
+<img class="logo" src="../dist/assets/img/adsheet/logo_full.png" alt="">
+<div class="tag"><i></i>Googleスプレッドシート用のアドオン</div>
+<h1>広告レポートを、<br>スプレッドシートに<br><em>自動で。</em></h1>
+<p class="lbl">書き出せる広告媒体</p>
+<div class="media"><span>Google<small>広告</small></span><span>LINEヤフー<small>広告</small></span><span>Meta<small>広告</small></span><span>Microsoft<small>広告</small></span><span>TikTok<small>広告</small></span></div>
+<div class="sheet"><div class="tb"><b></b>広告レポート</div><div class="auto">毎日 自動で更新</div>
+<table><tr><th>日付</th><th>表示回数</th><th>クリック</th><th>費用</th><th>CV</th></tr>
+<tr><td>11/15</td><td>4,812</td><td>212</td><td>¥31,040</td><td>6</td></tr>
+<tr><td>11/16</td><td>5,104</td><td>238</td><td>¥33,620</td><td>8</td></tr>
+<tr><td>11/17</td><td>4,960</td><td>221</td><td>¥32,180</td><td>7</td></tr>
+<tr><td>11/18</td><td>5,388</td><td>254</td><td>¥35,910</td><td>9</td></tr>
+<tr class="new"><td>11/19</td><td>5,471</td><td>263</td><td>¥36,400</td><td>11</td></tr>
+</table></div>
+<img class="char" src="../dist/assets/img/chars/auto.webp" alt="">
+<p class="foot">無料プランあり ・ ぜんぶ日本語 ・ ad-sheet.com/tool</p>
+</body></html>
